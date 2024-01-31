@@ -34,8 +34,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/recuperar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWN1cGVyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/solicitarRecuperacionPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzb2xpY2l0YXJSZWN1cGVyYWNpb25QYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Shared/Error.cshtml]
