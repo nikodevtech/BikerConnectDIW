@@ -1,7 +1,11 @@
+using Poyecto_Gestor_Biblioteca_Web_Los_Rapidos.Servicios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IServicioEncriptar, ServicioEncriptarImpl>();
 
 var app = builder.Build();
 
