@@ -5,12 +5,40 @@
       "PackagePath": "staticwebassets\\BikerConnectDIW.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\assets\\fondo.jpg",
+      "PackagePath": "staticwebassets\\assets\\fondo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\assets\\logo.webp",
+      "PackagePath": "staticwebassets\\assets\\logo.webp"
+    },
+    {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\assets\\moto2.jpg",
+      "PackagePath": "staticwebassets\\assets\\moto2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\assets\\moto3.jpg",
+      "PackagePath": "staticwebassets\\assets\\moto3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\assets\\quedada1.jpg",
+      "PackagePath": "staticwebassets\\assets\\quedada1.jpg"
+    },
+    {
       "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
       "Id": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\wwwroot\\js\\site.js",

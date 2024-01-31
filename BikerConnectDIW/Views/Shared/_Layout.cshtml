@@ -4,29 +4,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BikerConnectDIW</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BikerConnectDIW.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="~/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BikerConnectDIW</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-gradient text-white w-100">
+            <div class="container-fluid ms-5">
+                <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index">
+                    <img src="~/assets/logo.webp" class="logo" alt="logo bikerconnect" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <ul class="navbar-nav me-5 ms-auto">
+                    @if (Context.Request.Path == "/Home/Index")
+                    {
+                        <li class="nav-item me-3">
+                            <a class="nav-link fw-bold text-white" asp-controller="Login" asp-action="Login">
+                                <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item me-3">
+                            <a class="nav-link fw-bold text-white" asp-controller="Auth" asp-action="Register">
+                                <i class="bi bi-person-add"> Crear cuenta</i>
+                            </a>
                         </li>
-                    </ul>
-                </div>
+                    }
+                </ul>
             </div>
         </nav>
     </header>
@@ -36,14 +49,21 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - BikerConnectDIW - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div class="vg-footer bg-dark bg-gradient">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand text-white" href="#" style="pointer-events: none;"><img src="~/assets/logo.webp" class="logo" alt="logo bikerconnect" style="width: 130px;"></a>
+                <p class="text-center mb-0 mt-1 footer-p">Copyright © 2024 - BikerConnect Todos los Derechos Reservados</p>
+                <ul class="nav list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-white" href="#"><i class="bi bi-twitter-x fs-4"></i></a></li>
+                    <li class="ms-3"><a class="text-white" href="#"><i class="bi bi-facebook fs-4"></i></a></li>
+                    <li class="ms-3"><a class="text-white" href="#"><i class="bi bi-instagram fs-4"></i></a></li>
+                </ul>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

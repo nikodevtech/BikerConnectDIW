@@ -1,8 +1,35 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-4">
+    <div class="jumbotron text-center cardPrincipal">
+        <h2 class="display-4 text-light tituloPrincipal">¡Bienvenido a <span class="subtituloPrincipal">Biker<span class="subtituloPrincipal2">Connect</span></span>!</h2>
+        <p class="lead text-light">Conecta con otros fans de las motos. Encuentra eventos, comparte experiencias y conecta con otros apasionados de este gran hobby.</p>
+        <hr class="border border-primary border-2 opacity-55 w-50 mx-auto mt-2">
+        <a class="btn buttonPrincipal btn-lg mt-3 mb-2 me-3" asp-controller="Login" asp-action="Login" role="button"><i class="bi bi-box-arrow-in-right fs-4"> iniciar sesión</i></a>
+        <a class="btn buttonPrincipal btn-lg mt-3 mb-2" asp-controller="Login" asp-action="Login" role="button"><i class="bi bi-person-add fs-4"> crear cuenta</i></a>
+    </div>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade mt-2 mb-2 w-50 mx-auto" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img src="./assets/quedada1.jpg" class="d-block w-100" alt="quedada motera">
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="./assets/moto2.jpg" class="d-block w-100" alt="moto honda">
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="./assets/moto3.jpg" class="d-block w-100" alt="moto suzuki">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 </div>
+

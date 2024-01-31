@@ -1,0 +1,188 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: linear-gradient(rgba(40, 40, 40, 0.82),
+			rgba(40, 40, 40, 0.82)),
+		url(../assets/fondo.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+h1 {
+	margin-bottom: 30px;
+	color: #1f3c85;
+}
+
+.custom-form {
+	min-width: 300px;
+	max-width: 50%;
+	margin: 0px auto;
+	background: rgba(255, 255, 255, 0.15);
+	padding: 2rem 3rem;
+	margin: auto;
+	border-radius: 2.5rem;
+	background-color: #ecf0f3;
+	box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+	color: black;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+
+.custom-form input {
+	display: block;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	border: none;
+	box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8),
+		inset 5px 5px 10px rgba(0, 0, 0, 0.25);
+	border: 0 none;
+	background: #ebf5fc;
+}
+
+.custom-form button {
+	letter-spacing: 0.15em;
+	border: none;
+	font-size: 0.875rem;
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #5993d3;
+	width: 60%;
+	margin: auto;
+	display: block;
+	padding: 0.875rem 1rem;
+	border-radius: 1.5rem;
+	box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+	cursor: pointer;
+}
+
+.logo {
+	max-width: 230px;
+	height: auto;
+	margin-left: 20px;
+}
+
+.tituloPrincipal {
+	font-family: 'Kalam', cursive;
+	font-size: 3rem;
+	color: #ffffff;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtituloPrincipal {
+  font-family: 'Kalam', cursive;
+  font-size: 4.5rem; 
+  color: #1f3c85; 
+  text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.8); 
+}
+.subtituloPrincipal2 {
+  font-family: 'Kalam', cursive;
+  font-size: 4.5rem; 
+  color: #5993d3; 
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); 
+}
+
+.subtituloSecundario2 {
+	font-family: 'Kalam', cursive;
+	font-size: 1.5rem;
+	color: #5993d3;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	margin-top: 10px;
+}
+
+.subtituloSecundario {
+	font-family: 'Kalam', cursive;
+	font-size: 1.5rem;
+	color: #1f3c85;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	margin-top: 10px;
+}
+
+.subtituloSecundario3 {
+	font-family: 'Kalam', cursive;
+	font-size: 3.5rem;
+	color: #5993d3;
+	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.tableCustom{
+ background-color: #1f3c85 !important;
+ color: white !important;	
+}
+
+.listaLogin {
+	list-style-type: disc;
+	color: #1f3c85;
+}
+
+.listaLogin a {
+	color: #1f3c85;
+	text-decoration: none;
+}
+
+.textoPrincipal {
+	color: #1f3c85 ;
+}
+
+.buttonPrincipal {
+	background-color: #5993d3;
+	color: white;
+}
+
+.buttonPrincipal:hover {
+	background-color: #1f3c85;
+	color: white;
+}
+
+.buttonPrincipal:active {
+	background-color: #1f3c85 !important;
+	color: white !important;
+}
+
+.dashboardCard {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); 
+}
+
+.custom-checkbox {
+	border: 3px solid #1f3c85;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 5px;
+	margin-top: 5px;
+    transform: scale(2); /* Ajusta el valor según el tamaño deseado */
+}
+.cardMoto{
+	border: 1.5px solid #1f3c85;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	background-color: #E8E8E8;
+	color: #1f3c85;
+}
+nav {
+	position: fixed !important;	
+	z-index: 1000; 
+}
+.cardPrincipal{
+ 	margin-top: 80px;
+}
+.cardAdminUser{
+	margin-bottom: 120px;
+}
+.vg-footer {
+  display: block;
+  margin: 0;
+  padding: 25px 0;
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-p {
+	font-family: 'Kalam', cursive;
+}
