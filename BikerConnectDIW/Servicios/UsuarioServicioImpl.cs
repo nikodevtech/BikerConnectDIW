@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace BikerConnectDIW.Servicios
 {
-    public class UsuarioServicioImpl : IUsuarioServicio 
+    public class UsuarioServicioImpl : IUsuarioServicio
     {
         private readonly BikerconnectContext _contexto;
         private readonly IServicioEncriptar _servicioEncriptar;
@@ -13,7 +13,7 @@ namespace BikerConnectDIW.Servicios
         private readonly IServicioEmail _servicioEmail;
 
         public UsuarioServicioImpl(
-            BikerconnectContext contexto, 
+            BikerconnectContext contexto,
             IServicioEncriptar servicioEncriptar,
             IConvertirAdao convertirAdao,
             IConvertirAdto convertirAdto,
@@ -33,7 +33,14 @@ namespace BikerConnectDIW.Servicios
             if (usuarioExistente != null)
             {
                 userDTO.EmailUsuario = "EmailNoConfirmado";
-                //ViewData["EmailNoConfirmado"] = "Ya existe un usuario registrado con ese email. Por favor, confirme su correo electrónico.";
+                return userDTO;
+            }
+
+            var emailExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario && u.CuentaConfirmada);
+
+            if (emailExistente != null)
+            {
+                userDTO.EmailUsuario = "EmailRepetido";
                 return userDTO;
             }
 
@@ -41,25 +48,14 @@ namespace BikerConnectDIW.Servicios
             Usuario usuarioDao = _convertirAdao.usuarioToDao(userDTO);
             usuarioDao.FchRegistro = DateTime.Now;
             usuarioDao.Rol = "ROLE_USER";
+            string token = GenerarToken();
+            usuarioDao.TokenRecuperacion = token;
 
-            if (userDTO.CuentaConfirmada)
-            {
-                usuarioDao.CuentaConfirmada = true;
-                _contexto.Usuarios.Add(usuarioDao);
-                _contexto.SaveChanges();
+            _contexto.Usuarios.Add(usuarioDao);
+            _contexto.SaveChanges();
 
-            }
-            else
-            {
-                usuarioDao.CuentaConfirmada = false;
-                string token = GenerarToken();
-                usuarioDao.TokenRecuperacion = token;
-                _contexto.Usuarios.Add(usuarioDao);
-                _contexto.SaveChanges();
-                string nombreUsuario = usuarioDao.NombreApellidos;
-                _servicioEmail.enviarEmailConfirmacion(userDTO.EmailUsuario, nombreUsuario, token);
-
-            }
+            string nombreUsuario = usuarioDao.NombreApellidos;
+            _servicioEmail.enviarEmailConfirmacion(userDTO.EmailUsuario, nombreUsuario, token);
 
             return userDTO;
 

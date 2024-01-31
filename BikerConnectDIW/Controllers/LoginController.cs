@@ -34,7 +34,7 @@ namespace BikerConnectDIW.Controllers
                 }
                 else
                 {
-                    ViewData["CuentaNoVerificada"] = "Error al confirmar su email";
+                    ViewData["yaEstabaVerificada"] = "Ya estaba registrado y verificado";
                 }
 
                 return View("~/Views/Home/login.cshtml"); 

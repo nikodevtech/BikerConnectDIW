@@ -3,7 +3,8 @@
     ViewData["Title"] = "login";
     var mensajeRegistroExitoso = ViewData["MensajeRegistroExitoso"] as string;
     var cuentaVerificada = ViewData["CuentaVerificada"] as string;
-    var cuentaNoVerificada = ViewData["CuentaNoVerificada"] as string;
+    var cuentaNoVerificada = ViewData["EmailNoConfirmado"] as string;
+    var yaEstabaVerificada = ViewData["yaEstabaVerificada"] as string;
     var error = ViewData["Error"] as string;
 }
 
@@ -43,7 +44,13 @@
     @if (!string.IsNullOrEmpty(cuentaNoVerificada))
     {
         <script>
-            mostrarNotificacion("¡Debe confirmar su correo electrónico!", "Para poder iniciar sesión, antes debe confirmar su cuenta de correo electrónico.", 'error');
+            mostrarNotificacion("¡Debe confirmar su correo electrónico!", "Para poder iniciar sesión, antes debe confirmar su cuenta de correo electrónico. Revise su bandeja de entrada", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(yaEstabaVerificada))
+    {
+        <script>
+            mostrarNotificacion("¡Se encuentra registrado y vericado!", "Puede acceder y hacer uso de su cuenta", 'info');
         </script>
     }
     @if (!string.IsNullOrEmpty(error))
