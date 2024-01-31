@@ -34,12 +34,12 @@
                     @if (currentController == "Home" && currentAction == "Index")
                     {
                         <li class="nav-item me-3">
-                            <a class="nav-link fw-bold text-white" asp-controller="Login" asp-action="Login">
+                            <a class="nav-link fw-bold text-white" href="/auth/login">
                                 <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
                             </a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link fw-bold text-white" asp-controller="Registro" asp-action="Registro">
+                            <a class="nav-link fw-bold text-white" href="/auth/crear-cuenta">
                                 <i class="bi bi-person-add"> Crear cuenta</i>
                             </a>
                         </li>
@@ -47,16 +47,16 @@
                     @if (currentController == "Login" && currentAction == "Login")
                     {
                         <li class="nav-item me-3">
-                            <a class="nav-link fw-bold text-white" asp-controller="Registro" asp-action="Registro">
+                            <a class="nav-link fw-bold text-white" href="/auth/crear-cuenta">
                                 <i class="bi bi-person-add"> Crear cuenta</i>
                             </a>
                         </li>
                     }
 
-                    @if (currentController == "Registro" && currentAction == "Registro")
+                    @if (currentController == "Registro" && currentAction == "RegistrarGet")
                     {
                         <li class="nav-item me-3">
-                            <a class="nav-link fw-bold text-white" asp-controller="Login" asp-action="Login">
+                            <a class="nav-link fw-bold text-white" href="/auth/login">
                                 <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
                             </a>
                         </li>

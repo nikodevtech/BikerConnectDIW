@@ -1,41 +1,43 @@
-﻿
+﻿@model BikerConnectDIW.DTO.UsuarioDTO
+
 @{
     ViewData["Title"] = "registro";
 }
 
 <div class="container py-4">
     <div class="registro cardPrincipal">
-        <form class="custom-form" asp-action="CrearCuenta" enctype="multipart/form-data" method="post" asp-for="UsuarioDTO">
+        <form class="custom-form" asp-action="RegistrarPost" method="post" asp-for="UsuarioDTO">
             <h2 class="text-center mb-5"><i class="bi bi-person-vcard-fill" style="color: #1f3c85;"> Registro nuevo usuario</i></h2>
             <div class="mb-3">
-                <label for="email" class="form-label textoPrincipal">Correo Electrónico</label>
-                <input  type="email" id="email" name="email" class="form-control" placeholder="Escribe tu correo electrónico" required />
+                <label for="EmailUsuario" class="form-label textoPrincipal">Correo Electrónico</label>
+                <input type="email" id="EmailUsuario" name="EmailUsuario" class="form-control" placeholder="Escribe tu correo electrónico" required />
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label textoPrincipal">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Escribe tu contraseña" required oninput="revisarContraseña()" />
+                <label for="ClaveUsuario" class="form-label textoPrincipal">Contraseña</label>
+                <input type="password" id="ClaveUsuario" name="ClaveUsuario" class="form-control" placeholder="Escribe tu contraseña" required oninput="revisarContraseña()" />
             </div>
             <div class="mb-3">
                 <label for="confirmarPassword" class="form-label textoPrincipal">Confirmar Contraseña</label>
-                <input type="password" id="confirmarPassword" name="confirmarPassword" class="form-control" placeholder="Repite tu contraseña" required oninput="revisarContraseña()" />
+                <input type="password" id="confirmarPassword" class="form-control" placeholder="Repite tu contraseña" required oninput="revisarContraseña()" />
             </div>
             <div class="mensajeContrasenya mt-4 text-center " id="mensajeContrasenya"></div>
             <hr class="border border-primary border-2 opacity-80 mt-5 mb-5">
             <div class="mb-3">
-                <label for="nombre" class="form-label textoPrincipal">Nombre</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Escribe tu nombre" required />
+                <label for="NombreUsuario" class="form-label textoPrincipal">Nombre</label>
+                <input type="text" id="NombreUsuario" name="NombreUsuario" class="form-control" placeholder="Escribe tu nombre" required />
             </div>
             <div class="mb-3">
-                <label for="apellidos" class="form-label textoPrincipal">Apellidos</label>
-                <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Escribe tus apellidos" required />
+                <label for="ApellidosUsuario" class="form-label textoPrincipal">Apellidos</label>
+                <input type="text" id="ApellidosUsuario" name="ApellidosUsuario" class="form-control" placeholder="Escribe tus apellidos" required />
             </div>
             <div class="mb-3">
-                <label for="telefono" class="form-label textoPrincipal">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Escribe tu número de teléfono" required />
+                <label for="TlfUsuario" class="form-label textoPrincipal">Teléfono</label>
+                <input type="tel" id="TlfUsuario" name="TlfUsuario" class="form-control" placeholder="Escribe tu número de teléfono" required />
             </div>
             <button type="submit" id="btnRegistro" class="btn btn-primary mt-5"><i class="bi bi-person-add fs-5"> Crear cuenta</i></button>
         </form>
     </div>
 </div>
+
 
 

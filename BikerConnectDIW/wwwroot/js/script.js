@@ -1,5 +1,5 @@
 function revisarContraseña() {
-    const contraseña = document.getElementById('password').value;
+    const contraseña = document.getElementById('ClaveUsuario').value;
     const confContraseña = document.getElementById('confirmarPassword').value;
     const mensajeContraseña = document.getElementById('mensajeContrasenya');
     const contraseñaRegex = /^(?=.*\d).{8,}$/;

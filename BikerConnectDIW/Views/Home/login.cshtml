@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "login";
+    var mensajeRegistroExitoso = ViewData["MensajeRegistroExitoso"] as string;
 }
 
 <div class="container py-4">
@@ -19,9 +20,16 @@
             <hr class="border border-primary border-2 opacity-80 m-4">
             <ul class="listaLogin">
                 <li><a asp-action="SolicitarRecuperacion">Olvidó su <span class="fw-bold fs-5">contraseña?</span></a></li>
-                <li><a asp-action="CrearCuenta">No tiene una cuenta?<span class="fw-bold fs-5"> Regístrese</span></a></li>
+                <li><a href="/auth/crear-cuenta">No tiene una cuenta?<span class="fw-bold fs-5"> Regístrese</span></a></li>
             </ul>
         </form>
     </div>
+    @if (!string.IsNullOrEmpty(mensajeRegistroExitoso))
+    {
+        <script>
+            mostrarNotificacion("¡Email de confirmación enviado!", "Revise su bandeja de entrada y confirme su cuenta de correo electrónico.", 'info');
+        </script>
+    }
+   
 </div>
 

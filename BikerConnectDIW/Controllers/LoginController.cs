@@ -7,6 +7,7 @@ namespace BikerConnectDIW.Controllers
     {
 
         [HttpGet]
+        [Route("/auth/login")]
         public IActionResult Login()
         {
             return View("~/Views/Home/login.cshtml");

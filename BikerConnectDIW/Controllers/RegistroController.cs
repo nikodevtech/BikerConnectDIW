@@ -21,12 +21,13 @@ namespace BikerConnectDIW.Controllers
             try
             {
                 var usuarioDTO = new UsuarioDTO();
-                return View("Registro", usuarioDTO);
+                return View("~/Views/Home/registro.cshtml", usuarioDTO);
+
             }
             catch (Exception e)
             {
                 ViewData["Error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
-                return View("Registro");
+                return View("~/Views/Home/registro.cshtml");
             }
         }
 
@@ -41,24 +42,24 @@ namespace BikerConnectDIW.Controllers
                 if (nuevoUsuario != null && !nuevoUsuario.CuentaConfirmada)
                 {
                     ViewData["MensajeRegistroExitoso"] = "Registro del nuevo usuario OK";
-                    return View("Login");
+                    return View("~/Views/Home/login.cshtml");
                 }
                 else if (nuevoUsuario.CuentaConfirmada)
                 {
                     ViewData["MensajeRegistroExitoso"] = "Registro del nuevo usuario OK";
                     //ViewData["Usuarios"] = _usuarioServicio.ObtenerTodos();
-                    return View("AdministracionUsuarios");
+                    return View("~/Views/Home/administracionUsuarios.cshtml");
                 }
                 else
                 {
                     ViewData["EmailYaRegistrado"] = "Ya existe un usuario con ese email";
-                    return View("Registro");
+                    return View("~/Views/Home/registro.cshtml");
                 }
             }
             catch (Exception e)
             {
                 ViewData["Error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
-                return View("Registro");
+                return View("~/Views/Home/registro.cshtml");
             }
         }
     }

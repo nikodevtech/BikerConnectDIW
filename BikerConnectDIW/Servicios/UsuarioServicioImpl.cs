@@ -1,34 +1,78 @@
 ﻿using BikerConnectDIW.DTO;
 using DAL.Entidades;
-using Poyecto_Gestor_Biblioteca_Web_Los_Rapidos.Servicios;
+using System.Security.Cryptography;
 
 namespace BikerConnectDIW.Servicios
 {
-    public class UsuarioServicioImpl : IUsuarioServicio
+    public class UsuarioServicioImpl : IUsuarioServicio 
     {
         private readonly BikerconnectContext _contexto;
         private readonly IServicioEncriptar _servicioEncriptar;
+        private readonly IConvertirAdao _convertirAdao;
+        private readonly IConvertirAdto _convertirAdto;
 
-        public UsuarioServicioImpl(BikerconnectContext contexto, IServicioEncriptar servicioEncriptar)
+        public UsuarioServicioImpl(
+            BikerconnectContext contexto, 
+            IServicioEncriptar servicioEncriptar,
+            IConvertirAdao convertirAdao,
+            IConvertirAdto convertirAdto
+        )
         {
             _contexto = contexto;
             _servicioEncriptar = servicioEncriptar;
+            _convertirAdao = convertirAdao;
+            _convertirAdto = convertirAdto;
         }
-        UsuarioDTO IUsuarioServicio.registrarUsuario(UsuarioDTO userDTO)
+        public UsuarioDTO registrarUsuario(UsuarioDTO userDTO)
         {
-            var Usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario);
+            var usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario);
 
-            if (Usuario != null)
+            if (usuario != null)
             {
                 return null;
             }
-            else
-            {
-                //_contexto.Usuarios.Add();
-                //_contexto.SaveChanges();
-                return userDTO;
-            }
+
+            userDTO.ClaveUsuario = _servicioEncriptar.Encriptar(userDTO.ClaveUsuario);
+            Usuario usuarioDao = _convertirAdao.usuarioToDao(userDTO);
+            usuarioDao.FchRegistro = DateTime.Now;
+            usuarioDao.Rol = "ROLE_USER";
+
+            string token = GenerarToken();
+            usuarioDao.TokenRecuperacion = token;
+            usuarioDao.FchExpiracionToken = DateTime.Now.AddMinutes(10);
+            string nombreUsuario = usuarioDao.NombreApellidos;
+            //if (userDTO.CuentaConfirmada) 
+            //{
+            //    usuarioDao.CuentaConfirmada = true;
+            //    _contexto.Usuarios.Add(usuarioDao);
+            //}
+            //else
+            //{
+            //    usuarioDao.CuentaConfirmada = false;
+
+            //    string token = GenerarToken();
+            //    usuarioDao.TokenRecuperacion = token;
+            //    usuarioDao.FchExpiracionToken = DateTime.Now.AddMinutes(10);
+            //    string nombreUsuario = usuarioDao.NombreApellidos;
+
+
+            //}
+
+            _contexto.SaveChanges();
+            return userDTO;
 
         }
+
+        private string GenerarToken()
+        {
+            using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
+            {
+                byte[] tokenBytes = new byte[30];
+                rng.GetBytes(tokenBytes);
+
+                return BitConverter.ToString(tokenBytes).Replace("-", "").ToLower();
+            }
+        }
+
     }
 }

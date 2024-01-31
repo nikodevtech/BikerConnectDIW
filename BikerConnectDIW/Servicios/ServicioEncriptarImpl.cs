@@ -1,12 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Poyecto_Gestor_Biblioteca_Web_Los_Rapidos.Servicios
+namespace BikerConnectDIW.Servicios
 {
-    /// <summary>
-    /// Clase que implementa y detalla la lógica para encriptar contraseña
-    /// </summary>
-    public class ServicioEncriptarImpl : IServicioEncriptar
+    public class ServicioEncriptarImpl: IServicioEncriptar  
     {
         public string Encriptar(string contraseña)
         {

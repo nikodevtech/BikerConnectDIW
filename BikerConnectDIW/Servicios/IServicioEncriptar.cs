@@ -1,8 +1,5 @@
-﻿namespace Poyecto_Gestor_Biblioteca_Web_Los_Rapidos.Servicios
+﻿namespace BikerConnectDIW.Servicios
 {
-    /// <summary>
-    /// Interfaz que declara el metodo para encriptar cadenas de texto
-    /// </summary>
     public interface IServicioEncriptar
     {
         /// <summary>

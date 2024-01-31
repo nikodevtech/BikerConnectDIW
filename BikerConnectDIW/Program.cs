@@ -1,11 +1,25 @@
-using Poyecto_Gestor_Biblioteca_Web_Los_Rapidos.Servicios;
+
+
+using BikerConnectDIW.Servicios;
+using DAL.Entidades;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<BikerconnectContext>(options =>
+     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+
+
+builder.Services.AddScoped<IUsuarioServicio,UsuarioServicioImpl>();
 builder.Services.AddScoped<IServicioEncriptar, ServicioEncriptarImpl>();
+builder.Services.AddScoped<IConvertirAdto, ConvertirAdtoImpl>();
+builder.Services.AddScoped<IConvertirAdao, ConvertirAdaoImpl>();
+
+
 
 var app = builder.Build();
 
