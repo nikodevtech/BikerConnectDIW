@@ -37,28 +37,25 @@ namespace BikerConnectDIW.Servicios
             usuarioDao.FchRegistro = DateTime.Now;
             usuarioDao.Rol = "ROLE_USER";
 
-            string token = GenerarToken();
-            usuarioDao.TokenRecuperacion = token;
-            usuarioDao.FchExpiracionToken = DateTime.Now.AddMinutes(10);
-            string nombreUsuario = usuarioDao.NombreApellidos;
-            //if (userDTO.CuentaConfirmada) 
-            //{
-            //    usuarioDao.CuentaConfirmada = true;
-            //    _contexto.Usuarios.Add(usuarioDao);
-            //}
-            //else
-            //{
-            //    usuarioDao.CuentaConfirmada = false;
+            if (userDTO.CuentaConfirmada)
+            {
+                usuarioDao.CuentaConfirmada = true;
+                _contexto.Usuarios.Add(usuarioDao);
+                _contexto.SaveChanges();
 
-            //    string token = GenerarToken();
-            //    usuarioDao.TokenRecuperacion = token;
-            //    usuarioDao.FchExpiracionToken = DateTime.Now.AddMinutes(10);
-            //    string nombreUsuario = usuarioDao.NombreApellidos;
+            }
+            else
+            {
+                usuarioDao.CuentaConfirmada = false;
+                string token = GenerarToken();
+                usuarioDao.TokenRecuperacion = token;
+                _contexto.Usuarios.Add(usuarioDao);
+                _contexto.SaveChanges();
+                string nombreUsuario = usuarioDao.NombreApellidos;
+                //emailServicio.enviarEmailConfirmacion(userDto.getEmailUsuario(), nombreUsuario, token);
 
+            }
 
-            //}
-
-            _contexto.SaveChanges();
             return userDTO;
 
         }
