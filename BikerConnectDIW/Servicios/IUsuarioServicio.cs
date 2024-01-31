@@ -5,5 +5,7 @@ namespace BikerConnectDIW.Servicios
     public interface IUsuarioServicio
     {
         public UsuarioDTO registrarUsuario(UsuarioDTO userDTO);
+
+        public bool ConfirmarCuenta(string token);
     }
 }

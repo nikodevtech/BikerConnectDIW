@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "login";
     var mensajeRegistroExitoso = ViewData["MensajeRegistroExitoso"] as string;
+    var cuentaVerificada = ViewData["CuentaVerificada"] as string;
+    var cuentaNoVerificada = ViewData["CuentaNoVerificada"] as string;
+    var error = ViewData["Error"] as string;
 }
 
 <div class="container py-4">
@@ -30,6 +33,25 @@
             mostrarNotificacion("¡Email de confirmación enviado!", "Revise su bandeja de entrada y confirme su cuenta de correo electrónico.", 'info');
         </script>
     }
-   
+
+    @if (!string.IsNullOrEmpty(cuentaVerificada))
+    {
+        <script>
+            mostrarNotificacion("¡Cuenta verificada!", "La cuenta ha sido confirmada correctamente. Ya puede iniciar sesión", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(cuentaNoVerificada))
+    {
+        <script>
+            mostrarNotificacion("¡Debe confirmar su correo electrónico!", "Para poder iniciar sesión, antes debe confirmar su cuenta de correo electrónico.", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <script>
+            mostrarNotificacion("¡Error!", "Ocurrio un error no esperado, intentelo de nuevo", 'error');
+        </script>
+    }
+
 </div>
 

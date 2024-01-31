@@ -6,11 +6,11 @@ namespace BikerConnectDIW.Servicios
     {
         void IServicioEmail.enviarEmailConfirmacion(string emailDestino, string nombreUsuario, string token)
         {
-            string urlDominio = "https://localhost:7186";
+            string urlDominio = "https://localhost:7142";
 
             string EmailOrigen = "nikoalvarezzapata@gmail.com";
             //Se crea la URL de recuperación con el token que se enviará al mail del user.
-            string urlDeRecuperacion = String.Format("{0}/ControladorRecuperarContraseña/Recuperar/?token={1}", urlDominio, token);
+            string urlDeRecuperacion = String.Format("{0}/auth/confirmar-cuenta/?token={1}", urlDominio, token);
 
             //Hacemos que el texto del email sea un archivo html que se encuentra en la carpeta Plantilla.
             string directorioProyecto = System.IO.Directory.GetCurrentDirectory();
@@ -27,7 +27,7 @@ namespace BikerConnectDIW.Servicios
             smtpCliente.EnableSsl = true;
             smtpCliente.UseDefaultCredentials = false;
             smtpCliente.Port = 587;
-            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "");
+            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "klhl ugdb geyo etqu");
 
             smtpCliente.Send(mensajeDelCorreo);
 
@@ -57,7 +57,7 @@ namespace BikerConnectDIW.Servicios
             smtpCliente.EnableSsl = true;
             smtpCliente.UseDefaultCredentials = false;
             smtpCliente.Port = 587;
-            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "");
+            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "klhl ugdb geyo etqu");
 
             smtpCliente.Send(mensajeDelCorreo);
 

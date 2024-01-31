@@ -44,9 +44,9 @@ namespace BikerConnectDIW.Controllers
                     ViewData["MensajeRegistroExitoso"] = "Registro del nuevo usuario OK";
                     return View("~/Views/Home/login.cshtml");
                 }
-                else if (nuevoUsuario.CuentaConfirmada)
+                else if (nuevoUsuario?.EmailUsuario == "EmailNoConfirmado")
                 {
-                    ViewData["MensajeRegistroExitoso"] = "Registro del nuevo usuario OK";
+                    ViewData["EmailNoConfirmado"] = "Ya está registrado pero no confirmado";
                     //ViewData["Usuarios"] = _usuarioServicio.ObtenerTodos();
                     return View("~/Views/Home/administracionUsuarios.cshtml");
                 }
