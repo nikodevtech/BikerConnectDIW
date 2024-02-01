@@ -7,20 +7,22 @@
     var yaEstabaVerificada = ViewData["yaEstabaVerificada"] as string;
     var mensajeExitoMail = ViewData["MensajeExitoMail"] as string;
     var contraseñaModificada = ViewData["ContraseñaModificadaExito"] as string;
+    var mensajeErrorInicioSesion = ViewData["MensajeErrorInicioSesion"] as string;
+    var recursoProhibido = ViewData["RecursoProhibido"] as string;
     var error = ViewData["Error"] as string;
 }
 
 <div class="container py-4">
     <div class="login cardPrincipal">
-        <form class="custom-form" method="post" asp-action="ProcesarInicioSesion" role="form">
+        <form class="custom-form" method="post" asp-action="ProcesarInicioSesion" asp-for="UsuarioDTO" role="form">
             <h2 class="text-center mb-5"><i class="bi bi-box-arrow-in-right" style="color: #1f3c85;"> Iniciar sesión</i></h2>
             <div class="mb-3">
                 <label class="form-label textoPrincipal">Correo Electrónico</label>
-                <input type="text" class="form-control" placeholder="Introduzca su correo electrónico" required autofocus />
+                <input type="text" class="form-control" name="EmailUsuario" id="EmailUsuario" placeholder="Introduzca su correo electrónico" required autofocus />
             </div>
             <div class="mb-3">
                 <label class="form-label textoPrincipal">Contraseña</label>
-                <input  type="password" class="form-control" placeholder="Introduzca su contraseña" required />
+                <input type="password" name="ClaveUsuario" id="ClaveUsuario" class="form-control" placeholder="Introduzca su contraseña" required />
             </div>
             <button type="submit" class="btn btn-primary mt-5 mb-5"><i class="bi bi-box-arrow-in-right fs-5"> Iniciar sesión</i></button>
             <hr class="border border-primary border-2 opacity-80 m-4">
@@ -65,6 +67,19 @@
     {
         <script>
             mostrarNotificacion("¡Contraseña modificada con exito!", "Ya puede iniciar sesión con su nueva contraseña", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(mensajeErrorInicioSesion))
+    {
+        <script>
+            mostrarNotificacion("¡No se pudo iniciar sesión!", "Credenciales introducidas incorrectas o cuenta de email no verificada", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(recursoProhibido))
+    {
+        <script>
+            mostrarNotificacion("¡Prohibido!", "No tiene permiso para acceder a este recurso", 'error');
+
         </script>
     }
     @if (!string.IsNullOrEmpty(error))

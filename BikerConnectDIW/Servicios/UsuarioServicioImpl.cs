@@ -192,7 +192,20 @@ namespace BikerConnectDIW.Servicios
             return false;
         }
 
+        public bool verificarCredenciales(string emailUsuario, string claveUsuario)
+        {
+            string contraseñaEncriptada = _servicioEncriptar.Encriptar(claveUsuario);
+            Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario && u.Contraseña == contraseñaEncriptada);
+            if (usuarioExistente == null)
+            {
+                return false;
+            }
+            if (!usuarioExistente.CuentaConfirmada)
+            {
+                return false;
+            }
 
-
+            return true;
+        }
     }
 }

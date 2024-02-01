@@ -14,5 +14,6 @@ namespace BikerConnectDIW.Servicios
 
         public bool modificarContraseñaConToken(UsuarioDTO usuario);
 
+        bool verificarCredenciales(string emailUsuario, string claveUsuario);
     }
 }

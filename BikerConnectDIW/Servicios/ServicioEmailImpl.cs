@@ -27,7 +27,7 @@ namespace BikerConnectDIW.Servicios
             smtpCliente.EnableSsl = true;
             smtpCliente.UseDefaultCredentials = false;
             smtpCliente.Port = 587;
-            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "lpat fmyy vmsb jfdk");
+            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "zfyf obfr qfml cfct");
 
             smtpCliente.Send(mensajeDelCorreo);
 
@@ -57,7 +57,7 @@ namespace BikerConnectDIW.Servicios
             smtpCliente.EnableSsl = true;
             smtpCliente.UseDefaultCredentials = false;
             smtpCliente.Port = 587;
-            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "lpat fmyy vmsb jfdk");
+            smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "zfyf obfr qfml cfct");
 
             smtpCliente.Send(mensajeDelCorreo);
 

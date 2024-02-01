@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "dashboard";
+}
+<div class="container py-4">
+    <div class="row cardPrincipal">
+        <div class="col">
+            <h3 class="text-center mt-5 subtituloSecundario3">Dashboard</h3>
+            <hr class="border border-primary border-2 opacity-55 mb-5 mt-4">
+            <h4 class="text-light text-center subtituloSecundario">Bienvenido @User.Identity?.Name</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 dashboardCard border border-dark cardPrincipal">
+                <i class="bi bi-person-fill-gear fs-1 ms-4" style="color: #1f3c85"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Usuarios</h5>
+                    <p class="card-text">Acceda para gestionar usuarios.</p>
+                    <a asp-controller="Privada" asp-action="AdministracionUsuarios" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 dashboardCard border border-dark cardPrincipal">
+                <i class="bi bi-bicycle fs-1 ms-3" style="color: #1f3c85"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Mis motos</h5>
+                    <p class="card-text">Acceda para gestionar sus motos.</p>
+                    <a asp-controller="Privada" asp-action="MisMotos" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 dashboardCard border border-dark cardPrincipal">
+                <i class="bi bi-people-fill fs-1 ms-3" style="color: #1f3c85"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Quedadas</h5>
+                    <p class="card-text">Asistir o planificar una nueva quedada.</p>
+                    <a asp-controller="Privada" asp-action="Quedadas" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

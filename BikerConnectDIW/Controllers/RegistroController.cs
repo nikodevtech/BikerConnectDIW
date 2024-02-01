@@ -20,7 +20,7 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
-                var usuarioDTO = new UsuarioDTO();
+                UsuarioDTO usuarioDTO = new UsuarioDTO();
                 return View("~/Views/Home/registro.cshtml", usuarioDTO);
 
             }

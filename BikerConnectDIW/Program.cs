@@ -2,6 +2,7 @@
 
 using BikerConnectDIW.Servicios;
 using DAL.Entidades;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -20,7 +21,17 @@ builder.Services.AddScoped<IConvertirAdto, ConvertirAdtoImpl>();
 builder.Services.AddScoped<IConvertirAdao, ConvertirAdaoImpl>();
 builder.Services.AddScoped<IServicioEmail, ServicioEmailImpl>();
 
-
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/auth/login";
+});
 
 var app = builder.Build();
 
@@ -36,6 +47,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
