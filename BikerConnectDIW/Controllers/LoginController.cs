@@ -26,7 +26,7 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
-                bool confirmacionExitosa = _usuarioServicio.ConfirmarCuenta(token);
+                bool confirmacionExitosa = _usuarioServicio.confirmarCuenta(token);
 
                 if (confirmacionExitosa)
                 {
@@ -37,12 +37,12 @@ namespace BikerConnectDIW.Controllers
                     ViewData["yaEstabaVerificada"] = "Ya estaba registrado y verificado";
                 }
 
-                return View("~/Views/Home/login.cshtml"); 
+                return View("~/Views/Home/login.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["Error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
-                return View("~/Views/Home/login.cshtml"); 
+                return View("~/Views/Home/login.cshtml");
             }
         }
     }

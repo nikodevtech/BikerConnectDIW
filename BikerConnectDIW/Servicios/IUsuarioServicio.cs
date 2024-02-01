@@ -6,6 +6,13 @@ namespace BikerConnectDIW.Servicios
     {
         public UsuarioDTO registrarUsuario(UsuarioDTO userDTO);
 
-        public bool ConfirmarCuenta(string token);
+        public bool confirmarCuenta(string token);
+
+        public bool iniciarProcesoRecuperacion(string emailUsuario);
+
+        public UsuarioDTO obtenerUsuarioPorToken(string token);
+
+        public bool modificarContraseñaConToken(UsuarioDTO usuario);
+
     }
 }

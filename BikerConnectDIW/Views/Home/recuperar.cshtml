@@ -1,7 +1,28 @@
-﻿
+﻿@model BikerConnectDIW.DTO.UsuarioDTO
 @{
     ViewData["Title"] = "recuperar";
 }
 
-<h1>recuperar</h1>
+
+<div class="container py-4">
+    <div class="recuperar cardPrincipal">
+        <form class="custom-form" asp-action="Recuperar" asp-controller="Auth" method="post">
+            <h2 class="text-center mb-5"><i class="bi bi-asterisk" style="color: #1f3c85;"><i class="bi bi-asterisk"></i><i class="bi bi-asterisk"></i><i class="bi bi-asterisk"></i> Restablezca su contraseña</i></h2>
+            <input type="hidden" asp-for="Token" />
+            <div class="mb-3">
+                <label for="password" class="form-label textoPrincipal">Contraseña</label>
+                <input type="password" name="ClaveUsuario" class="form-control" oninput="revisarContraseña()" id="ClaveUsuario"  placeholder="Introduzca su nueva contraseña" required autofocus />
+            </div>
+            <div class="mb-3">
+                <label for="confirmarPassword" class="form-label textoPrincipal">Confirmar contraseña</label>
+                <input type="password" id="confirmarPassword" name="confirmarPassword" class="form-control" oninput="revisarContraseña()" placeholder="Introduzca de nuevo la contraseña" required />
+            </div>
+            <div class="mensajeContrasenya text-center" id="mensajeContrasenya"></div>
+            <div class="text-right mt-3">
+                <button type="submit" id="btnRegistro" class="btn btn-primary"><i class="bi bi-asterisk"><i class="bi bi-asterisk"></i><i class="bi bi-asterisk"></i><i class="bi bi-asterisk"></i> Restablecer</i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
 

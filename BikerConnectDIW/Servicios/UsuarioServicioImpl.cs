@@ -48,7 +48,7 @@ namespace BikerConnectDIW.Servicios
             Usuario usuarioDao = _convertirAdao.usuarioToDao(userDTO);
             usuarioDao.FchRegistro = DateTime.Now;
             usuarioDao.Rol = "ROLE_USER";
-            string token = GenerarToken();
+            string token = generarToken();
             usuarioDao.TokenRecuperacion = token;
 
             _contexto.Usuarios.Add(usuarioDao);
@@ -60,7 +60,7 @@ namespace BikerConnectDIW.Servicios
             return userDTO;
 
         }
-        private string GenerarToken()
+        private string generarToken()
         {
             using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
             {
@@ -71,7 +71,7 @@ namespace BikerConnectDIW.Servicios
             }
         }
 
-        public bool ConfirmarCuenta(string token)
+        public bool confirmarCuenta(string token)
         {
             try
             {
@@ -104,6 +104,95 @@ namespace BikerConnectDIW.Servicios
                 return false;
             }
         }
+
+        public bool iniciarProcesoRecuperacion(string emailUsuario)
+        {
+            try
+            {
+                Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
+
+                if (usuarioExistente != null)
+                {
+                    // Generar el token y establecer la fecha de expiración
+                    string token = generarToken();
+                    DateTime fechaExpiracion = DateTime.Now.AddMinutes(1);
+
+                    // Actualizar el usuario con el nuevo token y la fecha de expiración
+                    usuarioExistente.TokenRecuperacion = token;
+                    usuarioExistente.FchExpiracionToken = fechaExpiracion;
+
+                    // Actualizar el usuario en la base de datos
+                    _contexto.Usuarios.Update(usuarioExistente);
+                    _contexto.SaveChanges();
+
+                    // Enviar el correo de recuperación
+                    string nombreUsuario = usuarioExistente.NombreApellidos;
+                    _servicioEmail.enviarEmailRecuperacion(emailUsuario, nombreUsuario, token);
+
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("El usuario con email " + emailUsuario + " no existe");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - IniciarProcesoRecuperacion()] Error al iniciar el proceso de recuperación: " + ex.Message);
+                return false;
+            }
+        }
+
+        public UsuarioDTO obtenerUsuarioPorToken(string token)
+        {
+            try
+            {
+                Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.TokenRecuperacion == token);
+
+                if (usuarioExistente != null)
+                {
+                    UsuarioDTO usuario = _convertirAdto.usuarioToDto(usuarioExistente);
+                    return usuario;
+                }
+                else
+                {
+                    Console.WriteLine("No existe el usuario con el token " + token);
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - ObtenerUsuarioPorToken()] Error al obtener usuario por token " + e.Message);
+                return null;
+            }
+        }
+
+        public bool modificarContraseñaConToken(UsuarioDTO usuario)
+        {
+            try
+            {
+                Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.TokenRecuperacion == usuario.Token);
+
+                if (usuarioExistente != null)
+                {
+                    string nuevaContraseña = _servicioEncriptar.Encriptar(usuario.ClaveUsuario);
+                    usuarioExistente.Contraseña = nuevaContraseña;
+                    usuarioExistente.TokenRecuperacion = null; // Se establece como null para invalidar el token ya consumido al cambiar la contraseña
+                    _contexto.Usuarios.Update(usuarioExistente);
+                    _contexto.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - ModificarContraseñaConToken()] Error al modificar la contraseña con el token: " + e.Message);
+            }
+            return false;
+        }
+
+
 
     }
 }

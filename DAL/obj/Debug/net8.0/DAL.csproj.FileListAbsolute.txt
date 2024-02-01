@@ -27,3 +27,4 @@ D:\Descargas\BikerConnectDIW\DAL\obj\Debug\net8.0\refint\DAL.dll
 D:\Descargas\BikerConnectDIW\DAL\obj\Debug\net8.0\DAL.pdb
 D:\Descargas\BikerConnectDIW\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
 D:\Descargas\BikerConnectDIW\DAL\obj\Debug\net8.0\ref\DAL.dll
+C:\Users\Puesto9\source\repos\BikerConnectDIW\DAL\obj\Debug\net8.0\DAL.sourcelink.json
