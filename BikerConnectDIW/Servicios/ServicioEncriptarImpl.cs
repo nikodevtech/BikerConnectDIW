@@ -7,13 +7,21 @@ namespace BikerConnectDIW.Servicios
     {
         public string Encriptar(string contraseña)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            try 
             {
-                byte[] bytes = Encoding.UTF8.GetBytes(contraseña);
-                byte[] hashBytes = sha256.ComputeHash(bytes);
-                string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-                return hash;
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] bytes = Encoding.UTF8.GetBytes(contraseña);
+                    byte[] hashBytes = sha256.ComputeHash(bytes);
+                    string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+                    return hash;
+                }
+            } catch(ArgumentException e) 
+            {
+                Console.WriteLine("[Error  ServicioEncriptarImpl - Encriptar()] Error al encriptar: " + e.Message);
+                return null;
             }
+
         }
     }
 }

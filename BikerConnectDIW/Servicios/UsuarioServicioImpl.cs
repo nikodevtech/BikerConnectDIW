@@ -1,5 +1,6 @@
 ﻿using BikerConnectDIW.DTO;
 using DAL.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 
 namespace BikerConnectDIW.Servicios
@@ -28,47 +29,69 @@ namespace BikerConnectDIW.Servicios
         }
         public UsuarioDTO registrarUsuario(UsuarioDTO userDTO)
         {
-            var usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario && !u.CuentaConfirmada);
-
-            if (usuarioExistente != null)
+            try
             {
-                userDTO.EmailUsuario = "EmailNoConfirmado";
+                var usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario && !u.CuentaConfirmada);
+
+                if (usuarioExistente != null)
+                {
+                    userDTO.EmailUsuario = "EmailNoConfirmado";
+                    return userDTO;
+                }
+
+                var emailExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario && u.CuentaConfirmada);
+
+                if (emailExistente != null)
+                {
+                    userDTO.EmailUsuario = "EmailRepetido";
+                    return userDTO;
+                }
+
+                userDTO.ClaveUsuario = _servicioEncriptar.Encriptar(userDTO.ClaveUsuario);
+                Usuario usuarioDao = _convertirAdao.usuarioToDao(userDTO);
+                usuarioDao.FchRegistro = DateTime.Now;
+                usuarioDao.Rol = "ROLE_USER";
+                string token = generarToken();
+                usuarioDao.TokenRecuperacion = token;
+
+                _contexto.Usuarios.Add(usuarioDao);
+                _contexto.SaveChanges();
+
+                string nombreUsuario = usuarioDao.NombreApellidos;
+                _servicioEmail.enviarEmailConfirmacion(userDTO.EmailUsuario, nombreUsuario, token);
+
                 return userDTO;
             }
-
-            var emailExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario && u.CuentaConfirmada);
-
-            if (emailExistente != null)
+            catch (DbUpdateException dbe)
             {
-                userDTO.EmailUsuario = "EmailRepetido";
-                return userDTO;
+                Console.WriteLine("[Error UsuarioServicioImpl - registrarUsuario()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
+                return null;
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - registrarUsuario()] Error al registrar un usuario: " + e.Message);
+                return null;
             }
 
-            userDTO.ClaveUsuario = _servicioEncriptar.Encriptar(userDTO.ClaveUsuario);
-            Usuario usuarioDao = _convertirAdao.usuarioToDao(userDTO);
-            usuarioDao.FchRegistro = DateTime.Now;
-            usuarioDao.Rol = "ROLE_USER";
-            string token = generarToken();
-            usuarioDao.TokenRecuperacion = token;
-
-            _contexto.Usuarios.Add(usuarioDao);
-            _contexto.SaveChanges();
-
-            string nombreUsuario = usuarioDao.NombreApellidos;
-            _servicioEmail.enviarEmailConfirmacion(userDTO.EmailUsuario, nombreUsuario, token);
-
-            return userDTO;
 
         }
         private string generarToken()
         {
-            using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
+            try
             {
-                byte[] tokenBytes = new byte[30];
-                rng.GetBytes(tokenBytes);
+                using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
+                {
+                    byte[] tokenBytes = new byte[30];
+                    rng.GetBytes(tokenBytes);
 
-                return BitConverter.ToString(tokenBytes).Replace("-", "").ToLower();
+                    return BitConverter.ToString(tokenBytes).Replace("-", "").ToLower();
+                }
+            } catch (ArgumentException ae) 
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - ConfirmarCuenta()] Error al cgenerar un token de usuario " + ae.Message);
+                return null;
             }
+
         }
 
         public bool confirmarCuenta(string token)
@@ -137,6 +160,11 @@ namespace BikerConnectDIW.Servicios
                     return false;
                 }
             }
+            catch (DbUpdateException dbe)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - iniciarProcesoRecuperacion()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
+                return false;
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - IniciarProcesoRecuperacion()] Error al iniciar el proceso de recuperación: " + ex.Message);
@@ -161,7 +189,7 @@ namespace BikerConnectDIW.Servicios
                     return null;
                 }
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - ObtenerUsuarioPorToken()] Error al obtener usuario por token " + e.Message);
                 return null;
@@ -185,27 +213,41 @@ namespace BikerConnectDIW.Servicios
                     return true;
                 }
             }
-            catch (Exception e)
+            catch (DbUpdateException dbe)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ModificarContraseñaConToken()] Error al modificar la contraseña con el token: " + e.Message);
+                Console.WriteLine("[Error UsuarioServicioImpl - ModificarContraseñaConToken()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - verificarCredenciales()] Error al modificar contraseña del usuario: " + e.Message);
+                return false;
             }
             return false;
         }
 
         public bool verificarCredenciales(string emailUsuario, string claveUsuario)
         {
-            string contraseñaEncriptada = _servicioEncriptar.Encriptar(claveUsuario);
-            Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario && u.Contraseña == contraseñaEncriptada);
-            if (usuarioExistente == null)
+            try
             {
-                return false;
+                string contraseñaEncriptada = _servicioEncriptar.Encriptar(claveUsuario);
+                Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario && u.Contraseña == contraseñaEncriptada);
+                if (usuarioExistente == null)
+                {
+                    return false;
+                }
+                if (!usuarioExistente.CuentaConfirmada)
+                {
+                    return false;
+                }
+
+                return true;
             }
-            if (!usuarioExistente.CuentaConfirmada)
+            catch (ArgumentNullException e) 
             {
+                Console.WriteLine("[Error UsuarioServicioImpl - verificarCredenciales()] Error al comprobar las credenciales del usuario: " + e.Message);
                 return false;
             }
 
-            return true;
         }
 
         public UsuarioDTO obtenerUsuarioPorEmail(string email) 
@@ -222,7 +264,7 @@ namespace BikerConnectDIW.Servicios
 
                 return usuarioDTO;
             }
-            catch (Exception e) 
+            catch (ArgumentNullException e) 
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - obtenerUsuarioPorEmail()] Error al obtener el usuario por email: " + e.Message);
                 return null;
