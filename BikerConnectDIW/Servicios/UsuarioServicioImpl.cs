@@ -207,5 +207,26 @@ namespace BikerConnectDIW.Servicios
 
             return true;
         }
+
+        public UsuarioDTO obtenerUsuarioPorEmail(string email) 
+        {
+            try
+            {
+                UsuarioDTO usuarioDTO = new UsuarioDTO();
+                var usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == email);
+
+                if (usuario != null) 
+                {
+                    usuarioDTO = _convertirAdto.usuarioToDto(usuario);
+                }
+
+                return usuarioDTO;
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - obtenerUsuarioPorEmail()] Error al obtener el usuario por email: " + e.Message);
+                return null;
+            }
+        }
     }
 }

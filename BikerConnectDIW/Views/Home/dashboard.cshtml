@@ -12,16 +12,19 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="card mb-4 dashboardCard border border-dark cardPrincipal">
-                <i class="bi bi-person-fill-gear fs-1 ms-4" style="color: #1f3c85"></i>
-                <div class="card-body">
-                    <h5 class="card-title">Administrar Usuarios</h5>
-                    <p class="card-text">Acceda para gestionar usuarios.</p>
-                    <a asp-controller="Privada" asp-action="AdministracionUsuarios" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
+        @if (User.IsInRole("ROLE_ADMIN"))
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 dashboardCard border border-dark cardPrincipal">
+                    <i class="bi bi-person-fill-gear fs-1 ms-4" style="color: #1f3c85"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Administrar Usuarios</h5>
+                        <p class="card-text">Acceda para gestionar usuarios.</p>
+                        <a asp-controller="Privada" asp-action="AdministracionUsuarios" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
         <div class="col-md-4">
             <div class="card mb-4 dashboardCard border border-dark cardPrincipal">
                 <i class="bi bi-bicycle fs-1 ms-3" style="color: #1f3c85"></i>

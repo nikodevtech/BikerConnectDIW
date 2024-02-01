@@ -47,12 +47,18 @@ namespace BikerConnectDIW.Controllers
 
                 if (credencialesValidas)
                 {
+                    UsuarioDTO u = _usuarioServicio.obtenerUsuarioPorEmail(usuarioDTO.EmailUsuario);
 
-                    // crea una identidad de reclamaciones (claims identity) con información del usuario
+                    // crea una identidad de reclamaciones (claims identity) con información del usuario y su rol registrado
+                    // de esta manera controlamos que solo los admin puedan acceder a la administracion de usuarios
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name, usuarioDTO.EmailUsuario),
                     };
+                    if (!string.IsNullOrEmpty(u.Rol))
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, u.Rol));
+                    }
 
                     var identidadDeReclamaciones = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -107,6 +113,13 @@ namespace BikerConnectDIW.Controllers
         public IActionResult Dashboard()
         {
             return View("~/Views/Home/dashboard.cshtml");
+        }
+
+        [HttpPost]
+        public IActionResult CerrarSesion()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
 
     }

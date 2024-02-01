@@ -69,7 +69,14 @@
                                 <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
                             </a>
                         </li>
-
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <li class="nav-item me-3">
+                            <form asp-action="CerrarSesion" method="post" id="logoutForm">
+							<button type="button" class="btn buttonPrincipal" onclick="confirmarLogout()"><i class="bi bi-box-arrow-in-left"> Cerrar sesión</i></button>
+						</form>
+                    </li> 
                     }
                 </ul>
             </div>
