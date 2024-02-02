@@ -311,6 +311,33 @@ namespace BikerConnectDIW.Servicios
             }
         }
 
+        public void actualizarUsuario(UsuarioDTO usuarioModificado)
+        {
+            try
+            {
+                Usuario? usuarioActual = _contexto.Usuarios.Find(usuarioModificado.Id);
+
+                if (usuarioActual != null)
+                {
+                    usuarioActual.NombreApellidos = usuarioModificado.NombreUsuario + " " + usuarioModificado.ApellidosUsuario;
+                    usuarioActual.TlfMovil = usuarioModificado.TlfUsuario;
+                    usuarioActual.Rol = usuarioModificado.Rol;
+
+                    _contexto.Usuarios.Update(usuarioActual);
+                    _contexto.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Usuario no encontrado");
+                }
+            }
+            catch (DbUpdateException dbe)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - ActualizarUsuario()]Error de persistencia al modificar el usuario " + dbe.Message);
+            }
+        }
+
+
 
     }
 }

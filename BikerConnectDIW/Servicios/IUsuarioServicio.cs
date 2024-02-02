@@ -23,5 +23,7 @@ namespace BikerConnectDIW.Servicios
         public UsuarioDTO buscarPorId(long id);
 
         public void eliminar(long id);
+
+        public void actualizarUsuario(UsuarioDTO usuarioModificado);
     }
 }

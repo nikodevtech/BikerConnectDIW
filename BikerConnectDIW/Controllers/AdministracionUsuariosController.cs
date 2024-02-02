@@ -77,5 +77,46 @@ namespace BikerConnectDIW.Controllers
                 return View("~/Views/Home/dashboard.cshtml");
             }
         }
+
+        [Authorize(Roles = "ROLE_ADMIN")]
+        [HttpGet("/privada/editar-usuario/{id}")]
+        public IActionResult MostrarFormularioEdicion(long id)
+        {
+            try
+            {
+                UsuarioDTO usuarioDTO = _usuarioServicio.buscarPorId(id);
+
+                if (usuarioDTO == null)
+                {
+                    return View("~/Views/Home/administracionUsuarios.cshtml");
+                }
+
+                return View("~/Views/Home/editarUsuario.cshtml", usuarioDTO);
+            }
+            catch (Exception e)
+            {
+                ViewBag.Error = "Ocurrió un error al obtener el usuario para editar";
+                return View("~/Views/Home/dashboard.cshtml");
+            }
+        }
+
+        [Authorize(Roles = "ROLE_ADMIN")]
+        [HttpPost("/privada/procesar-editar")]
+        public IActionResult ProcesarFormularioEdicion(UsuarioDTO usuarioDTO)
+        {
+            try
+            {
+                _usuarioServicio.actualizarUsuario(usuarioDTO);
+
+                TempData["EdicionCorrecta"] = "El Usuario se ha editado correctamente";
+                ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                return View("~/Views/Home/administracionUsuarios.cshtml");
+            }
+            catch (Exception e)
+            {
+                TempData["Error"] = "Ocurrió un error al editar el usuario";
+                return View("~/Views/Home/dashboard.cshtml");
+            }
+        }
     }
 }

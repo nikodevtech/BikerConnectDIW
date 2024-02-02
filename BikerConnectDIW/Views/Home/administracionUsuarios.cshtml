@@ -3,6 +3,7 @@
     var noSePuedeEliminar = TempData["noSePuedeEliminar"] as string;
     var elUsuarioTieneQuedadas = TempData["elUsuarioTieneQuedadas"] as string;
     var eliminacionCorrecta = TempData["eliminacionCorrecta"] as string;
+    var EdicionCorrecta = TempData["EdicionCorrecta"] as string;
 }
 
 <div class="container py-4">
@@ -11,9 +12,7 @@
             <h3 class="subtituloSecundario">Administración de usuarios</h3>
         </div>
         <div class="card-body">
-
-@*             <h5 class="card-title text-center text-danger" asp:if="@ViewBag.Usuarios is null || !ViewBag.Usuarios.Any()">No hay usuarios registrados</h5>
- *@            <a href="/auth/crear-cuenta" role="button" class="btn buttonPrincipal p-2 mb-3">
+            <a href="/auth/crear-cuenta" role="button" class="btn buttonPrincipal p-2 mb-3">
                 <i class="bi bi-person-add p-2 fs-5"> Registrar usuario</i>
             </a>
             @if (ViewBag.Usuarios != null)
@@ -44,7 +43,7 @@
                                 <td>@(usuario.CuentaConfirmada ? "Sí" : "No")</td>
                                 <td>@(usuario.Rol == "ROLE_USER" ? "USER" : "ADMIN")</td>
                                 <td asp:authorize="User.IsInRole('ROLE_ADMIN')">
-                                    <a class="btn buttonPrincipal" asp-action="EditarUsuario" asp-controller="Privada" asp-route-id="@usuario.Id">
+                                    <a class="btn buttonPrincipal" asp-action="MostrarFormularioEdicion" asp-controller="AdministracionUsuarios" asp-route-id="@usuario.Id">
                                         <i class="bi bi-pencil-square"> Editar</i>
                                     </a>
                                 </td>
@@ -80,6 +79,12 @@
     {
         <script>
             mostrarNotificacion("¡Usuario eliminado!", "El usuario ha sido eliminado correctamente", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(EdicionCorrecta))
+    {
+        <script>
+            mostrarNotificacion("¡Cambios guardados!", "El usuario ha sido modificado", 'info');
         </script>
     }
 </div>
