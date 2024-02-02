@@ -70,13 +70,22 @@
                             </a>
                         </li>
                     }
-                    @if (User.Identity.IsAuthenticated)
+
+                    @if (currentController == "AdministracionUsuarios" || currentAction == "ListadoUsuarios")
                     {
-                    <li class="nav-item me-3">
+                        <li class="nav-item me-3">
+                            <a class="nav-link fw-bold text-white" href="/privada/dashboard">
+                                <i class="bi bi-house"> Dashboard</i>
+                            </a>
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated && currentController == "Login")
+                    {
+                        <li class="nav-item me-3">
                             <form asp-action="CerrarSesion" method="post" id="logoutForm">
-							<button type="button" class="btn buttonPrincipal" onclick="confirmarLogout()"><i class="bi bi-box-arrow-in-left"> Cerrar sesión</i></button>
-						</form>
-                    </li> 
+                                <button type="button" class="btn buttonPrincipal" onclick="confirmarLogout()"><i class="bi bi-box-arrow-in-left"> Cerrar sesión</i></button>
+                            </form>
+                        </li>
                     }
                 </ul>
             </div>

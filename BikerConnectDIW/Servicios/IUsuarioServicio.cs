@@ -17,5 +17,11 @@ namespace BikerConnectDIW.Servicios
         bool verificarCredenciales(string emailUsuario, string claveUsuario);
 
         public UsuarioDTO obtenerUsuarioPorEmail(string email);
+
+        public List<UsuarioDTO> obtenerTodosLosUsuarios();
+
+        public UsuarioDTO buscarPorId(long id);
+
+        public void eliminar(long id);
     }
 }

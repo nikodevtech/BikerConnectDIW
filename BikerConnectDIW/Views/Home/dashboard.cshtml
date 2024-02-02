@@ -1,6 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "dashboard";
+    var noAdmin = TempData["noAdmin"] as string;
+    var noSePuedeEliminar = TempData["noSePuedeEliminar"] as string;
+    var error = TempData["error"] as string;
 }
 <div class="container py-4">
     <div class="row cardPrincipal">
@@ -20,7 +23,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Administrar Usuarios</h5>
                         <p class="card-text">Acceda para gestionar usuarios.</p>
-                        <a asp-controller="Privada" asp-action="AdministracionUsuarios" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
+                        <a href="/privada/administracion-usuarios" class="btn buttonPrincipal"><i class="bi bi-arrow-right-circle"> Acceder</i></a>
                     </div>
                 </div>
             </div>
@@ -46,5 +49,24 @@
             </div>
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(noAdmin))
+    {
+        <script>
+            mostrarNotificacion("¡Recurso prohibido!", "No tiene los permisos suficientes para acceder a este recurso", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(noSePuedeEliminar))
+    {
+        <script>
+            mostrarNotificacion("¡Error!", "No se puede eliminar a un usuario con permisos de administrador", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <script>
+            mostrarNotificacion("¡Error!", "Ocurrio un error no esperado, intentelo de nuevo", 'error');
+        </script>
+    }
+
 </div>
 

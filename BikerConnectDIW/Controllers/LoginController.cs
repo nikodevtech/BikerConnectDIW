@@ -1,10 +1,8 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
-using DAL.Entidades;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 

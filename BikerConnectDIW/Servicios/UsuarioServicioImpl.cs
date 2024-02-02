@@ -67,7 +67,7 @@ namespace BikerConnectDIW.Servicios
                 Console.WriteLine("[Error UsuarioServicioImpl - registrarUsuario()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
                 return null;
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - registrarUsuario()] Error al registrar un usuario: " + e.Message);
                 return null;
@@ -86,7 +86,8 @@ namespace BikerConnectDIW.Servicios
 
                     return BitConverter.ToString(tokenBytes).Replace("-", "").ToLower();
                 }
-            } catch (ArgumentException ae) 
+            }
+            catch (ArgumentException ae)
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - ConfirmarCuenta()] Error al cgenerar un token de usuario " + ae.Message);
                 return null;
@@ -242,7 +243,7 @@ namespace BikerConnectDIW.Servicios
 
                 return true;
             }
-            catch (ArgumentNullException e) 
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - verificarCredenciales()] Error al comprobar las credenciales del usuario: " + e.Message);
                 return false;
@@ -250,25 +251,66 @@ namespace BikerConnectDIW.Servicios
 
         }
 
-        public UsuarioDTO obtenerUsuarioPorEmail(string email) 
+        public UsuarioDTO obtenerUsuarioPorEmail(string email)
         {
             try
             {
                 UsuarioDTO usuarioDTO = new UsuarioDTO();
                 var usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == email);
 
-                if (usuario != null) 
+                if (usuario != null)
                 {
                     usuarioDTO = _convertirAdto.usuarioToDto(usuario);
                 }
 
                 return usuarioDTO;
             }
-            catch (ArgumentNullException e) 
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine("[Error UsuarioServicioImpl - obtenerUsuarioPorEmail()] Error al obtener el usuario por email: " + e.Message);
                 return null;
             }
         }
+
+        public List<UsuarioDTO> obtenerTodosLosUsuarios()
+        {
+            return _convertirAdto.listaUsuarioToDto(_contexto.Usuarios.ToList());
+        }
+
+        public UsuarioDTO buscarPorId(long id)
+        {
+            try
+            {
+                Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
+                if (usuario != null)
+                {
+                    return _convertirAdto.usuarioToDto(usuario);
+                }
+            }
+            catch (ArgumentException iae)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - BuscarPorId()] Al buscar el usuario por su id " + iae.Message);
+            }
+            return null;
+        }
+
+        public void eliminar(long id)
+        {
+            try
+            {
+                Usuario? usuario = _contexto.Usuarios.Find(id);
+                if (usuario != null)
+                {
+                    _contexto.Usuarios.Remove(usuario);
+                    _contexto.SaveChanges();
+                }
+            }
+            catch (DbUpdateException dbe)
+            {
+                Console.WriteLine("[Error UsuarioServicioImpl - Eliminar()] De persistencia al eliminar el usuario por su id " + dbe.Message);
+            }
+        }
+
+
     }
 }

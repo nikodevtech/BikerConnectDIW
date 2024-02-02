@@ -8,24 +8,24 @@ function revisarContraseña() {
         mensajeContraseña.innerHTML = '<span class="badge bg-danger">No puede dejar los campos contraseñas vacíos</span>';
         mensajeContraseña.style.color = 'red';
         document.getElementById("btnRegistro").disabled = true;
-        btnRegistro.style.backgroundColor = "#959595"; 
+        btnRegistro.style.backgroundColor = "#959595";
     } else if (contraseña === confContraseña) {
         if (contraseñaRegex.test(contraseña)) {
             mensajeContraseña.innerHTML = '<span class="badge bg-success">Contraseña válida</span>';
             mensajeContraseña.style.color = 'green';
             document.getElementById("btnRegistro").disabled = false;
-            btnRegistro.style.backgroundColor = "#5993d3"; 
+            btnRegistro.style.backgroundColor = "#5993d3";
         } else {
             mensajeContraseña.innerHTML = '<span class="badge bg-danger">La contraseña debe tener al menos 8 caracteres con 1 número</span>';
             mensajeContraseña.style.color = 'red';
             document.getElementById("btnRegistro").disabled = true;
-            btnRegistro.style.backgroundColor = "#959595"; 
+            btnRegistro.style.backgroundColor = "#959595";
         }
     } else {
         mensajeContraseña.innerHTML = '<span class="badge bg-danger">Las contraseñas introducidas no son iguales</span>';
         mensajeContraseña.style.color = 'red';
         document.getElementById("btnRegistro").disabled = true;
-        btnRegistro.style.backgroundColor = "#959595"; 
+        btnRegistro.style.backgroundColor = "#959595";
     }
 }
 
@@ -37,7 +37,7 @@ function mostrarNotificacion(titulo, mensaje, tipo) {
         icon: tipo,
         confirmButtonText: 'OK',
         customClass: {
-            confirmButton: 'btn btn-primary'  
+            confirmButton: 'btn btn-primary'
         }
     });
 }
@@ -73,27 +73,27 @@ function confirmar(mensaje) {
     });
 }
 
+//function confirmarEliminarMoto(event) {
+//    const idMoto = event.currentTarget.getAttribute("data-id");
+//    confirmar("eliminar").then(function (confirmado) {
+//        if (confirmado) {
+//            window.location.href = 'https://localhost:7142/privada/eliminar-moto/' + idMoto;
+//        }
+//    });
+//}
+//function confirmarCancelarQuedada(event) {
+//    const idQuedada = event.currentTarget.getAttribute("data-id");
+//    confirmar("cancelar").then(function (confirmado) {
+//        if (confirmado) {
+//            window.location.href = 'https://localhost:7142/privada/quedadas/detalle-quedada/cancelar-quedada/' + idQuedada;
+//        }
+//    });
+//}
 function confirmarEliminar(event) {
     const idUsuario = event.currentTarget.getAttribute("data-id");
     confirmar("eliminar").then(function (confirmado) {
         if (confirmado) {
-            window.location.href = 'http://localhost:8080/privada/eliminar-usuario/' + idUsuario;
-        }
-    });
-}
-function confirmarEliminarMoto(event) {
-    const idMoto = event.currentTarget.getAttribute("data-id");
-    confirmar("eliminar").then(function (confirmado) {
-        if (confirmado) {
-            window.location.href = 'http://localhost:8080/privada/eliminar-moto/' + idMoto;
-        }
-    });
-}
-function confirmarCancelarQuedada(event) {
-    const idQuedada = event.currentTarget.getAttribute("data-id");
-    confirmar("cancelar").then(function (confirmado) {
-        if (confirmado) {
-            window.location.href = 'http://localhost:8080/privada/quedadas/detalle-quedada/cancelar-quedada/' + idQuedada;
+            window.location.href = 'https://localhost:7142/privada/eliminar-usuario/' + idUsuario;
         }
     });
 }

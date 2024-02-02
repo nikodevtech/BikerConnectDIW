@@ -3,11 +3,11 @@ using System.Text;
 
 namespace BikerConnectDIW.Servicios
 {
-    public class ServicioEncriptarImpl: IServicioEncriptar  
+    public class ServicioEncriptarImpl : IServicioEncriptar
     {
         public string Encriptar(string contraseña)
         {
-            try 
+            try
             {
                 using (SHA256 sha256 = SHA256.Create())
                 {
@@ -16,7 +16,8 @@ namespace BikerConnectDIW.Servicios
                     string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
                     return hash;
                 }
-            } catch(ArgumentException e) 
+            }
+            catch (ArgumentException e)
             {
                 Console.WriteLine("[Error  ServicioEncriptarImpl - Encriptar()] Error al encriptar: " + e.Message);
                 return null;
