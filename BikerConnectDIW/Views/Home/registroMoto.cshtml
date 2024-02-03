@@ -1,0 +1,41 @@
+﻿@model BikerConnectDIW.DTO.MotoDTO
+
+@{
+    ViewData["Title"] = "registroMoto";
+}
+
+<div class="container py-4">
+    <div class="registro cardPrincipal">
+        <form class="custom-form" asp-controller="MisMotos" asp-action="RegistrarMotoPost" method="post" asp-for="MotoDTO">
+            <h2 class="text-center mb-5">
+                <i class="bi bi-bicycle" style="color: #1f3c85;"> Registro nueva moto</i>
+            </h2>
+            <input type="hidden" asp-for="IdPropietario" />
+            <div class="mb-3">
+                <label for="marca" class="form-label textoPrincipal">Marca</label>
+                <input asp-for="Marca" type="text" id="marca" name="marca" class="form-control" placeholder="Introduzca la marca" required />
+            </div>
+            <div class="mb-3">
+                <label for="modelo" class="form-label textoPrincipal">Modelo</label>
+                <input asp-for="Modelo" type="text" id="modelo" name="modelo" class="form-control" placeholder="Introduzca el modelo" required />
+            </div>
+            <div class="mb-3">
+                <label for="color" class="form-label textoPrincipal">Color</label>
+                <input asp-for="Color" type="text" id="color" name="color" class="form-control" placeholder="Introduzca el color" required />
+            </div>
+            <div class="mb-3">
+                <label for="año" class="form-label textoPrincipal">Año fabricación</label>
+                <input asp-for="Año" type="number" id="año" name="año" min="1900" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label for="descModificaciones" class="form-label textoPrincipal">Descripción</label>
+                <input asp-for="DescModificaciones" type="text" id="descModificaciones" name="descModificaciones" class="form-control" placeholder="Introduzca descripción de las modificaciones" required />
+            </div>
+            <button type="submit" id="btnRegistro" class="btn btn-primary mt-5">
+                <i class="bi bi-plus-square fs-5"> Alta moto</i>
+            </button>
+        </form>
+    </div>
+</div>
+
+

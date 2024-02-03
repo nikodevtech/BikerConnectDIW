@@ -17,7 +17,8 @@ namespace BikerConnectDIW.Controllers
 
 
         [Authorize(Roles = "ROLE_ADMIN")]
-        [HttpGet("/privada/administracion-usuarios")]
+        [HttpGet]
+        [Route("/privada/administracion-usuarios")]
         public IActionResult ListadoUsuarios()
         {
             try
@@ -35,7 +36,8 @@ namespace BikerConnectDIW.Controllers
         }
 
         [Authorize(Roles = "ROLE_ADMIN")]
-        [HttpGet("/privada/eliminar-usuario/{id}")]
+        [HttpGet]
+        [Route("/privada/eliminar-usuario/{id}")]
         public IActionResult EliminarUsuario(long id)
         {
             try
@@ -79,7 +81,8 @@ namespace BikerConnectDIW.Controllers
         }
 
         [Authorize(Roles = "ROLE_ADMIN")]
-        [HttpGet("/privada/editar-usuario/{id}")]
+        [HttpGet]
+        [Route("/privada/editar-usuario/{id}")]
         public IActionResult MostrarFormularioEdicion(long id)
         {
             try
@@ -101,7 +104,8 @@ namespace BikerConnectDIW.Controllers
         }
 
         [Authorize(Roles = "ROLE_ADMIN")]
-        [HttpPost("/privada/procesar-editar")]
+        [HttpPost]
+        [Route("/privada/procesar-editar")]
         public IActionResult ProcesarFormularioEdicion(UsuarioDTO usuarioDTO)
         {
             try
@@ -154,6 +158,7 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        [Authorize(Roles = "ROLE_ADMIN")]
         [HttpGet]
         [Route("/auth/admin/crear-cuenta")]
         public IActionResult RegistroUsuarioDesdeAdminGet()

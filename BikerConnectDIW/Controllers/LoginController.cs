@@ -80,7 +80,8 @@ namespace BikerConnectDIW.Controllers
 
 
 
-        [HttpGet("/auth/confirmar-cuenta")]
+        [HttpGet]
+        [Route("/auth/confirmar-cuenta")]
         public IActionResult ConfirmarCuenta([FromQuery] string token)
         {
             try

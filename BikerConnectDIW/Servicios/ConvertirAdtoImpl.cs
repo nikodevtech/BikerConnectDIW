@@ -37,6 +37,7 @@ namespace BikerConnectDIW.Servicios
                     dto.FechaRegistro = u.FchRegistro;
                     dto.CuentaConfirmada = u.CuentaConfirmada;
                     dto.Rol = u.Rol;
+
                 }
 
                 return dto;
@@ -68,6 +69,46 @@ namespace BikerConnectDIW.Servicios
             return null;
         }
 
+        public MotoDTO motoToDto(Moto u)
+        {
+            MotoDTO moto = new MotoDTO();
+
+            try
+            {
+                moto.Id = u.IdMoto;
+                moto.Marca = u.Marca;
+                moto.Modelo = u.Modelo;
+                moto.Año = u.Año;
+                moto.Color = u.Color;
+                moto.DescModificaciones = u.DescModificaciones;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n[ERROR MotoToDtoImpl - MotoToDto()] - Al convertir entidad Moto a DTO (return null): {e}");
+                return null;
+            }
+
+            return moto;
+        }
+
+        public List<MotoDTO> listaMotosToDto(List<Moto> listaMotos)
+        {
+            List<MotoDTO> listaDto = new List<MotoDTO>();
+
+            try
+            {
+                foreach (Moto moto in listaMotos)
+                {
+                    listaDto.Add(motoToDto(moto));
+                }
+                return listaDto;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n[ERROR MotoToDtoImpl - ListaMotosToDto()] - Al convertir lista de entidades Moto a DTO (return null): {e}");
+            }
+            return null;
+        }
 
     }
 }

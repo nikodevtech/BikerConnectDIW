@@ -8,5 +8,11 @@ namespace BikerConnectDIW.Servicios
         public UsuarioDTO usuarioToDto(Usuario u);
 
         public List<UsuarioDTO> listaUsuarioToDto(List<Usuario> listaUsuario);
+
+        public MotoDTO motoToDto(Moto u);
+
+        public List<MotoDTO> listaMotosToDto(List<Moto> listaMotos);
+
+
     }
 }

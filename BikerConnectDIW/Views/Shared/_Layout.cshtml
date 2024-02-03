@@ -35,12 +35,12 @@
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/auth/login">
-                                <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
+                                <i class="bi bi-box-arrow-in-right fs-5"> Iniciar sesión</i>
                             </a>
                         </li>
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/auth/crear-cuenta">
-                                <i class="bi bi-person-add"> Crear cuenta</i>
+                                <i class="bi bi-person-add fs-5"> Crear cuenta</i>
                             </a>
                         </li>
                     }
@@ -48,49 +48,41 @@
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/auth/crear-cuenta">
-                                <i class="bi bi-person-add"> Crear cuenta</i>
+                                <i class="bi bi-person-add fs-5"> Crear cuenta</i>
                             </a>
                         </li>
                     }
 
-                    @if (currentController == "Registro" && currentAction == "RegistrarGet")
+                    @if ((currentController == "Registro" && currentAction == "RegistrarGet") || (currentController == "SolicitarRecuperacion" && currentAction == "MostrarVistaIniciarRecuperacion"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/auth/login">
-                                <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
+                                <i class="bi bi-box-arrow-in-right fs-5"> Iniciar sesión</i>
                             </a>
                         </li>
                         
                     }
-                    @if (currentController == "SolicitarRecuperacion" && currentAction == "MostrarVistaIniciarRecuperacion")
-                    {
-                        <li class="nav-item me-3">
-                            <a class="nav-link fw-bold text-white" href="/auth/login">
-                                <i class="bi bi-box-arrow-in-right"> Iniciar sesión</i>
-                            </a>
-                        </li>
-                    }
-                    @if (currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios")
+                    @if ((currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios") || (currentController == "MisMotos" && currentAction == "MostrarMisMotos"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/dashboard">
-                                <i class="bi bi-house"> Dashboard</i>
+                                <i class="bi bi-house fs-5"> Dashboard</i>
                             </a>
                         </li>
                     }
-                    @if (currentController == "AdministracionUsuarios" && currentAction == "MostrarFormularioEdicion")
+                    @if (currentController == "AdministracionUsuarios" && (currentAction == "MostrarFormularioEdicion" || currentAction == "RegistroUsuarioDesdeAdminGet"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/administracion-usuarios">
-                                <i class="bi bi-person-fill-gear"> Administracion usuarios</i>
+                                <i class="bi bi-person-fill-gear fs-5"> Administracion usuarios</i>
                             </a>
                         </li>
                     }
-                    @if (currentController == "AdministracionUsuarios" && currentAction == "RegistroUsuarioDesdeAdminGet")
+                    @if (currentController == "MisMotos" && currentAction == "MostrarFormNuevaMoto")
                     {
                         <li class="nav-item me-3">
-                            <a class="nav-link fw-bold text-white" href="/privada/administracion-usuarios">
-                                <i class="bi bi-person-fill-gear"> Administracion usuarios</i>
+                            <a class="nav-link fw-bold text-white" href="/privada/mis-motos">
+                                <i class="bi bi bi-bicycle fs-5"> Mis motos</i>
                             </a>
                         </li>
                     }

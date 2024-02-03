@@ -20,6 +20,7 @@ builder.Services.AddScoped<IServicioEncriptar, ServicioEncriptarImpl>();
 builder.Services.AddScoped<IConvertirAdto, ConvertirAdtoImpl>();
 builder.Services.AddScoped<IConvertirAdao, ConvertirAdaoImpl>();
 builder.Services.AddScoped<IServicioEmail, ServicioEmailImpl>();
+builder.Services.AddScoped<IMotoServicio, MotoServicioImpl>();
 
 builder.Services.AddAuthentication(options =>
 {

@@ -48,5 +48,28 @@ namespace BikerConnectDIW.Servicios
             }
             return null;
         }
+
+        public Moto motoToDao(MotoDTO motoDTO)
+        {
+            try
+            {
+                Moto moto = new Moto();
+
+                moto.Marca = motoDTO.Marca;
+                moto.Modelo = motoDTO.Modelo;
+                moto.Año = motoDTO.Año;
+                moto.Color = motoDTO.Color;
+                moto.DescModificaciones = motoDTO.DescModificaciones;      
+
+                return moto;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n[ERROR MotoToDaoImpl - MotoToDao()] - Al convertir MotoDTO a DAO (return null): {e}");
+            }
+
+            return null;
+        }
+
     }
 }

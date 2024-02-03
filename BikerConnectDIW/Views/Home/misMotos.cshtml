@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "misMotos";
+    var altaMotoExito = ViewData["altaMotoExito"] as string;
+    var altaMotoError = ViewData["altaMotoError"] as string;
+
+}
+
+<div class="container py-4">
+    <div class="card bg-light cardPrincipal">
+        <div class="card-header border-bottom border-3">
+            <h3 class="subtituloSecundario">Mis motos</h3>
+        </div>
+        <div class="card-body">
+            <a asp-controller="MisMotos" asp-action="MostrarFormNuevaMoto" role="button" class="btn buttonPrincipal p-2 mb-3">
+                <i class="bi bi-bicycle p-2 fs-5"> Registrar moto</i>
+            </a>
+                @if (ViewBag.MisMotos != null)
+                {
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+                        @foreach (var moto in ViewBag.MisMotos)
+                        {
+                            <div class="col">
+                                <div class="card cardMoto">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@($"{moto.Marca} {moto.Modelo}")</h5>
+                                        <p class="card-text">Año: <span>@moto.Año</span></p>
+                                        <p class="card-text">Color: <span>@moto.Color</span></p>
+                                        <p class="card-text">Descripción: <span>@moto.DescModificaciones</span></p>
+                                        <a class="btn btn-danger btn-sm" asp-controller="Moto" asp-action="Eliminar" asp-route-id="@moto.Id" onclick="confirmarEliminarMoto(event)">
+                                            <i class="bi bi-trash"> Eliminar</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <h5 class="card-title text-center text-danger">No tengo ninguna moto registrada en el sistema</h5>
+
+                }
+        </div>
+    </div>
+    @if (!string.IsNullOrEmpty(altaMotoExito))
+    {
+        <script>
+            mostrarNotificacion("¡Moto registrada en el sistema!", "Se ha dado de alta su nueva moto correctamente", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(altaMotoError))
+    {
+        <script>
+            mostrarNotificacion("¡Error al registrar tu moto!", "No se pudo registrar su nueva moto, intentelo de nuevo.", 'error');
+        </script>
+    }
+</div>
+

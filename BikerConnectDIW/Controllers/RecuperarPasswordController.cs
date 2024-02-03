@@ -15,7 +15,8 @@ namespace BikerConnectDIW.Controllers
         }
 
 
-        [HttpGet("/auth/recuperar")]
+        [HttpGet]
+        [Route("/auth/recuperar")]
         public IActionResult MostrarVistaRecuperar([FromQuery(Name = "token")] string token)
         {
 
