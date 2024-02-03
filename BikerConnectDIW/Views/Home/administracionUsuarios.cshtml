@@ -1,9 +1,14 @@
 ﻿@{
     ViewData["Title"] = "administracionUsuarios";
-    var noSePuedeEliminar = TempData["noSePuedeEliminar"] as string;
-    var elUsuarioTieneQuedadas = TempData["elUsuarioTieneQuedadas"] as string;
-    var eliminacionCorrecta = TempData["eliminacionCorrecta"] as string;
-    var EdicionCorrecta = TempData["EdicionCorrecta"] as string;
+    var noSePuedeEliminar = ViewData["noSePuedeEliminar"] as string;
+    var elUsuarioTieneQuedadas = ViewData["elUsuarioTieneQuedadas"] as string;
+    var eliminacionCorrecta = ViewData["eliminacionCorrecta"] as string;
+    var EdicionCorrecta = ViewData["EdicionCorrecta"] as string;
+    var mensajeRegistroExitoso = ViewData["MensajeRegistroExitoso"] as string;
+    var cuentaNoVerificada = ViewData["EmailNoConfirmado"] as string;
+    var error = ViewData["error"] as string;
+
+
 }
 
 <div class="container py-4">
@@ -12,7 +17,7 @@
             <h3 class="subtituloSecundario">Administración de usuarios</h3>
         </div>
         <div class="card-body">
-            <a href="/auth/crear-cuenta" role="button" class="btn buttonPrincipal p-2 mb-3">
+            <a asp-controller="AdministracionUsuarios" asp-action="RegistroUsuarioDesdeAdminGet" role="button" class="btn buttonPrincipal p-2 mb-3">
                 <i class="bi bi-person-add p-2 fs-5"> Registrar usuario</i>
             </a>
             @if (ViewBag.Usuarios != null)
@@ -63,6 +68,12 @@
             }
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(mensajeRegistroExitoso))
+    {
+        <script>
+            mostrarNotificacion("¡El usuario fue registrado!", "Para usar la cuenta tiene que confirmar su cuenta de correo electrónico.", 'info');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(noSePuedeEliminar))
     {
         <script>
@@ -81,10 +92,22 @@
             mostrarNotificacion("¡Usuario eliminado!", "El usuario ha sido eliminado correctamente", 'success');
         </script>
     }
+    @if (!string.IsNullOrEmpty(cuentaNoVerificada))
+    {
+        <script>
+            mostrarNotificacion("¡Email registrado pero sin verificar!", "Para que pueda usar la cuenta, antes debe confirmar su cuenta de correo electrónico", 'error');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(EdicionCorrecta))
     {
         <script>
             mostrarNotificacion("¡Cambios guardados!", "El usuario ha sido modificado", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <script>
+            mostrarNotificacion("¡Error!", "Ocurrio un error no esperado, intentelo de nuevo", 'error');
         </script>
     }
 </div>

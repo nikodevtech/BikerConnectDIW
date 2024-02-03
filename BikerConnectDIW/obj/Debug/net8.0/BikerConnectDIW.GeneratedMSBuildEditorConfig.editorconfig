@@ -17,63 +17,63 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BikerConnectDIW
 build_property.RootNamespace = BikerConnectDIW
-build_property.ProjectDir = C:\Users\Puesto9\source\repos\BikerConnectDIW\BikerConnectDIW\
+build_property.ProjectDir = D:\Descargas\BikerConnectDIW\BikerConnectDIW\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Puesto9\source\repos\BikerConnectDIW\BikerConnectDIW
+build_property.MSBuildProjectDirectory = D:\Descargas\BikerConnectDIW\BikerConnectDIW
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/administracionUsuarios.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/administracionUsuarios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhZG1pbmlzdHJhY2lvblVzdWFyaW9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/dashboard.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxkYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/editarUsuario.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/editarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxlZGl0YXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/Index.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/login.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/recuperar.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/recuperar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWN1cGVyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/registro.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/registro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Home/solicitarRecuperacionPassword.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Home/solicitarRecuperacionPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzb2xpY2l0YXJSZWN1cGVyYWNpb25QYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Shared/Error.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/_ViewImports.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/_ViewStart.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Puesto9/source/repos/BikerConnectDIW/BikerConnectDIW/Views/Shared/_Layout.cshtml]
+[D:/Descargas/BikerConnectDIW/BikerConnectDIW/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-t2p4z7dj2i

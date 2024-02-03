@@ -70,12 +70,27 @@
                             </a>
                         </li>
                     }
-
-                    @if (currentController == "AdministracionUsuarios" || currentAction == "ListadoUsuarios")
+                    @if (currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios")
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/dashboard">
                                 <i class="bi bi-house"> Dashboard</i>
+                            </a>
+                        </li>
+                    }
+                    @if (currentController == "AdministracionUsuarios" && currentAction == "MostrarFormularioEdicion")
+                    {
+                        <li class="nav-item me-3">
+                            <a class="nav-link fw-bold text-white" href="/privada/administracion-usuarios">
+                                <i class="bi bi-person-fill-gear"> Administracion usuarios</i>
+                            </a>
+                        </li>
+                    }
+                    @if (currentController == "AdministracionUsuarios" && currentAction == "RegistroUsuarioDesdeAdminGet")
+                    {
+                        <li class="nav-item me-3">
+                            <a class="nav-link fw-bold text-white" href="/privada/administracion-usuarios">
+                                <i class="bi bi-person-fill-gear"> Administracion usuarios</i>
                             </a>
                         </li>
                     }

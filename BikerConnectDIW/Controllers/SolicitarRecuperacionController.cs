@@ -26,7 +26,7 @@ namespace BikerConnectDIW.Controllers
             }
             catch (Exception e)
             {
-                ViewData["Error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
                 return View("~/Views/Home/solicitarRecuperacionPassword.cshtml");
             }
         }
@@ -53,7 +53,7 @@ namespace BikerConnectDIW.Controllers
             }
             catch (Exception e)
             {
-                ViewData["Error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
                 return View("~/Views/Home/solicitarRecuperacionPassword.cshtml");
             }
         }

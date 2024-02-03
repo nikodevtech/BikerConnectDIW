@@ -29,7 +29,7 @@ namespace BikerConnectDIW.Controllers
             }
             catch (Exception e)
             {
-                ViewBag.Error = "Ocurrió un error al obtener la lista de usuarios";
+                ViewData["error"] = "Ocurrió un error al obtener la lista de usuarios";
                 return View("~/Views/Home/dashboard.cshtml");
             }
         }
@@ -45,7 +45,7 @@ namespace BikerConnectDIW.Controllers
 
                 if (User.IsInRole("ROLE_USER"))
                 {
-                    TempData["noAdmin"] = "No tiene permiso para acceder al recurso";
+                    ViewData["noAdmin"] = "No tiene permiso para acceder al recurso";
                     ViewBag.Usuarios = usuarios;
                     return View("~/Views/Home/dashboard.cshtml");
                 }
@@ -53,27 +53,27 @@ namespace BikerConnectDIW.Controllers
                 {
                     if (User.IsInRole("ROLE_ADMIN") && usuario.Rol == "ROLE_ADMIN")
                     {
-                        TempData["noSePuedeEliminar"] = "No se puede eliminar a un admin";
+                        ViewData["noSePuedeEliminar"] = "No se puede eliminar a un admin";
                         ViewBag.Usuarios = usuarios;
                         return View("~/Views/Home/administracionUsuarios.cshtml");
                     }
 
                     if (usuario.MisQuedadas.Count > 0)
                     {
-                        TempData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas";
+                        ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas";
                         ViewBag.Usuarios = usuarios;
                         return View("~/Views/Home/administracionUsuarios.cshtml");
                     }
 
                     _usuarioServicio.eliminar(id);
-                    TempData["eliminacionCorrecta"] = "El usuario se ha eliminado correctamente";
+                    ViewData["eliminacionCorrecta"] = "El usuario se ha eliminado correctamente";
                     ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
                     return View("~/Views/Home/administracionUsuarios.cshtml");
                 }
             }
             catch (Exception e)
             {
-                TempData["Error"] = "Ocurrió un error al eliminar el usuario";
+                ViewData["error"] = "Ocurrió un error al eliminar el usuario";
                 return View("~/Views/Home/dashboard.cshtml");
             }
         }
@@ -95,7 +95,7 @@ namespace BikerConnectDIW.Controllers
             }
             catch (Exception e)
             {
-                ViewBag.Error = "Ocurrió un error al obtener el usuario para editar";
+                ViewData["error"] = "Ocurrió un error al obtener el usuario para editar";
                 return View("~/Views/Home/dashboard.cshtml");
             }
         }
@@ -108,14 +108,66 @@ namespace BikerConnectDIW.Controllers
             {
                 _usuarioServicio.actualizarUsuario(usuarioDTO);
 
-                TempData["EdicionCorrecta"] = "El Usuario se ha editado correctamente";
+                ViewData["EdicionCorrecta"] = "El Usuario se ha editado correctamente";
                 ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
                 return View("~/Views/Home/administracionUsuarios.cshtml");
             }
             catch (Exception e)
             {
-                TempData["Error"] = "Ocurrió un error al editar el usuario";
+                ViewData["error"] = "Ocurrió un error al editar el usuario";
                 return View("~/Views/Home/dashboard.cshtml");
+            }
+        }
+
+        [Authorize(Roles = "ROLE_ADMIN")]
+        [HttpPost]
+        [Route("/auth/admin/crear-cuenta")]
+        public IActionResult RegistrarPost(UsuarioDTO usuarioDTO)
+        {
+            try
+            {
+                UsuarioDTO nuevoUsuario = _usuarioServicio.registrarUsuario(usuarioDTO);
+
+                if (nuevoUsuario.EmailUsuario == "EmailNoConfirmado")
+                {
+                    ViewData["EmailNoConfirmado"] = "Ya existe un usuario registrado con ese email con la cuenta sin verificar";
+                    ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                    return View("~/Views/Home/administracionUsuarios.cshtml");
+                }
+                else if (nuevoUsuario.EmailUsuario == "EmailRepetido")
+                {
+                    ViewData["EmailRepetido"] = "Ya existe un usuario con ese email registrado en el sistema";
+                    ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                    return View("~/Views/Home/registro.cshtml");
+                }
+                else
+                {
+                    ViewData["MensajeRegistroExitoso"] = "Registro del nuevo usuario OK";
+                    ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                    return View("~/Views/Home/administracionUsuarios.cshtml");
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("~/Views/Home/administracionUsuarios.cshtml");
+            }
+        }
+
+        [HttpGet]
+        [Route("/auth/admin/crear-cuenta")]
+        public IActionResult RegistroUsuarioDesdeAdminGet()
+        {
+            try 
+            {
+                UsuarioDTO usuarioDTO = new UsuarioDTO();
+                ViewData["esRegistroDeAdmin"] = true;
+                return View("~/Views/Home/registro.cshtml", usuarioDTO);
+
+            } catch (Exception e) 
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente";
+                return View("~/Views/Home/registro.cshtml");
             }
         }
     }

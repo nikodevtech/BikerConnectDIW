@@ -3,12 +3,20 @@
 @{
     ViewData["Title"] = "registro";
     var emailYaRegistrado = ViewData["EmailRepetido"] as string;
+    string nombreControlador = "Registro";
+    var esRegistroDeAdmin = ViewData["esRegistroDeAdmin"] as bool?;
+    var error = ViewData["error"] as string;
+    if (esRegistroDeAdmin.HasValue && esRegistroDeAdmin.Value)
+    {
+        nombreControlador = "AdministracionUsuarios"; 
+    }
 }
 
 <div class="container py-4">
     <div class="registro cardPrincipal">
-        <form class="custom-form" asp-action="RegistrarPost" method="post" asp-for="UsuarioDTO">
+        <form class="custom-form" asp-action="RegistrarPost" asp-controller="@nombreControlador" method="post" asp-for="UsuarioDTO">
             <h2 class="text-center mb-5"><i class="bi bi-person-vcard-fill" style="color: #1f3c85;"> Registro nuevo usuario</i></h2>
+            <input type="hidden" name="returnUrl" value="@TempData["ReturnUrl"]" />
             <div class="mb-3">
                 <label for="EmailUsuario" class="form-label textoPrincipal">Correo Electrónico</label>
                 <input type="email" id="EmailUsuario" name="EmailUsuario" class="form-control" placeholder="Escribe tu correo electrónico" required />
@@ -42,6 +50,12 @@
     {
         <script>
             mostrarNotificacion("¡No se pudo crear la cuenta!", "El email introducido ya se encuentra registrado en el sistema", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <script>
+            mostrarNotificacion("¡Error!", "Ocurrio un error no esperado, intentelo de nuevo", 'error');
         </script>
     }
 

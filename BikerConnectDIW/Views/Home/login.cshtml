@@ -9,12 +9,12 @@
     var contraseñaModificada = ViewData["ContraseñaModificadaExito"] as string;
     var mensajeErrorInicioSesion = ViewData["MensajeErrorInicioSesion"] as string;
     var recursoProhibido = ViewData["RecursoProhibido"] as string;
-    var error = ViewData["Error"] as string;
+    var error = ViewData["error"] as string;
 }
 
 <div class="container py-4">
     <div class="login cardPrincipal">
-        <form class="custom-form" method="post" asp-action="ProcesarInicioSesion" asp-for="UsuarioDTO" role="form">
+        <form class="custom-form" method="post" asp-action="ProcesarInicioSesion" asp-controller="Login" asp-for="UsuarioDTO" role="form">
             <h2 class="text-center mb-5"><i class="bi bi-box-arrow-in-right" style="color: #1f3c85;"> Iniciar sesión</i></h2>
             <div class="mb-3">
                 <label class="form-label textoPrincipal">Correo Electrónico</label>
