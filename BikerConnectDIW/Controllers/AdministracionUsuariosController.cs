@@ -45,33 +45,27 @@ namespace BikerConnectDIW.Controllers
                 UsuarioDTO usuario = _usuarioServicio.buscarPorId(id);
                 List<UsuarioDTO> usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
 
-                if (User.IsInRole("ROLE_USER"))
+                int adminsRestantes = _usuarioServicio.contarUsuariosPorRol("ROLE_ADMIN");
+
+                if (User.IsInRole("ROLE_ADMIN") && adminsRestantes == 1)
                 {
-                    ViewData["noAdmin"] = "No tiene permiso para acceder al recurso";
+                    ViewData["noSePuedeEliminar"] = "No se puede eliminar al ultimo admin";
                     ViewBag.Usuarios = usuarios;
-                    return View("~/Views/Home/dashboard.cshtml");
-                }
-                else
-                {
-                    if (User.IsInRole("ROLE_ADMIN") && usuario.Rol == "ROLE_ADMIN")
-                    {
-                        ViewData["noSePuedeEliminar"] = "No se puede eliminar a un admin";
-                        ViewBag.Usuarios = usuarios;
-                        return View("~/Views/Home/administracionUsuarios.cshtml");
-                    }
-
-                    if (usuario.MisQuedadas.Count > 0)
-                    {
-                        ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas";
-                        ViewBag.Usuarios = usuarios;
-                        return View("~/Views/Home/administracionUsuarios.cshtml");
-                    }
-
-                    _usuarioServicio.eliminar(id);
-                    ViewData["eliminacionCorrecta"] = "El usuario se ha eliminado correctamente";
-                    ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
                     return View("~/Views/Home/administracionUsuarios.cshtml");
                 }
+
+                if (usuario.MisQuedadas.Count > 0)
+                {
+                    ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas";
+                    ViewBag.Usuarios = usuarios;
+                    return View("~/Views/Home/administracionUsuarios.cshtml");
+                }
+
+                _usuarioServicio.eliminar(id);
+                ViewData["eliminacionCorrecta"] = "El usuario se ha eliminado correctamente";
+                ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                return View("~/Views/Home/administracionUsuarios.cshtml");
+
             }
             catch (Exception e)
             {
@@ -163,13 +157,14 @@ namespace BikerConnectDIW.Controllers
         [Route("/auth/admin/crear-cuenta")]
         public IActionResult RegistroUsuarioDesdeAdminGet()
         {
-            try 
+            try
             {
                 UsuarioDTO usuarioDTO = new UsuarioDTO();
                 ViewData["esRegistroDeAdmin"] = true;
                 return View("~/Views/Home/registro.cshtml", usuarioDTO);
 
-            } catch (Exception e) 
+            }
+            catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente";
                 return View("~/Views/Home/registro.cshtml");

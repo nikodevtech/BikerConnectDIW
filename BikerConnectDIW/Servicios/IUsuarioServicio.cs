@@ -25,5 +25,8 @@ namespace BikerConnectDIW.Servicios
         public void eliminar(long id);
 
         public void actualizarUsuario(UsuarioDTO usuarioModificado);
+
+        public int contarUsuariosPorRol(string rol);
+
     }
 }

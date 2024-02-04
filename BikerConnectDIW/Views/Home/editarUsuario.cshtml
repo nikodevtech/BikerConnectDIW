@@ -28,7 +28,7 @@
         <div class="mb-3">
             <label for="rol" class="form-label textoPrincipal">Rol del usuario</label>
             <select asp-for="Rol" id="rol" class="form-select" required>
-                <option value="ROLE_USER">Usuario</option>
+                <option value="ROLE_USER" disabled>Usuario (Solamente se permite escalar privilegios)</option>
                 <option value="ROLE_ADMIN">Administrador</option>
             </select>
         </div>

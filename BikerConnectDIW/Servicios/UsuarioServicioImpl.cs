@@ -337,6 +337,10 @@ namespace BikerConnectDIW.Servicios
             }
         }
 
+        public int contarUsuariosPorRol(string rol)
+        {
+            return _contexto.Usuarios.Count(u => u.Rol == rol);
+        }
 
 
     }
