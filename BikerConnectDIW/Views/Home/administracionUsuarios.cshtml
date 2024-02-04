@@ -6,6 +6,7 @@
     var EdicionCorrecta = ViewData["EdicionCorrecta"] as string;
     var mensajeRegistroExitoso = ViewData["MensajeRegistroExitoso"] as string;
     var cuentaNoVerificada = ViewData["EmailNoConfirmado"] as string;
+    var noTePuedesEliminar = ViewData["noTePuedesEliminar"] as string;
     var error = ViewData["error"] as string;
 
 
@@ -102,6 +103,12 @@
     {
         <script>
             mostrarNotificacion("¡Cambios guardados!", "El usuario ha sido modificado", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(noTePuedesEliminar))
+    {
+        <script>
+            mostrarNotificacion("¡No puede eliminarse a sí mismo!", "Debe ser otro administrador quien realice esta acción", 'info');
         </script>
     }
     @if (!string.IsNullOrEmpty(error))

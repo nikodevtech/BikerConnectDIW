@@ -45,20 +45,32 @@ namespace BikerConnectDIW.Controllers
                 UsuarioDTO usuario = _usuarioServicio.buscarPorId(id);
                 List<UsuarioDTO> usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
 
+                string emailUsuarioActual = User.Identity.Name;
+
                 int adminsRestantes = _usuarioServicio.contarUsuariosPorRol("ROLE_ADMIN");
 
-                if (User.IsInRole("ROLE_ADMIN") && adminsRestantes == 1)
+                if (emailUsuarioActual == usuario.EmailUsuario)
                 {
-                    ViewData["noSePuedeEliminar"] = "No se puede eliminar al ultimo admin";
+                    ViewData["noTePuedesEliminar"] = "No puedes eliminarte a ti mismo";
                     ViewBag.Usuarios = usuarios;
                     return View("~/Views/Home/administracionUsuarios.cshtml");
-                }
 
-                if (usuario.MisQuedadas.Count > 0)
+                }
+                else
                 {
-                    ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas";
-                    ViewBag.Usuarios = usuarios;
-                    return View("~/Views/Home/administracionUsuarios.cshtml");
+                    if (User.IsInRole("ROLE_ADMIN") && adminsRestantes == 1)
+                    {
+                        ViewData["noSePuedeEliminar"] = "No se puede eliminar al ultimo admin";
+                        ViewBag.Usuarios = usuarios;
+                        return View("~/Views/Home/administracionUsuarios.cshtml");
+                    }
+
+                    if (usuario.MisQuedadas.Count > 0)
+                    {
+                        ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas pendientes";
+                        ViewBag.Usuarios = usuarios;
+                        return View("~/Views/Home/administracionUsuarios.cshtml");
+                    }
                 }
 
                 _usuarioServicio.eliminar(id);
