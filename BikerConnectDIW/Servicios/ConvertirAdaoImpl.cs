@@ -59,7 +59,8 @@ namespace BikerConnectDIW.Servicios
                 moto.Modelo = motoDTO.Modelo;
                 moto.Año = motoDTO.Año;
                 moto.Color = motoDTO.Color;
-                moto.DescModificaciones = motoDTO.DescModificaciones;      
+                moto.DescModificaciones = motoDTO.DescModificaciones;   
+                moto.IdUsuarioPropietario = motoDTO.IdPropietario;
 
                 return moto;
             }

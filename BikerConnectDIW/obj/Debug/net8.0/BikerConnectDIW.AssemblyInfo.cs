@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BikerConnectDIW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3344ef7a2c6c7ce08d4f8798dfe82a24e9e664ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02c5fb306a3ead47585eff7f631d66b240d4e23a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BikerConnectDIW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BikerConnectDIW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

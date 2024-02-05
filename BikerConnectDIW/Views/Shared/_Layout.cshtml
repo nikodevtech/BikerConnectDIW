@@ -62,7 +62,7 @@
                         </li>
                         
                     }
-                    @if ((currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios") || (currentController == "MisMotos" && currentAction == "MostrarMisMotos"))
+                    @if ((currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios") || (currentAction == "MostrarMisMotos" || currentAction == "EliminarMoto" || currentAction == "RegistrarMotoPost"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/dashboard">

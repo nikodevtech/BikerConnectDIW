@@ -1,5 +1,6 @@
 ﻿using BikerConnectDIW.DTO;
 using DAL.Entidades;
+using Microsoft.EntityFrameworkCore;
 
 namespace BikerConnectDIW.Servicios
 {
@@ -24,18 +25,14 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
-                // Buscar el usuario propietario por su Id
                 Usuario? usuarioPropietario = _contexto.Usuarios.Find(motoDTO.IdPropietario);
 
-                // Convertir el DTO a entidad Moto
                 Moto moto = _convertirAdao.motoToDao(motoDTO);
 
-                // Establecer la relación con el usuario propietario
                 if (usuarioPropietario != null)
                 {
                     moto.IdUsuarioPropietarioNavigation = usuarioPropietario;
 
-                    // Guardar la nueva moto en el repositorio
                     _contexto.Motos.Add(moto);
                     _contexto.SaveChanges();
 
@@ -44,21 +41,46 @@ namespace BikerConnectDIW.Servicios
 
                 return false;
             }
-            catch (Exception e)
+            catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR MotoServicioImpl - RegistrarMoto()] - Al registrar nueva moto de un usuario: {e}");
+                Console.WriteLine($"\n[ERROR MotoServicioImpl - RegistrarMoto()] - Error de persistencia al registrar nueva moto de un usuario: {dbe}");
                 return false;
             }
         }
 
         public MotoDTO buscarPorId(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Moto? moto = _contexto.Motos.Find(id);
+                if (moto != null) 
+                {
+                    return _convertirAdto.motoToDto(moto);
+                }
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine($"\n[ERROR MotoServicioImpl - buscarPorId()] - Al buscar una moto de un usuario por su id: {e}");
+            }
+            return null;
+
         }
 
         public void eliminarMoto(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Moto? moto = _contexto.Motos.Find(id);
+                if (moto != null)
+                {
+                    _contexto.Motos.Remove(moto);
+                    _contexto.SaveChanges();
+                }
+            }
+            catch (DbUpdateException dbe)
+            {
+                Console.WriteLine($"[Error MotoServicioImpl - eliminarMoto()] Error de persistencia al eliminar una moto por su id: {dbe.Message}");
+            }
         }
 
         public List<MotoDTO> obtenerMotosPorPropietarioId(long id)
@@ -67,9 +89,9 @@ namespace BikerConnectDIW.Servicios
             {
                 List<Moto> listaMotos = _contexto.Motos.Where(m => m.IdUsuarioPropietario == id).ToList();
                 return _convertirAdto.listaMotosToDto(listaMotos);
-            } catch (Exception e) 
+            } catch (ArgumentNullException e) 
             {
-                Console.WriteLine($"\n[ERROR MotoServicioImpl - RegistrarMoto()] - Al registrar nueva moto de un usuario: {e}");
+                Console.WriteLine($"\n[ERROR MotoServicioImpl - obtenerMotosPorPropietarioId()] - Argumento id es NULL al obtener las motos de un usuario: {e}");
                 return null;
             }
         }

@@ -3,6 +3,8 @@
     ViewData["Title"] = "misMotos";
     var altaMotoExito = ViewData["altaMotoExito"] as string;
     var altaMotoError = ViewData["altaMotoError"] as string;
+    var eliminacionCorrecta = ViewData["eliminacionCorrecta"] as string;
+    var eliminacionError = ViewData["error"] as string;
 
 }
 
@@ -28,7 +30,7 @@
                                         <p class="card-text">Año: <span>@moto.Año</span></p>
                                         <p class="card-text">Color: <span>@moto.Color</span></p>
                                         <p class="card-text">Descripción: <span>@moto.DescModificaciones</span></p>
-                                        <a class="btn btn-danger btn-sm" asp-controller="Moto" asp-action="Eliminar" asp-route-id="@moto.Id" onclick="confirmarEliminarMoto(event)">
+                                        <a class="btn btn-danger btn-sm" asp-controller="MisMotos" asp-action="EliminarMoto" asp-route-id="@moto.Id" onclick="confirmarEliminarMoto(event)">
                                             <i class="bi bi-trash"> Eliminar</i>
                                         </a>
                                     </div>
@@ -54,6 +56,18 @@
     {
         <script>
             mostrarNotificacion("¡Error al registrar tu moto!", "No se pudo registrar su nueva moto, intentelo de nuevo.", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(eliminacionCorrecta))
+    {
+        <script>
+            mostrarNotificacion("¡Moto eliminada!", "La moto ha sido eliminada correctamente", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(eliminacionError))
+    {
+        <script>
+            mostrarNotificacion("¡Error!", "Ocurrio un error no esperado, intentelo de nuevo", 'error');
         </script>
     }
 </div>

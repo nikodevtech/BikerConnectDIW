@@ -1,5 +1,6 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
+using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -80,10 +81,14 @@ namespace BikerConnectDIW.Controllers
                 if (motoRegistradaConExito)
                 {
                     ViewData["altaMotoExito"] = "Alta de la moto en el sistema OK";
+                    List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(motoDTO.IdPropietario);
+                    ViewBag.MisMotos = misMotos;
                 }
                 else
                 {
                     ViewData["altaMotoError"] = "No se pudo dar de alta la moto";
+                    List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(motoDTO.IdPropietario);
+                    ViewBag.MisMotos = misMotos;
                 }
 
                 return View("~/Views/Home/misMotos.cshtml");
@@ -95,6 +100,34 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/eliminar-moto/{id}")]
+        public IActionResult EliminarMoto(long id)
+        {
+            try
+            {
+                MotoDTO moto = _motoServicio.buscarPorId(id);
+                if (moto != null)
+                {
+                    _motoServicio.eliminarMoto(id);
+                    List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(moto.IdPropietario);
+                    if (misMotos != null)
+                    {
+                        if (misMotos.Count > 0)
+                            ViewBag.MisMotos = misMotos;
+                    }
+                    ViewData["eliminacionCorrecta"] = "La moto se ha eliminado correctamente";
+                }
+
+                return View("~/Views/Home/misMotos.cshtml");
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar el borrado de la moto";
+                return View("~/Views/Home/dashboard.cshtml");
+            }
+        }
 
     }
 }

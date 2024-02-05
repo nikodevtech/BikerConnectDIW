@@ -73,14 +73,14 @@ function confirmar(mensaje) {
     });
 }
 
-//function confirmarEliminarMoto(event) {
-//    const idMoto = event.currentTarget.getAttribute("data-id");
-//    confirmar("eliminar").then(function (confirmado) {
-//        if (confirmado) {
-//            window.location.href = 'https://localhost:7142/privada/eliminar-moto/' + idMoto;
-//        }
-//    });
-//}
+function confirmarEliminarMoto(event) {
+    const idMoto = event.currentTarget.getAttribute("data-id");
+    confirmar("eliminar").then(function (confirmado) {
+        if (confirmado) {
+            window.location.href = 'https://localhost:7142/privada/eliminar-moto/' + idMoto;
+        }
+    });
+}
 //function confirmarCancelarQuedada(event) {
 //    const idQuedada = event.currentTarget.getAttribute("data-id");
 //    confirmar("cancelar").then(function (confirmado) {

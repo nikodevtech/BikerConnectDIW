@@ -69,18 +69,19 @@ namespace BikerConnectDIW.Servicios
             return null;
         }
 
-        public MotoDTO motoToDto(Moto u)
+        public MotoDTO motoToDto(Moto m)
         {
             MotoDTO moto = new MotoDTO();
 
             try
             {
-                moto.Id = u.IdMoto;
-                moto.Marca = u.Marca;
-                moto.Modelo = u.Modelo;
-                moto.Año = u.Año;
-                moto.Color = u.Color;
-                moto.DescModificaciones = u.DescModificaciones;
+                moto.Id = m.IdMoto;
+                moto.Marca = m.Marca;
+                moto.Modelo = m.Modelo;
+                moto.Año = m.Año;
+                moto.Color = m.Color;
+                moto.DescModificaciones = m.DescModificaciones;
+                moto.IdPropietario = (long)m.IdUsuarioPropietario;
             }
             catch (Exception e)
             {

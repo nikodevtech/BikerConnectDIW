@@ -9,6 +9,7 @@ namespace BikerConnectDIW.Servicios
         public void eliminarMoto(long id);
 
         public MotoDTO buscarPorId(long id);
+
         List<MotoDTO> obtenerMotosPorPropietarioId(long id);
     }
 }
