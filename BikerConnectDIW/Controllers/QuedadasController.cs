@@ -10,17 +10,14 @@ namespace BikerConnectDIW.Controllers
     {
 
         private readonly IQuedadaServicio _quedadaServicio;
-        private readonly BikerconnectContext _contexto;
         private readonly IConvertirAdto _convertirAdto;
 
         public QuedadasController(
             IQuedadaServicio quedadaServicio, 
-            BikerconnectContext contexto,
             IConvertirAdto convertirAdto
             )
         {
             _quedadaServicio = quedadaServicio;
-            _contexto = contexto;
             _convertirAdto = convertirAdto;
         }
 

@@ -16,7 +16,5 @@ namespace BikerConnectDIW.Servicios
         public List<QuedadaDTO> listaQuedadaToDto(List<Quedada> listaQuedada);
 
         public QuedadaDTO quedadaToDto(Quedada q);
-
-
     }
 }

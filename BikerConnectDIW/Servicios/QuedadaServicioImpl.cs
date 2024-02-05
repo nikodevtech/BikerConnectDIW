@@ -10,16 +10,19 @@ namespace BikerConnectDIW.Servicios
         private readonly BikerconnectContext _contexto;
         private readonly IConvertirAdto _convertirAdto;
         private readonly IConvertirAdao _convertirAdao;
+        private readonly IMotoServicio _motoServicio;
 
         public QuedadaServicioImpl(
             BikerconnectContext contexto, 
             IConvertirAdto convertirAdto,
-            IConvertirAdao convertirAdao
+            IConvertirAdao convertirAdao,
+            IMotoServicio motoServicio
             )
         {
             _convertirAdto = convertirAdto;
             _contexto = contexto;
             _convertirAdao = convertirAdao;
+            _motoServicio = motoServicio;
         }
 
         public List<QuedadaDTO> obtenerQuedadas()
@@ -79,9 +82,10 @@ namespace BikerConnectDIW.Servicios
             try
             {
                 var participantes = _contexto.Participantes
-                    .Where(p => p.IdQuedada == idQuedada)
-                    .Include(p => p.IdUsuarioNavigation) 
-                    .ToList();
+                     .Include(p => p.IdUsuarioNavigation) 
+                     .Where(p => p.IdQuedada == idQuedada)
+                     .ToList();
+
 
                 List<UsuarioDTO> usuariosParticipantes = participantes
                     .Select(p => new UsuarioDTO
@@ -92,6 +96,11 @@ namespace BikerConnectDIW.Servicios
                         TlfUsuario = p.IdUsuarioNavigation.TlfMovil,
                     })
                     .ToList();
+
+                foreach(UsuarioDTO u in usuariosParticipantes) 
+                {
+                    u.MisMotos = _motoServicio.obtenerMotosPorPropietarioId(u.Id);
+                }
 
                 return usuariosParticipantes;
             }
