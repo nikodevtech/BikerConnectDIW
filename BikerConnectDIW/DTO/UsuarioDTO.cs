@@ -16,6 +16,8 @@
         public DateTime? FechaRegistro { get; set; }
         public bool CuentaConfirmada { get; set; }
         public string Rol { get; set; }
+
+        public string NombreYapellidos { get; set; }
         public List<MotoDTO> MisMotos { get; set; } = new List<MotoDTO>();
         public List<QuedadaDTO> MisQuedadas { get; set; } = new List<QuedadaDTO>();
 

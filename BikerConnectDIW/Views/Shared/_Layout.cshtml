@@ -94,7 +94,7 @@
                             </a>
                         </li>
                     }
-                    @if (currentController == "Quedadas" && currentAction == "PlanificarQuedada")
+                    @if (currentController == "Quedadas" && (currentAction == "PlanificarQuedada" || currentAction == "VerDetallesQuedada"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/quedadas">

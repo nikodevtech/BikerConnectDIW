@@ -1,0 +1,69 @@
+﻿@model BikerConnectDIW.DTO.QuedadaDTO
+@{
+    ViewData["Title"] = "detalleQuedada";
+}
+
+<div class="container py-4">
+    <div class="card bg-light cardPrincipal cardAdminUser">
+        <div class="card-header border-bottom border-3">
+            <h3 class="subtituloSecundario">Detalles de la Quedada</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Lugar:</strong> @Model.Lugar</p>
+                    <p><strong>Fecha y Hora:</strong> @Model.FechaHora</p>
+                    <p><strong>Organizador:</strong> @Model.UsuarioOrganizador</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Estado:</strong> @Model.Estado</p>
+                    <p><strong>Descripción:</strong> @Model.Descripcion</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h5 class="subtituloSecundario fs-5 text-center">Asistentes</h5>
+                    @if (ViewBag.Participantes != null)
+                    {
+                        <table class="table table-striped table-bordered">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th class="tableCustom">Nombre y apellidos</th>
+                                    <th class="tableCustom">Teléfono</th>
+                                    <th class="tableCustom">Motos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.Participantes != null)
+                                {
+                                    @foreach (var participante in ViewBag.Participantes)
+                                    {
+                                        <tr>
+                                            <td>@participante.NombreYapellidos</td>
+                                            <td>@participante.TlfUsuario</td>
+                                            <td>
+                                                <ul>
+                                                    @*                                                 @foreach (var moto in participante.MisMotos)
+                                        {
+                                        <li>@moto.Marca - @moto.Modelo</li>
+                                        } *@
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <h5 class="card-title text-center text-danger">Actualmente no hay participantes registrados en la quedadas</h5>
+
+                    }                       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

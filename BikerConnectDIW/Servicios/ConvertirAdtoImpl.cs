@@ -115,15 +115,14 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
-                QuedadaDTO quedadaDTO = new QuedadaDTO
-                {
-                    Lugar = q.Lugar,
-                    FechaHora = q.FchHoraEncuentro,
-                    Id = q.IdQuedada,
-                    Descripcion = q.DescQuedada,
-                    UsuarioOrganizador = q.UsuarioOrganizador,
-                    Estado = q.Estado
-                };
+                QuedadaDTO quedadaDTO = new QuedadaDTO();
+
+                quedadaDTO.Lugar = q.Lugar;
+                quedadaDTO.FechaHora = q.FchHoraEncuentro;
+                quedadaDTO.Id = q.IdQuedada;
+                quedadaDTO.Descripcion = q.DescQuedada;
+                quedadaDTO.UsuarioOrganizador = q.UsuarioOrganizador;
+                quedadaDTO.Estado = q.Estado;
 
                 return quedadaDTO;
             }

@@ -1,5 +1,6 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
+using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,18 @@ namespace BikerConnectDIW.Controllers
     {
 
         private readonly IQuedadaServicio _quedadaServicio;
+        private readonly BikerconnectContext _contexto;
+        private readonly IConvertirAdto _convertirAdto;
 
-        public QuedadasController(IQuedadaServicio quedadaServicio)
+        public QuedadasController(
+            IQuedadaServicio quedadaServicio, 
+            BikerconnectContext contexto,
+            IConvertirAdto convertirAdto
+            )
         {
             _quedadaServicio = quedadaServicio;
+            _contexto = contexto;
+            _convertirAdto = convertirAdto;
         }
 
 
@@ -85,6 +94,38 @@ namespace BikerConnectDIW.Controllers
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
+
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/quedadas/detalle-quedada/{id}")]
+        public IActionResult VerDetallesQuedada(long id)
+        {
+            try
+            {
+                QuedadaDTO quedada = _quedadaServicio.obtenerQuedadaPorId(id);
+                if (quedada != null)
+                {
+                    List<UsuarioDTO> participantes = _quedadaServicio.obtenerUsuariosParticipantes(id);
+
+                    if (participantes != null && participantes.Count > 0)
+                    {
+                        ViewBag.Participantes = participantes;
+                    }
+
+                    return View("~/Views/Home/detalleQuedada.cshtml", quedada);
+                }
+                else
+                {
+                    return RedirectToAction("Quedadas");
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+        }
+
 
     }
 }
