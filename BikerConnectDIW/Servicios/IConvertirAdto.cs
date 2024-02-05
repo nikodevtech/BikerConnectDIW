@@ -13,6 +13,10 @@ namespace BikerConnectDIW.Servicios
 
         public List<MotoDTO> listaMotosToDto(List<Moto> listaMotos);
 
+        public List<QuedadaDTO> listaQuedadaToDto(List<Quedada> listaQuedada);
+
+        public QuedadaDTO quedadaToDto(Quedada q);
+
 
     }
 }

@@ -33,10 +33,9 @@ namespace BikerConnectDIW.Controllers
                 {
                     List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(usuario.Id);
 
-                    if (misMotos != null) 
+                    if (misMotos != null && misMotos.Count > 0)
                     {
-                        if (misMotos.Count > 0)
-                            ViewBag.MisMotos = misMotos;
+                        ViewBag.MisMotos = misMotos;
                     }
                 }
 
@@ -112,10 +111,9 @@ namespace BikerConnectDIW.Controllers
                 {
                     _motoServicio.eliminarMoto(id);
                     List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(moto.IdPropietario);
-                    if (misMotos != null)
+                    if (misMotos != null && misMotos.Count > 0)
                     {
-                        if (misMotos.Count > 0)
-                            ViewBag.MisMotos = misMotos;
+                        ViewBag.MisMotos = misMotos;
                     }
                     ViewData["eliminacionCorrecta"] = "La moto se ha eliminado correctamente";
                 }

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "quedadas";
+}
+
+<div class="container py-4">
+    <div class="card bg-light cardPrincipal">
+        <div class="card-header border-bottom border-3">
+            <h3 class="subtituloSecundario">Quedadas</h3>
+        </div>
+        <div class="card-body">
+            <a asp-controller="Quedadas" asp-action="PlanificarQuedada" role="button" class="btn buttonPrincipal p-2 mb-3">
+                <i class="bi bi-calendar2-date p-2 fs-5"> Planificar quedada</i>
+            </a>
+            <a asp-controller="Quedadas" asp-action="MisQuedadas" role="button" class="btn buttonPrincipal p-2 mb-3">
+                <i class="bi bi-people p-2 fs-5"> Mis quedadas</i>
+            </a>
+            @if (ViewBag.Quedadas != null)
+            {
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th class="tableCustom">Lugar</th>
+                            <th class="tableCustom">Fecha y hora</th>
+                            <th class="tableCustom">Estado</th>
+                            <th class="tableCustom">Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var quedada in ViewBag.Quedadas)
+                        {
+                            <tr>
+                                <td>@quedada.Lugar</td>
+                                <td>@quedada.FechaHora</td>
+                                <td>@quedada.Estado</td>
+                                <td>
+                                    <a asp-controller="Quedadas" asp-action="DetalleQuedada" asp-route-id="@quedada.Id" role="button" class="btn buttonPrincipal">
+                                        <i class="bi bi-file-text"> Ver</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h5 class="card-title text-center text-danger">No hay ninguna quedada registrada en el sistema</h5>
+            }
+
+        </div>
+    </div>
+</div>
+
+

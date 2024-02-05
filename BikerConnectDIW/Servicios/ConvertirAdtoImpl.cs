@@ -45,7 +45,7 @@ namespace BikerConnectDIW.Servicios
             catch (Exception e)
             {
                 Console.WriteLine(
-                    $"\n[ERROR UsuarioToDtoImpl - UsuarioToDto()] - Error al convertir usuario DAO a usuarioDTO (return null): {e}");
+                    $"\n[ERROR ConvertirAdtoImpl - usuarioToDto()] - Error al convertir usuario DAO a usuarioDTO (return null): {e}");
                 return null;
             }
         }
@@ -64,7 +64,7 @@ namespace BikerConnectDIW.Servicios
             catch (Exception e)
             {
                 Console.WriteLine(
-                    $"\n[ERROR UsuarioToDtoImpl - ListaUsuarioToDto()] - Error al convertir lista de usuario DAO a lista de usuarioDTO (return null): {e}");
+                    $"\n[ERROR ConvertirAdtoImpl - listaUsuarioToDto()] - Error al convertir lista de usuario DAO a lista de usuarioDTO (return null): {e}");
             }
             return null;
         }
@@ -85,7 +85,7 @@ namespace BikerConnectDIW.Servicios
             }
             catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR MotoToDtoImpl - MotoToDto()] - Al convertir entidad Moto a DTO (return null): {e}");
+                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - motoToDto()] - Al convertir entidad Moto a DTO (return null): {e}");
                 return null;
             }
 
@@ -106,9 +106,56 @@ namespace BikerConnectDIW.Servicios
             }
             catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR MotoToDtoImpl - ListaMotosToDto()] - Al convertir lista de entidades Moto a DTO (return null): {e}");
+                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - listaMotosToDto()] - Al convertir lista de entidades Moto a DTO (return null): {e}");
             }
             return null;
+        }
+
+        public QuedadaDTO quedadaToDto(Quedada q)
+        {
+            try
+            {
+                QuedadaDTO quedadaDTO = new QuedadaDTO
+                {
+                    Lugar = q.Lugar,
+                    FechaHora = q.FchHoraEncuentro,
+                    Id = q.IdQuedada,
+                    Descripcion = q.DescQuedada,
+                    UsuarioOrganizador = q.UsuarioOrganizador,
+                    Estado = q.Estado
+                };
+
+                return quedadaDTO;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - quedadaToDto()] - Al convertir entidad Quedada a DTO (return null): {e}");
+                return null;
+            }
+        }
+
+        public List<QuedadaDTO> listaQuedadaToDto(List<Quedada> listaQuedadas)
+        {
+            try
+            {
+                List<QuedadaDTO> listaQuedadasDTO = new List<QuedadaDTO>();
+
+                foreach (var q in listaQuedadas)
+                {
+                    var quedadaDto = quedadaToDto(q);
+                    if (quedadaDto != null)
+                    {
+                        listaQuedadasDTO.Add(quedadaDto);
+                    }
+                }
+
+                return listaQuedadasDTO;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - ListaQuedadToDto()] - Al convertir lista Quedada a DTO (return null): {e}");
+                return null;
+            }
         }
 
     }
