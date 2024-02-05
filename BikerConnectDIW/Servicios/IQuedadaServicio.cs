@@ -6,5 +6,6 @@ namespace BikerConnectDIW.Servicios
     {
         public List<QuedadaDTO> obtenerQuedadas();
 
+        public bool crearQuedada(QuedadaDTO quedadaDTO);
     }
 }

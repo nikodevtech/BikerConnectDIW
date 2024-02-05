@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "quedadas";
     var error = ViewData["error"] as string;
+    var quedadaCreadaExito = ViewData["quedadaCreadaExito"] as string;
+    var quedadaCreadaError = ViewData["quedadaCreadaError"] as string;
 }
 
 <div class="container py-4">
@@ -51,6 +53,18 @@
 
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(quedadaCreadaExito))
+    {
+        <script>
+            mostrarNotificacion("¡Quedada planificada!", "La quedada ha sido registrada con exito", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCreadaError))
+    {
+        <script>
+            mostrarNotificacion("¡No se pudo planificar la quedada!", "Error al registrar la quedada", 'error');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(error))
     {
         <script>

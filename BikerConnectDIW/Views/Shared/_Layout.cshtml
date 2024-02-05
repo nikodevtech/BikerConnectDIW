@@ -53,28 +53,36 @@
                         </li>
                     }
 
-                    @if ((currentController == "Registro" && currentAction == "RegistrarGet") || (currentController == "SolicitarRecuperacion" && currentAction == "MostrarVistaIniciarRecuperacion"))
+                    @if ((currentController == "Registro" && currentAction == "RegistrarGet") 
+                        || 
+                        (currentController == "SolicitarRecuperacion" && currentAction == "MostrarVistaIniciarRecuperacion"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/auth/login">
-                                <i class="bi bi-box-arrow-in-right fs-5"> Iniciar sesión</i>
+                                <i class="bi bi-box-arrow-in-right fs-5">Iniciar sesión</i>
                             </a>
                         </li>
                         
                     }
-                    @if ((currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios") || (currentAction == "MostrarMisMotos" || currentAction == "EliminarMoto" || currentAction == "RegistrarMotoPost"))
+                    @if ((currentController == "AdministracionUsuarios" && currentAction == "ListadoUsuarios") 
+                        || 
+                        (currentAction == "MostrarMisMotos" || currentAction == "EliminarMoto" || currentAction == "RegistrarMotoPost")
+                        ||
+                        (currentController == "Quedadas" && currentAction == "Quedadas"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/dashboard">
-                                <i class="bi bi-house fs-5"> Dashboard</i>
+                                <i class="bi bi-house fs-5">Volver a Dashboard</i>
                             </a>
                         </li>
                     }
-                    @if (currentController == "AdministracionUsuarios" && (currentAction == "MostrarFormularioEdicion" || currentAction == "RegistroUsuarioDesdeAdminGet"))
+                    @if (currentController == "AdministracionUsuarios" 
+                        && 
+                        (currentAction == "MostrarFormularioEdicion" || currentAction == "RegistroUsuarioDesdeAdminGet"))
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/administracion-usuarios">
-                                <i class="bi bi-person-fill-gear fs-5"> Administracion usuarios</i>
+                                <i class="bi bi-person-fill-gear fs-5">Volver a Administracion usuarios</i>
                             </a>
                         </li>
                     }
@@ -82,7 +90,15 @@
                     {
                         <li class="nav-item me-3">
                             <a class="nav-link fw-bold text-white" href="/privada/mis-motos">
-                                <i class="bi bi bi-bicycle fs-5"> Mis motos</i>
+                                <i class="bi bi bi-bicycle fs-5">Volver a Mis motos</i>
+                            </a>
+                        </li>
+                    }
+                    @if (currentController == "Quedadas" && currentAction == "PlanificarQuedada")
+                    {
+                        <li class="nav-item me-3">
+                            <a class="nav-link fw-bold text-white" href="/privada/quedadas">
+                                <i class="bi bi-people-fill fs-5">Volver a Quedadas</i>
                             </a>
                         </li>
                     }

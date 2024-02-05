@@ -72,5 +72,29 @@ namespace BikerConnectDIW.Servicios
             return null;
         }
 
+        public Quedada quedadaToDao(QuedadaDTO quedadaDTO)
+        {
+            try
+            {
+                Quedada q = new Quedada();
+
+                q.Lugar = quedadaDTO.Lugar;
+                q.FchHoraEncuentro = quedadaDTO.FechaHora;
+                q.UsuarioOrganizador = quedadaDTO.UsuarioOrganizador;
+                q.DescQuedada = quedadaDTO.Descripcion;
+                q.Estado = quedadaDTO.Estado;
+                q.UsuarioOrganizador = quedadaDTO.UsuarioOrganizador;
+
+                return q;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n[ERROR QuedadaToDaoImpl - QuedadaToDao()] - Al convertir QuedadaDTO a DAO (return null): {e}");
+            }
+
+            return null;
+        }
+
+
     }
 }

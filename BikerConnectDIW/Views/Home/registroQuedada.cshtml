@@ -6,7 +6,7 @@
 
 <div class="container py-4">
     <div class="registro cardPrincipal">
-        <form class="custom-form" asp-action="/privada/quedadas/planificar-quedada" method="post" asp-object="QuedadaDTO">
+        <form class="custom-form" asp-controller="Quedadas" asp-action="RegistrarQuedada" method="post" asp-for="QuedadaDTO">
             <h2 class="text-center mb-4"><i class="bi bi-calendar2-date" style="color: #1f3c85;"> Planificar quedada</i></h2>
             <div class="alert alert-warning text-center mb-4" role="alert">
                 ¡Atención! Al planificar esta quedada, aceptas la condición de ser el organizador y responsable de la misma.
