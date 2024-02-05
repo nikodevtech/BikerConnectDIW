@@ -17,11 +17,11 @@
         <form class="custom-form" method="post" asp-action="ProcesarInicioSesion" asp-controller="Login" asp-for="UsuarioDTO" role="form">
             <h2 class="text-center mb-5"><i class="bi bi-box-arrow-in-right" style="color: #1f3c85;"> Iniciar sesión</i></h2>
             <div class="mb-3">
-                <label class="form-label textoPrincipal">Correo Electrónico</label>
+                <label for="EmailUsuario" class="form-label textoPrincipal">Correo Electrónico</label>
                 <input type="text" class="form-control" name="EmailUsuario" id="EmailUsuario" placeholder="Introduzca su correo electrónico" required autofocus />
             </div>
             <div class="mb-3">
-                <label class="form-label textoPrincipal">Contraseña</label>
+                <label for="ClaveUsuario" class="form-label textoPrincipal">Contraseña</label>
                 <input type="password" name="ClaveUsuario" id="ClaveUsuario" class="form-control" placeholder="Introduzca su contraseña" required />
             </div>
             <button type="submit" class="btn btn-primary mt-5 mb-5"><i class="bi bi-box-arrow-in-right fs-5"> Iniciar sesión</i></button>

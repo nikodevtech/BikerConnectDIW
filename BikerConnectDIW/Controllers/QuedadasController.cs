@@ -34,5 +34,23 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/quedadas/planificar-quedada")]
+        public IActionResult PlanificarQuedada()
+        {
+            try
+            {
+                QuedadaDTO quedadaDTO = new QuedadaDTO();
+                return View("~/Views/Home/registroQuedada.cshtml", quedadaDTO);
+
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+        }
+
     }
 }
