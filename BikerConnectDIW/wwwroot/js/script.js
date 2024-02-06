@@ -81,14 +81,14 @@ function confirmarEliminarMoto(event) {
         }
     });
 }
-//function confirmarCancelarQuedada(event) {
-//    const idQuedada = event.currentTarget.getAttribute("data-id");
-//    confirmar("cancelar").then(function (confirmado) {
-//        if (confirmado) {
-//            window.location.href = 'https://localhost:7142/privada/quedadas/detalle-quedada/cancelar-quedada/' + idQuedada;
-//        }
-//    });
-//}
+function confirmarCancelarQuedada(event) {
+    const idQuedada = event.currentTarget.getAttribute("data-id");
+    confirmar("cancelar").then(function (confirmado) {
+        if (confirmado) {
+            window.location.href = 'https://localhost:7142/privada/quedadas/detalle-quedada/cancelar-quedada/' + idQuedada;
+        }
+    });
+}
 function confirmarEliminar(event) {
     const idUsuario = event.currentTarget.getAttribute("data-id");
     confirmar("eliminar").then(function (confirmado) {

@@ -4,6 +4,10 @@
     var error = ViewData["error"] as string;
     var quedadaCreadaExito = ViewData["quedadaCreadaExito"] as string;
     var quedadaCreadaError = ViewData["quedadaCreadaError"] as string;
+    var quedadaAsistenciaExito = ViewData["quedadaAsistenciaExito"] as string;
+    var quedadaAsistenciaInfo = ViewData["quedadaAsistenciaInfo"] as string;
+    var quedadaYaCompletada = ViewData["quedadaYaCompletada"] as string;
+    var usuarioQuedadaNoEncontrado = ViewData["ususarioQuedadaNoEncontrado"] as string;
 }
 
 <div class="container py-4">
@@ -53,6 +57,24 @@
 
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(quedadaYaCompletada))
+    {
+        <script>
+            mostrarNotificacion("¡La quedada ya finalizó!", "No puedes participar en una quedada completada", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaAsistenciaInfo))
+    {
+        <script>
+            mostrarNotificacion("¡Ya estás unido a esta quedada!", "Estás marcado como asistente de la misma", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaAsistenciaExito))
+    {
+        <script>
+            mostrarNotificacion("¡Su asistencia ha sido registrada!", "Ahora es un participante más de la quedada", 'success');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(quedadaCreadaExito))
     {
         <script>
@@ -63,6 +85,12 @@
     {
         <script>
             mostrarNotificacion("¡No se pudo planificar la quedada!", "Error al registrar la quedada", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(usuarioQuedadaNoEncontrado))
+    {
+        <script>
+            mostrarNotificacion("¡Error al confirmar tu asistencia!", "La quedada o su email de usuario no se encuentran registrados en el sistema", 'error');
         </script>
     }
     @if (!string.IsNullOrEmpty(error))

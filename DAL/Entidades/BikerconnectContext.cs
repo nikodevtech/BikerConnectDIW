@@ -57,10 +57,10 @@ public partial class BikerconnectContext : DbContext
 
         modelBuilder.Entity<Participante>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("participantes", "gestion_logicanegocio");
+            entity.HasKey(e => e.Id); 
+            entity.ToTable("participantes", "gestion_logicanegocio");
 
+            entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd(); 
             entity.Property(e => e.IdQuedada).HasColumnName("id_quedada");
             entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 

@@ -63,6 +63,23 @@
                 </div>
             </div>
         </div>
+        @if (@Model.Estado == "Planificada")
+        {
+            <div class="card-footer">
+                <a href="/privada/quedadas/detalle-quedada/unirse/@Model.Id" class="btn buttonPrincipal m-1">
+                    <i class="bi bi-calendar2-check"> Confirmar asistencia</i>
+                </a>
+                <a asp-page="/Quedadas/DetalleQuedada/CancelarAsistencia" asp-route-id="@Model.Id" class="btn btn-danger m-1">
+                    <i class="bi bi-calendar2-x"> Cancelar asistencia</i>
+                </a>
+                @if (@Model.UsuarioOrganizador == User.Identity.Name)
+                {
+                    <a href="#" class="btn btn-danger m-1 float-end" onclick="confirmarCancelarQuedada(event)" data-id="@Model.Id">
+                        <i class="bi bi-calendar2-x"> Cancelar quedada</i>
+                    </a>
+                }
+            </div>
+        }
     </div>
 </div>
 

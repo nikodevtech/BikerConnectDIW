@@ -12,5 +12,7 @@ namespace BikerConnectDIW.Servicios
         public QuedadaDTO obtenerQuedadaPorId(long id);
 
         public List<UsuarioDTO> obtenerUsuariosParticipantes(long idQuedada);
+
+        public string unirseQuedada(long idQuedada, string emailUsuario);
     }
 }

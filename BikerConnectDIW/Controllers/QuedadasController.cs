@@ -30,7 +30,8 @@ namespace BikerConnectDIW.Controllers
             try
             {
                 List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
-                ViewBag.quedadas = quedadas;
+                if (quedadas != null && quedadas.Count > 0)
+                    ViewBag.quedadas = quedadas;
                 return View("~/Views/Home/quedadas.cshtml");
             }
             catch (Exception e)
@@ -115,6 +116,40 @@ namespace BikerConnectDIW.Controllers
                 {
                     return RedirectToAction("Quedadas");
                 }
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/quedadas/detalle-quedada/unirse/{id}")]
+        public IActionResult UnirseQuedada(long id)
+        {
+            try
+            {
+                string mensaje = _quedadaServicio.unirseQuedada(id, User.Identity.Name);
+                List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
+                ViewBag.Quedadas = quedadas;
+                switch (mensaje)
+                {
+                    case "Usuario unido a la quedada":
+                        ViewData["quedadaAsistenciaExito"] = "Se ha unido correctamente";
+                        break;
+                    case "Ya estás unido a esta quedada":
+                        ViewData["quedadaAsistenciaInfo"] = "Ya estás unido a esta quedada";
+                        break;
+                    case "La quedada está completada":
+                        ViewData["quedadaYaCompletada"] = "La quedada ya está completada";
+                        break;
+                    case "Usuario o quedada no encontrado":
+                        ViewData["usuarioQuedadaNoEncontrado"] = "La quedada ya está completada";
+                        break;
+                }
+                return View("~/Views/Home/quedadas.cshtml");
             }
             catch (Exception e)
             {
