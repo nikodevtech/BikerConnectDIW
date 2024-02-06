@@ -11,6 +11,10 @@
     var quedadaCancelacionInfo = ViewData["quedadaCancelacionInfo"] as string;
     var quedadaCancelacionExito = ViewData["quedadaCancelacionExito"] as string;
     var quedadaCancelacionError = ViewData["quedadaCancelacionError"] as string;
+    var quedadaCancelacionQuedadaExito = ViewData["quedadaCancelacionQuedadaExito"] as string;
+    var quedadaCancelacionCompletada = ViewData["quedadaCancelacionCompletada"] as string;
+    var quedadaCancelacionParticipantes = ViewData["quedadaCancelacionParticipantes"] as string;
+    var quedadaCancelacionPermiso = ViewData["quedadaCancelacionPermiso"] as string;
 }
 
 <div class="container py-4">
@@ -60,6 +64,30 @@
 
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(quedadaCancelacionPermiso))
+    {
+        <script>
+            mostrarNotificacion("¡No puede cancelar la quedada!", "Solo el usuario organizador que la planificó puede cancelar la quedada", 'error');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCancelacionParticipantes))
+    {
+        <script>
+            mostrarNotificacion("¡Hay participantes en la quedada!", "No se puede cancelar una quedada con participantes en ella", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCancelacionCompletada))
+    {
+        <script>
+            mostrarNotificacion("¡La quedada ya está completada!", "No se puede cancelar una quedada finalizada y completada", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCancelacionQuedadaExito))
+    {
+        <script>
+            mostrarNotificacion("¡Quedada cancelada!", "La quedada se ha cancelado correctamente.", 'success');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(quedadaCancelacionInfo))
     {
         <script>

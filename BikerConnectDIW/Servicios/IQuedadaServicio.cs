@@ -21,5 +21,8 @@ namespace BikerConnectDIW.Servicios
         public bool cancelarAsistenciaQuedada(long idQuedada, string emailUsuario);
 
         public List<QuedadaDTO> obtenerQuedadasDelUsuario(long idUsuario);
+
+        public String cancelarQuedada(long idQuedada);
+
     }
 }

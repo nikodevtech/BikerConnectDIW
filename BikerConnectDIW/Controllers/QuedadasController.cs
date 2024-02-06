@@ -232,8 +232,55 @@ namespace BikerConnectDIW.Controllers
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente.";
-                return View("Quedadas");
+                return View("~/Views/Home/quedadas.cshtml");
             }
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/quedadas/detalle-quedada/cancelar-quedada/{id}")]
+        public IActionResult CancelarQuedada(long id)
+        {
+            try
+            {
+                QuedadaDTO q = _quedadaServicio.obtenerQuedadaPorId(id);
+                string emailUsuario = User.Identity.Name;
+
+                if (q.UsuarioOrganizador == emailUsuario)
+                {
+                    string mensaje = _quedadaServicio.cancelarQuedada(id);
+                    List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
+
+                    if (quedadas != null && quedadas.Count > 0) 
+                    {
+                        ViewBag.Quedadas = quedadas;
+                    }
+
+                    switch (mensaje)
+                    {
+                        case "Quedada cancelada":
+                            ViewData["quedadaCancelacionQuedadaExito"] = "Se ha cancelado la asistencia correctamente";
+                            ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+                            break;
+                        case "Quedada completada":
+                            ViewData["quedadaCancelacionCompletada"] = "No se puede cancelar una quedada completada";
+                            break;
+                        case "Usuarios participantes":
+                            ViewData["quedadaCancelacionParticipantes"] = "No se puede cancelar una quedada con participantes";
+                            break;
+                    }
+                }
+                else
+                {
+                    ViewData["quedadaCancelacionPermiso"] = "No tiene permiso para eliminar esta quedada";
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente.";
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+            return View("~/Views/Home/quedadas.cshtml");
         }
     }
 }

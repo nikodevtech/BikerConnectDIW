@@ -193,7 +193,7 @@ namespace BikerConnectDIW.Servicios
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - CancelarAsistenciaQuedada()] - Error de persistencia al cancelar asistencia a una quedada: {dbe}");
+                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - cancelarAsistenciaQuedada()] - Error de persistencia al cancelar asistencia a una quedada: {dbe}");
                 return false;
             }
         }
@@ -206,6 +206,38 @@ namespace BikerConnectDIW.Servicios
                .ToList();
 
             return _convertirAdto.listaQuedadaToDto(misQuedadas);
+        }
+
+        public string cancelarQuedada(long idQuedada)
+        {
+            try
+            {
+                Quedada? q = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
+                if (q != null)
+                {
+                    if (q.Estado == "Completada")
+                    {
+                        return "Quedada completada";
+                    }
+                    else if (_contexto.Participantes.Any(p => p.IdQuedada == idQuedada))
+                    {
+                        return "Usuarios participantes";
+                    }
+                    else
+                    {
+                        q.Estado = "Cancelada";
+                        _contexto.Quedadas.Update(q);
+                        _contexto.SaveChanges();
+                        return "Quedada cancelada";
+                    }
+                }
+            }
+            catch (DbUpdateException dbe)
+            {
+                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - cancelarQuedada()] - Error de persistencia al canlecar quedada: {dbe}");
+                return "Error al cancelar la quedada";
+            }
+            return "";
         }
     }
 }
