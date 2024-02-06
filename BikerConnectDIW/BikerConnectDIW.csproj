@@ -19,10 +19,15 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\DAL\DAL.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Aspecto\" />
 	</ItemGroup>
 
 </Project>

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using BikerConnectDIW.Utils;
 
 namespace BikerConnectDIW.Controllers
 {
@@ -22,6 +23,7 @@ namespace BikerConnectDIW.Controllers
         [Route("/auth/login")]
         public IActionResult Login()
         {
+            EscribirLog.escribirEnFicheroLog("[INFO] Ejecutando el método Login() de la clase LoginController");
             try
             {
                 UsuarioDTO usuarioDTO = new UsuarioDTO();
@@ -31,6 +33,7 @@ namespace BikerConnectDIW.Controllers
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método Login() de la clase LoginController: "+ e.Message + e.StackTrace);
                 return View("~/Views/Home/login.cshtml");
             }
         }
@@ -78,7 +81,6 @@ namespace BikerConnectDIW.Controllers
                 return View("~/Views/Home/login.cshtml");
             }
         }
-
 
 
         [HttpGet]
