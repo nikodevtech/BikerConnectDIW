@@ -11,14 +11,17 @@ namespace BikerConnectDIW.Controllers
 
         private readonly IQuedadaServicio _quedadaServicio;
         private readonly IConvertirAdto _convertirAdto;
+        private readonly IUsuarioServicio _usuarioServicio;
 
         public QuedadasController(
             IQuedadaServicio quedadaServicio, 
-            IConvertirAdto convertirAdto
+            IConvertirAdto convertirAdto,
+            IUsuarioServicio usuarioServicio    
             )
         {
             _quedadaServicio = quedadaServicio;
             _convertirAdto = convertirAdto;
+            _usuarioServicio = usuarioServicio;
         }
 
 
@@ -169,10 +172,12 @@ namespace BikerConnectDIW.Controllers
 
                 bool estaElUsuarioUnido = _quedadaServicio.estaUsuarioUnido(id, userId);
 
+                List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
+
                 if (!estaElUsuarioUnido)
                 {
                     ViewData["quedadaCancelacionInfo"] = "No puedes cancelar asistencia si no estás unido";
-                    ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+                    ViewBag.Quedadas = quedadas;
                 }
                 else
                 {
@@ -180,13 +185,13 @@ namespace BikerConnectDIW.Controllers
 
                     if (canceladoCorrectamente)
                     {
-                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
                         ViewData["quedadaCancelacionExito"] = "Se ha cancelado la asistencia con exito";
+                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
                     }
                     else
                     {
-                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
                         ViewData["quedadaCancelacionError"] = "No se ha podido cancelar la asistencia";
+                        ViewBag.Quedadas = quedadas;
                     }
                 }
 
@@ -198,6 +203,37 @@ namespace BikerConnectDIW.Controllers
                 return View("~/Views/Home/quedadas.cshtml");
             }
 
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/quedadas/mis-quedadas")]
+        public IActionResult MisQuedadas()
+        {
+            try
+            {
+                UsuarioDTO? usuario = _usuarioServicio.obtenerUsuarioPorEmail(User.Identity.Name);
+                if (usuario != null)
+                {
+                    List<QuedadaDTO> misQuedadas = _quedadaServicio.obtenerQuedadasDelUsuario(usuario.Id);
+
+                    if (misQuedadas != null && misQuedadas.Count > 0)
+                    {
+                        ViewBag.MisQuedadas = misQuedadas;
+                    }
+
+                    return View("~/Views/Home/misQuedadas.cshtml");
+                }
+                else
+                {
+                    return RedirectToAction("Quedadas");
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente.";
+                return View("Quedadas");
+            }
         }
     }
 }

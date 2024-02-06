@@ -1,4 +1,5 @@
 ﻿using BikerConnectDIW.DTO;
+using DAL.Entidades;
 using System.Runtime.InteropServices;
 
 namespace BikerConnectDIW.Servicios
@@ -18,5 +19,7 @@ namespace BikerConnectDIW.Servicios
         public bool estaUsuarioUnido(long idQuedada, String emailUsuario);
 
         public bool cancelarAsistenciaQuedada(long idQuedada, string emailUsuario);
+
+        public List<QuedadaDTO> obtenerQuedadasDelUsuario(long idUsuario);
     }
 }

@@ -198,6 +198,14 @@ namespace BikerConnectDIW.Servicios
             }
         }
 
+        public List<QuedadaDTO> obtenerQuedadasDelUsuario(long idUsuario)
+        {
+            List<Quedada> misQuedadas = _contexto.Participantes
+               .Where(p => p.IdUsuario == idUsuario)
+               .Select(p => p.IdQuedadaNavigation)
+               .ToList();
 
+            return _convertirAdto.listaQuedadaToDto(misQuedadas);
+        }
     }
 }
