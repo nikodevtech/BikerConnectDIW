@@ -73,7 +73,8 @@ namespace DAL.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
@@ -84,6 +85,8 @@ namespace DAL.Migrations
                     b.Property<long>("IdUsuario")
                         .HasColumnType("bigint")
                         .HasColumnName("id_usuario");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("IdQuedada");
 

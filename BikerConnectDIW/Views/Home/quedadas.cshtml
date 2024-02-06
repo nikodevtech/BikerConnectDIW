@@ -8,6 +8,9 @@
     var quedadaAsistenciaInfo = ViewData["quedadaAsistenciaInfo"] as string;
     var quedadaYaCompletada = ViewData["quedadaYaCompletada"] as string;
     var usuarioQuedadaNoEncontrado = ViewData["ususarioQuedadaNoEncontrado"] as string;
+    var quedadaCancelacionInfo = ViewData["quedadaCancelacionInfo"] as string;
+    var quedadaCancelacionExito = ViewData["quedadaCancelacionExito"] as string;
+    var quedadaCancelacionError = ViewData["quedadaCancelacionError"] as string;
 }
 
 <div class="container py-4">
@@ -57,6 +60,24 @@
 
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(quedadaCancelacionInfo))
+    {
+        <script>
+            mostrarNotificacion("¡No estas unido a esta quedada!", "No puede cancelar la asistencia a la quedada si no es un participante", 'info');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCancelacionExito))
+    {
+        <script>
+            mostrarNotificacion("¡Asistencia cancelada!", "Su asistencia a la quedada ha sido cancelada", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCancelacionError))
+    {
+        <script>
+            mostrarNotificacion("¡No se pudo cancelar la asistencia!", "Ocurrio un error al cancelar la asistencia, intentelo de nuevo", 'error');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(quedadaYaCompletada))
     {
         <script>

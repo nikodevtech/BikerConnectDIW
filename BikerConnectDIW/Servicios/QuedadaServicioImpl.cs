@@ -35,9 +35,9 @@ namespace BikerConnectDIW.Servicios
                     return _convertirAdto.listaQuedadaToDto(listaQuedadas);
                 }
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadas()] - Al obtener todas las quedadas (return null): {e}");
+                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadas()] - Argumento null al obtener todas las quedadas: {e}");
             }
             return null;
         }
@@ -104,9 +104,9 @@ namespace BikerConnectDIW.Servicios
 
                 return usuariosParticipantes;
             }
-            catch (Exception e) 
+            catch (ArgumentNullException e) 
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadaPorId()] - Error al obtener los usuarios participantes de una quedada: {e}");
+                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadaPorId()] - Argumento null al obtener los usuarios participantes de una quedada: {e}");
                 return null;
             }
 
@@ -146,12 +146,58 @@ namespace BikerConnectDIW.Servicios
 
                 return "Usuario unido a la quedada";
             }
-            catch (Exception e)
+            catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - unirseQuedada()] - Error al unirse a una quedada: {e}");
+                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - unirseQuedada()] - Error de persistencia al unirse a una quedada: {dbe}");
                 return null;
             }
         }
+
+        public bool estaUsuarioUnido(long idQuedada, string emailUsuario)
+        {
+            Quedada? quedada = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
+            Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
+
+            if (quedada != null && usuario != null)
+            {
+                return _contexto.Participantes.Any(p => p.IdQuedada == idQuedada && p.IdUsuario == usuario.IdUsuario);
+            }
+
+            return false;
+
+        }
+
+        public bool cancelarAsistenciaQuedada(long idQuedada, string emailUsuario)
+        {
+            try
+            {
+                Quedada? quedada = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
+                Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
+
+                if (usuario == null || quedada == null)
+                {
+                    return false;
+                }
+
+                Participante? participante = _contexto.Participantes.FirstOrDefault(p => p.IdQuedada == idQuedada && p.IdUsuario == usuario.IdUsuario);
+
+                if (participante == null)
+                {
+                    return false; 
+                }
+
+                _contexto.Participantes.Remove(participante);
+                _contexto.SaveChanges();
+
+                return true;
+            }
+            catch (DbUpdateException dbe)
+            {
+                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - CancelarAsistenciaQuedada()] - Error de persistencia al cancelar asistencia a una quedada: {dbe}");
+                return false;
+            }
+        }
+
 
     }
 }

@@ -158,6 +158,46 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("/privada/quedadas/detalle-quedada/cancelar-asistencia/{id}")]
+        public IActionResult CancelarAsistenciaQuedada(long id)
+        {
+            try
+            {
+                string userId = User.Identity.Name;
 
+                bool estaElUsuarioUnido = _quedadaServicio.estaUsuarioUnido(id, userId);
+
+                if (!estaElUsuarioUnido)
+                {
+                    ViewData["quedadaCancelacionInfo"] = "No puedes cancelar asistencia si no estás unido";
+                    ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+                }
+                else
+                {
+                    bool canceladoCorrectamente = _quedadaServicio.cancelarAsistenciaQuedada(id, userId);
+
+                    if (canceladoCorrectamente)
+                    {
+                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+                        ViewData["quedadaCancelacionExito"] = "Se ha cancelado la asistencia con exito";
+                    }
+                    else
+                    {
+                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+                        ViewData["quedadaCancelacionError"] = "No se ha podido cancelar la asistencia";
+                    }
+                }
+
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+            catch (Exception e)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+
+        }
     }
 }
