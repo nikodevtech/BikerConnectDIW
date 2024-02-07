@@ -1,5 +1,6 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
+using BikerConnectDIW.Utils;
 using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,11 @@ namespace BikerConnectDIW.Controllers
 
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método MostrarMisMotos() de la clase MisMotosController");
+
                 string? emailDelUsuario = User.Identity?.Name;
                 UsuarioDTO usuario = _usuarioServicio.obtenerUsuarioPorEmail(emailDelUsuario);
-  
+
                 if (usuario != null)
                 {
                     List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(usuario.Id);
@@ -38,12 +41,13 @@ namespace BikerConnectDIW.Controllers
                         ViewBag.MisMotos = misMotos;
                     }
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método MostrarMisMotos() de la clase MisMotosController");
                 return View("~/Views/Home/misMotos.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método MostrarMisMotos() de la clase MisMotosController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/misMotos.cshtml");
             }
         }
@@ -55,15 +59,20 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método MostrarFormNuevaMoto() de la clase MisMotosController");
+
                 string emailDelUsuario = User.Identity.Name;
                 UsuarioDTO usuarioSesionActual = _usuarioServicio.obtenerUsuarioPorEmail(emailDelUsuario);
                 MotoDTO nuevaMoto = new MotoDTO();
                 nuevaMoto.IdPropietario = usuarioSesionActual.Id;
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método MostrarFormNuevaMoto() de la clase MisMotosController");
                 return View("~/Views/Home/registroMoto.cshtml", nuevaMoto);
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método MostrarFormNuevaMoto() de la clase MisMotosController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/misMotos.cshtml");
             }
         }
@@ -75,6 +84,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método RegistrarMotoPost() de la clase MisMotosController");
+
                 bool motoRegistradaConExito = _motoServicio.registrarMoto(motoDTO);
 
                 if (motoRegistradaConExito)
@@ -89,12 +100,15 @@ namespace BikerConnectDIW.Controllers
                     List<MotoDTO> misMotos = _motoServicio.obtenerMotosPorPropietarioId(motoDTO.IdPropietario);
                     ViewBag.MisMotos = misMotos;
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método RegistrarMotoPost() de la clase MisMotosController" +
+                    (ViewData["altaMotoExito"] != null ? ". " + ViewData["altaMotoExito"] :
+                    (ViewData["altaMotoError"] != null ? ". " + ViewData["altaMotoError"] : "")));
                 return View("~/Views/Home/misMotos.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método RegistrarMotoPost() de la clase MisMotosController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/dashboard.cshtml");
             }
         }
@@ -106,6 +120,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método EliminarMoto() de la clase MisMotosController");
+
                 MotoDTO moto = _motoServicio.buscarPorId(id);
                 if (moto != null)
                 {
@@ -117,12 +133,13 @@ namespace BikerConnectDIW.Controllers
                     }
                     ViewData["eliminacionCorrecta"] = "La moto se ha eliminado correctamente";
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarMoto() de la clase MisMotosController. " + ViewData["eliminacionCorrecta"]);
                 return View("~/Views/Home/misMotos.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar el borrado de la moto";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método EliminarMoto() de la clase MisMotosController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/dashboard.cshtml");
             }
         }

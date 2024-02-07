@@ -1,5 +1,6 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
+using BikerConnectDIW.Utils;
 using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +15,9 @@ namespace BikerConnectDIW.Controllers
         private readonly IUsuarioServicio _usuarioServicio;
 
         public QuedadasController(
-            IQuedadaServicio quedadaServicio, 
+            IQuedadaServicio quedadaServicio,
             IConvertirAdto convertirAdto,
-            IUsuarioServicio usuarioServicio    
+            IUsuarioServicio usuarioServicio
             )
         {
             _quedadaServicio = quedadaServicio;
@@ -32,14 +33,19 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método Quedadas() de la clase QuedadasController");
+
                 List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
                 if (quedadas != null && quedadas.Count > 0)
                     ViewBag.quedadas = quedadas;
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método Quedadas() de la clase QuedadasController");
                 return View("~/Views/Home/quedadas.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método Quedadas() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
@@ -51,13 +57,15 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método PlanificarQuedada() de la clase QuedadasController");
+
                 QuedadaDTO quedadaDTO = new QuedadaDTO();
                 return View("~/Views/Home/registroQuedada.cshtml", quedadaDTO);
-
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método PlanificarQuedada() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
@@ -69,6 +77,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método RegistrarQuedada() de la clase QuedadasController");
+
                 string usuarioOrganizador = User.Identity.Name;
                 quedadaDTO.UsuarioOrganizador = usuarioOrganizador;
 
@@ -86,12 +96,15 @@ namespace BikerConnectDIW.Controllers
                     ViewBag.Quedadas = quedadas;
                     ViewData["quedadaCreadaError"] = "No se pudo registrar la quedada";
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método RegistrarQuedada() de la clase QuedadasController" +
+                    (ViewData["quedadaCreadaExito"] != null ? ". " + ViewData["quedadaCreadaExito"] :
+                    (ViewData["quedadaCreadaError"] != null ? ". " + ViewData["quedadaCreadaError"] : "")));
                 return View("~/Views/Home/quedadas.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método RegistrarQuedada() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
@@ -103,6 +116,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método VerDetallesQuedada() de la clase QuedadasController");
+
                 QuedadaDTO quedada = _quedadaServicio.obtenerQuedadaPorId(id);
                 if (quedada != null)
                 {
@@ -112,17 +127,19 @@ namespace BikerConnectDIW.Controllers
                     {
                         ViewBag.Participantes = participantes;
                     }
-
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método VerDetallesQuedada() de la clase QuedadasController");
                     return View("~/Views/Home/detalleQuedada.cshtml", quedada);
                 }
                 else
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método VerDetallesQuedada() de la clase QuedadasController. No se encontró la quedada con id " + id);
                     return RedirectToAction("Quedadas");
                 }
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método VerDetallesQuedada() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
@@ -134,29 +151,33 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método UnirseQuedada() de la clase QuedadasController");
+
                 string mensaje = _quedadaServicio.unirseQuedada(id, User.Identity.Name);
                 List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
                 ViewBag.Quedadas = quedadas;
                 switch (mensaje)
                 {
                     case "Usuario unido a la quedada":
-                        ViewData["quedadaAsistenciaExito"] = "Se ha unido correctamente";
+                        ViewData["quedadaAsistenciaExito"] = "El usuario se ha unido correctamente";
                         break;
                     case "Ya estás unido a esta quedada":
-                        ViewData["quedadaAsistenciaInfo"] = "Ya estás unido a esta quedada";
+                        ViewData["quedadaAsistenciaInfo"] = "El usuarios ya está unido a la quedada";
                         break;
                     case "La quedada está completada":
-                        ViewData["quedadaYaCompletada"] = "La quedada ya está completada";
+                        ViewData["quedadaYaCompletada"] = "El usuario no pudo unirse, la quedada ya está completada";
                         break;
                     case "Usuario o quedada no encontrado":
-                        ViewData["usuarioQuedadaNoEncontrado"] = "La quedada ya está completada";
+                        ViewData["usuarioQuedadaNoEncontrado"] = "Usuario o quedada no encontrado";
                         break;
                 }
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método UnirseQuedada() de la clase QuedadasController");
                 return View("~/Views/Home/quedadas.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método UnirseQuedada() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
@@ -168,6 +189,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método CancelarAsistenciaQuedada() de la clase QuedadasController");
+
                 string userId = User.Identity.Name;
 
                 bool estaElUsuarioUnido = _quedadaServicio.estaUsuarioUnido(id, userId);
@@ -194,12 +217,13 @@ namespace BikerConnectDIW.Controllers
                         ViewBag.Quedadas = quedadas;
                     }
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método CancelarAsistenciaQuedada() de la clase QuedadasController");
                 return View("~/Views/Home/quedadas.cshtml");
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, inténtelo de nuevo.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método CancelarAsistenciaQuedada() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
 
@@ -212,6 +236,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método MisQuedadas() de la clase QuedadasController");
+
                 UsuarioDTO? usuario = _usuarioServicio.obtenerUsuarioPorEmail(User.Identity.Name);
                 if (usuario != null)
                 {
@@ -221,17 +247,19 @@ namespace BikerConnectDIW.Controllers
                     {
                         ViewBag.MisQuedadas = misQuedadas;
                     }
-
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método MisQuedadas() de la clase QuedadasController");
                     return View("~/Views/Home/misQuedadas.cshtml");
                 }
                 else
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método MisQuedadas() de la clase QuedadasController");
                     return RedirectToAction("Quedadas");
                 }
             }
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método MisQuedadas() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
         }
@@ -243,6 +271,8 @@ namespace BikerConnectDIW.Controllers
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método CancelarQuedada() de la clase QuedadasController");
+
                 QuedadaDTO q = _quedadaServicio.obtenerQuedadaPorId(id);
                 string emailUsuario = User.Identity.Name;
 
@@ -251,7 +281,7 @@ namespace BikerConnectDIW.Controllers
                     string mensaje = _quedadaServicio.cancelarQuedada(id);
                     List<QuedadaDTO> quedadas = _quedadaServicio.obtenerQuedadas();
 
-                    if (quedadas != null && quedadas.Count > 0) 
+                    if (quedadas != null && quedadas.Count > 0)
                     {
                         ViewBag.Quedadas = quedadas;
                     }
@@ -278,8 +308,10 @@ namespace BikerConnectDIW.Controllers
             catch (Exception e)
             {
                 ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método CancelarQuedada() de la clase QuedadasController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/quedadas.cshtml");
             }
+            EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método CancelarQuedada() de la clase QuedadasController");
             return View("~/Views/Home/quedadas.cshtml");
         }
     }

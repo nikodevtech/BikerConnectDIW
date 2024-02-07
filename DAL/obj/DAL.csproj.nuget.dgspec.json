@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Descargas\\BikerConnectDIW\\DAL\\DAL.csproj": {}
+    "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "D:\\Descargas\\BikerConnectDIW\\DAL\\DAL.csproj": {
+    "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Descargas\\BikerConnectDIW\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "D:\\Descargas\\BikerConnectDIW\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\niko_\\.nuget\\packages\\",
-        "outputPath": "D:\\Descargas\\BikerConnectDIW\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\Puesto9\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\niko_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Puesto9\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

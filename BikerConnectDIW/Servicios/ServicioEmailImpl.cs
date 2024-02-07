@@ -1,4 +1,5 @@
-﻿using System.Net.Mail;
+﻿using BikerConnectDIW.Utils;
+using System.Net.Mail;
 
 namespace BikerConnectDIW.Servicios
 {
@@ -8,6 +9,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método enviarEmailConfirmacion() de la clase ServicioEmailImpl");
+
                 string urlDominio = "https://localhost:7142";
 
                 string EmailOrigen = "nikoalvarezzapata@gmail.com";
@@ -29,20 +32,22 @@ namespace BikerConnectDIW.Servicios
                 smtpCliente.EnableSsl = true;
                 smtpCliente.UseDefaultCredentials = false;
                 smtpCliente.Port = 587;
-                smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "dakl mrya wszo zrhs");
+                smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "");
 
                 smtpCliente.Send(mensajeDelCorreo);
 
                 smtpCliente.Dispose();
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método enviarEmailConfirmacion() de la clase ServicioEmailImpl");
+
             }
             catch (IOException ioe)
             {
-                Console.WriteLine("[Error ServicioEmailImpl - enviarEmailConfirmacion()] Error al leer el fichero html para enviar email de confirmacion: " + ioe.Message);
+                EscribirLog.escribirEnFicheroLog("[Error ServicioEmailImpl - enviarEmailConfirmacion()] Error al leer el fichero html para enviar email de confirmacion: " + ioe.Message);
             }
-            catch (SmtpException se) 
+            catch (SmtpException se)
             {
-                Console.WriteLine("[Error ServicioEmailImpl - enviarEmailConfirmacion()] Error con el protocolo de envio de email: " + se.Message);
-
+                EscribirLog.escribirEnFicheroLog("[Error ServicioEmailImpl - enviarEmailConfirmacion()] Error con el protocolo de envio de email: " + se.Message);
             }
 
         }
@@ -51,6 +56,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método enviarEmailRecuperacion() de la clase ServicioEmailImpl");
+
                 string urlDominio = "https://localhost:7142";
 
                 string EmailOrigen = "nikoalvarezzapata@gmail.com";
@@ -72,21 +79,22 @@ namespace BikerConnectDIW.Servicios
                 smtpCliente.EnableSsl = true;
                 smtpCliente.UseDefaultCredentials = false;
                 smtpCliente.Port = 587;
-                smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "dakl mrya wszo zrhs");
+                smtpCliente.Credentials = new System.Net.NetworkCredential(EmailOrigen, "");
 
                 smtpCliente.Send(mensajeDelCorreo);
 
                 smtpCliente.Dispose();
-            }
-            catch (IOException ioe) 
-            {
-                Console.WriteLine("[Error ServicioEmailImpl - enviarEmailRecuperacion()] Error al leer el fichero html para enviar email de recuperacion: " + ioe.Message);
 
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método enviarEmailRecuperacion() de la clase ServicioEmailImpl");
+
+            }
+            catch (IOException ioe)
+            {
+                EscribirLog.escribirEnFicheroLog("[Error ServicioEmailImpl - enviarEmailRecuperacion()] Error al leer el fichero html para enviar email de recuperacion: " + ioe.Message);
             }
             catch (SmtpException se)
             {
-                Console.WriteLine("[Error ServicioEmailImpl - enviarEmailRecuperacion()] Error con el protocolo de envio de email: " + se.Message);
-
+                EscribirLog.escribirEnFicheroLog("[Error ServicioEmailImpl - enviarEmailRecuperacion()] Error con el protocolo de envio de email: " + se.Message);
             }
 
         }

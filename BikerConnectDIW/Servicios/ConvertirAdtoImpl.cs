@@ -1,4 +1,5 @@
 ﻿using BikerConnectDIW.DTO;
+using BikerConnectDIW.Utils;
 using DAL.Entidades;
 using Microsoft.Extensions.Primitives;
 using System.Text;
@@ -11,6 +12,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl");
+
                 UsuarioDTO dto = new UsuarioDTO();
                 string[] nombreApellidos = u.NombreApellidos.Split(' ');
 
@@ -39,13 +42,12 @@ namespace BikerConnectDIW.Servicios
                     dto.Rol = u.Rol;
 
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl");
                 return dto;
             }
             catch (Exception e)
             {
-                Console.WriteLine(
-                    $"\n[ERROR ConvertirAdtoImpl - usuarioToDto()] - Error al convertir usuario DAO a usuarioDTO (return null): {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR ConvertirAdtoImpl - usuarioToDto()] - Error al convertir usuario DAO a usuarioDTO (return null): {e}");
                 return null;
             }
         }
@@ -54,17 +56,19 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl");
+
                 List<UsuarioDTO> listaDto = new List<UsuarioDTO>();
                 foreach (Usuario u in listaUsuario)
                 {
                     listaDto.Add(usuarioToDto(u));
                 }
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl");
                 return listaDto;
             }
             catch (Exception e)
             {
-                Console.WriteLine(
-                    $"\n[ERROR ConvertirAdtoImpl - listaUsuarioToDto()] - Error al convertir lista de usuario DAO a lista de usuarioDTO (return null): {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR ConvertirAdtoImpl - listaUsuarioToDto()] - Error al convertir lista de usuario DAO a lista de usuarioDTO (return null): {e}");
             }
             return null;
         }
@@ -75,6 +79,8 @@ namespace BikerConnectDIW.Servicios
 
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl");
+
                 moto.Id = m.IdMoto;
                 moto.Marca = m.Marca;
                 moto.Modelo = m.Modelo;
@@ -82,14 +88,16 @@ namespace BikerConnectDIW.Servicios
                 moto.Color = m.Color;
                 moto.DescModificaciones = m.DescModificaciones;
                 moto.IdPropietario = (long)m.IdUsuarioPropietario;
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl");
+                return moto;
+
             }
             catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - motoToDto()] - Al convertir entidad Moto a DTO (return null): {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR ConvertirAdtoImpl - motoToDto()] - Al convertir entidad Moto a DTO (return null): {e}");
                 return null;
             }
-
-            return moto;
         }
 
         public List<MotoDTO> listaMotosToDto(List<Moto> listaMotos)
@@ -98,15 +106,18 @@ namespace BikerConnectDIW.Servicios
 
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl");
+
                 foreach (Moto moto in listaMotos)
                 {
                     listaDto.Add(motoToDto(moto));
                 }
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl");
                 return listaDto;
             }
             catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - listaMotosToDto()] - Al convertir lista de entidades Moto a DTO (return null): {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR ConvertirAdtoImpl - listaMotosToDto()] - Al convertir lista de entidades Moto a DTO (return null): {e}");
             }
             return null;
         }
@@ -115,6 +126,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl");
+
                 QuedadaDTO quedadaDTO = new QuedadaDTO();
 
                 quedadaDTO.Lugar = q.Lugar;
@@ -124,11 +137,12 @@ namespace BikerConnectDIW.Servicios
                 quedadaDTO.UsuarioOrganizador = q.UsuarioOrganizador;
                 quedadaDTO.Estado = q.Estado;
 
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl");
                 return quedadaDTO;
             }
             catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - quedadaToDto()] - Al convertir entidad Quedada a DTO (return null): {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR ConvertirAdtoImpl - quedadaToDto()] - Al convertir entidad Quedada a DTO (return null): {e}");
                 return null;
             }
         }
@@ -137,6 +151,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl");
+
                 List<QuedadaDTO> listaQuedadasDTO = new List<QuedadaDTO>();
 
                 foreach (var q in listaQuedadas)
@@ -147,12 +163,12 @@ namespace BikerConnectDIW.Servicios
                         listaQuedadasDTO.Add(quedadaDto);
                     }
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método listaQuedadaToDto() de la clase ConvertirAdtoImpl");
                 return listaQuedadasDTO;
             }
             catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR ConvertirAdtoImpl - ListaQuedadToDto()] - Al convertir lista Quedada a DTO (return null): {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR ConvertirAdtoImpl - ListaQuedadToDto()] - Al convertir lista Quedada a DTO (return null): {e}");
                 return null;
             }
         }

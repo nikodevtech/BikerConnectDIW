@@ -1,6 +1,8 @@
 ﻿using BikerConnectDIW.DTO;
+using BikerConnectDIW.Utils;
 using DAL.Entidades;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace BikerConnectDIW.Servicios
 {
@@ -13,7 +15,7 @@ namespace BikerConnectDIW.Servicios
         private readonly IMotoServicio _motoServicio;
 
         public QuedadaServicioImpl(
-            BikerconnectContext contexto, 
+            BikerconnectContext contexto,
             IConvertirAdto convertirAdto,
             IConvertirAdao convertirAdao,
             IMotoServicio motoServicio
@@ -27,17 +29,19 @@ namespace BikerConnectDIW.Servicios
 
         public List<QuedadaDTO> obtenerQuedadas()
         {
-            try 
+            try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerQuedadas() de la clase QuedadaServicioImpl");
+
                 List<Quedada> listaQuedadas = _contexto.Quedadas.ToList();
-                if (listaQuedadas != null) 
+                if (listaQuedadas != null)
                 {
                     return _convertirAdto.listaQuedadaToDto(listaQuedadas);
                 }
             }
             catch (ArgumentNullException e)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadas()] - Argumento null al obtener todas las quedadas: {e}");
+                EscribirLog.escribirEnFicheroLog($"[ERROR QuedadaServicioImpl - obtenerQuedadas()] - Argumento null al obtener todas las quedadas: {e}");
             }
             return null;
         }
@@ -46,43 +50,51 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método crearQuedada() de la clase QuedadaServicioImpl");
+
                 Quedada quedada = _convertirAdao.quedadaToDao(quedadaDTO);
 
                 _contexto.Quedadas.Add(quedada);
                 _contexto.SaveChanges();
 
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método crearQuedada() de la clase QuedadaServicioImpl. Quedada creada OK");
                 return true;
             }
-            catch (DbUpdateException dbe) 
+            catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - crearQuedada()] - Error de persistencia al registrar nueva quedada: {dbe}");
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - crearQuedada()] - Error de persistencia al registrar nueva quedada: {dbe}");
                 return false;
             }
-           
+
         }
 
         public QuedadaDTO obtenerQuedadaPorId(long id)
         {
-            try 
+            try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerQuedadaPorId() de la clase QuedadaServicioImpl");
+
                 Quedada? q = _contexto.Quedadas.Find(id);
                 QuedadaDTO? quedada = new QuedadaDTO();
                 quedada = _convertirAdto.quedadaToDto(q);
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerQuedadaPorId() de la clase QuedadaServicioImpl. Quedada obtenida por id OK");
                 return quedada;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadaPorId()] - Error al obtener una quedada por su id: {e}");
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - obtenerQuedadaPorId()] - Error al obtener una quedada por su id: {e}");
                 return null;
             }
         }
 
-        public List<UsuarioDTO> obtenerUsuariosParticipantes(long idQuedada) 
+        public List<UsuarioDTO> obtenerUsuariosParticipantes(long idQuedada)
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerUsuariosParticipantes() de la clase QuedadaServicioImpl");
+
                 var participantes = _contexto.Participantes
-                     .Include(p => p.IdUsuarioNavigation) 
+                     .Include(p => p.IdUsuarioNavigation)
                      .Where(p => p.IdQuedada == idQuedada)
                      .ToList();
 
@@ -97,16 +109,16 @@ namespace BikerConnectDIW.Servicios
                     })
                     .ToList();
 
-                foreach(UsuarioDTO u in usuariosParticipantes) 
+                foreach (UsuarioDTO u in usuariosParticipantes)
                 {
                     u.MisMotos = _motoServicio.obtenerMotosPorPropietarioId(u.Id);
                 }
-
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerUsuariosParticipantes() de la clase QuedadaServicioImpl. Obtenidos participantes OK");
                 return usuariosParticipantes;
             }
-            catch (ArgumentNullException e) 
+            catch (ArgumentNullException e)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - obtenerQuedadaPorId()] - Argumento null al obtener los usuarios participantes de una quedada: {e}");
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - obtenerQuedadaPorId()] - Argumento null al obtener los usuarios participantes de una quedada: {e}");
                 return null;
             }
 
@@ -116,16 +128,20 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método unirseQuedada() de la clase QuedadaServicioImpl");
+
                 Quedada? quedada = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
                 Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
 
                 if (usuario == null || quedada == null)
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. No se pudo unir, usuario o quedada no encontrado.");
                     return "Usuario o quedada no encontrado";
                 }
 
                 if (quedada.Estado == "Completada")
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. No se pudo unir, la quedada está completada.");
                     return "La quedada está completada";
                 }
 
@@ -134,6 +150,7 @@ namespace BikerConnectDIW.Servicios
 
                 if (participanteExistente)
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. El usuario ya se encontraba unido a la quedada.");
                     return "Ya estás unido a esta quedada";
                 }
 
@@ -143,27 +160,39 @@ namespace BikerConnectDIW.Servicios
 
                 _contexto.Participantes.Add(nuevoParticipante);
                 _contexto.SaveChanges();
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. Usuario unido a la quedada OK.");
 
                 return "Usuario unido a la quedada";
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - unirseQuedada()] - Error de persistencia al unirse a una quedada: {dbe}");
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - unirseQuedada()] - Error de persistencia al unirse a una quedada: {dbe}");
                 return null;
             }
         }
 
         public bool estaUsuarioUnido(long idQuedada, string emailUsuario)
         {
-            Quedada? quedada = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
-            Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
-
-            if (quedada != null && usuario != null)
+            try
             {
-                return _contexto.Participantes.Any(p => p.IdQuedada == idQuedada && p.IdUsuario == usuario.IdUsuario);
-            }
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método estaUsuarioUnido() de la clase QuedadaServicioImpl");
 
-            return false;
+                Quedada? quedada = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
+                Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
+
+                if (quedada != null && usuario != null)
+                {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método estaUsuarioUnido() de la clase QuedadaServicioImpl");
+                    return _contexto.Participantes.Any(p => p.IdQuedada == idQuedada && p.IdUsuario == usuario.IdUsuario);
+                }
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método estaUsuarioUnido() de la clase QuedadaServicioImpl.");
+                return false;
+            }
+            catch (ArgumentNullException e)
+            {
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - estaUsuarioUnido()] - Error de argumento nulo comprobar si un usuario está unido a una quedada: {e}");
+                return false;
+            }
 
         }
 
@@ -171,11 +200,14 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método cancelarAsistenciaQuedada() de la clase QuedadaServicioImpl");
+
                 Quedada? quedada = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
                 Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
 
                 if (usuario == null || quedada == null)
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método cancelarAsistenciaQuedada() de la clase QuedadaServicioImpl. No se pudo cancelar la asistencia");
                     return false;
                 }
 
@@ -183,44 +215,63 @@ namespace BikerConnectDIW.Servicios
 
                 if (participante == null)
                 {
-                    return false; 
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método cancelarAsistenciaQuedada() de la clase QuedadaServicioImpl. No se pudo cancelar la asistencia.");
+                    return false;
                 }
 
                 _contexto.Participantes.Remove(participante);
                 _contexto.SaveChanges();
 
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método cancelarAsistenciaQuedada() de la clase QuedadaServicioImpl. Asistencia cancelada OK.");
                 return true;
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - cancelarAsistenciaQuedada()] - Error de persistencia al cancelar asistencia a una quedada: {dbe}");
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - cancelarAsistenciaQuedada()] - Error de persistencia al cancelar asistencia a una quedada: {dbe}");
                 return false;
             }
         }
 
         public List<QuedadaDTO> obtenerQuedadasDelUsuario(long idUsuario)
         {
-            List<Quedada> misQuedadas = _contexto.Participantes
-               .Where(p => p.IdUsuario == idUsuario)
-               .Select(p => p.IdQuedadaNavigation)
-               .ToList();
+            try
+            {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerQuedadasDelUsuario() de la clase QuedadaServicioImpl");
 
-            return _convertirAdto.listaQuedadaToDto(misQuedadas);
+                List<Quedada> misQuedadas = _contexto.Participantes
+                   .Where(p => p.IdUsuario == idUsuario)
+                   .Select(p => p.IdQuedadaNavigation)
+                   .ToList();
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerQuedadasDelUsuario() de la clase QuedadaServicioImpl");
+
+                return _convertirAdto.listaQuedadaToDto(misQuedadas);
+            }
+            catch (ArgumentNullException e)
+            {
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - obtenerQuedadasDelUsuario()] - Error de argumento nulo al obtener las quedadas del usuario: {e}");
+                return null;
+            }
+
         }
 
         public string cancelarQuedada(long idQuedada)
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método cancelarQuedada() de la clase QuedadaServicioImpl");
+
                 Quedada? q = _contexto.Quedadas.FirstOrDefault(q => q.IdQuedada == idQuedada);
                 if (q != null)
                 {
                     if (q.Estado == "Completada")
                     {
+                        EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método cancelarQuedada() de la clase QuedadaServicioImpl. No se canceló la quedada, estaba completada.");
                         return "Quedada completada";
                     }
                     else if (_contexto.Participantes.Any(p => p.IdQuedada == idQuedada))
                     {
+                        EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método cancelarQuedada() de la clase QuedadaServicioImpl. No se canceló la quedada, había participantes.");
                         return "Usuarios participantes";
                     }
                     else
@@ -228,13 +279,14 @@ namespace BikerConnectDIW.Servicios
                         q.Estado = "Cancelada";
                         _contexto.Quedadas.Update(q);
                         _contexto.SaveChanges();
+                        EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método cancelarQuedada() de la clase QuedadaServicioImpl. Quedada cancelada OK");
                         return "Quedada cancelada";
                     }
                 }
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine($"\n[ERROR QuedadaServicioImpl - cancelarQuedada()] - Error de persistencia al canlecar quedada: {dbe}");
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - cancelarQuedada()] - Error de persistencia al canlecar quedada: {dbe}");
                 return "Error al cancelar la quedada";
             }
             return "";

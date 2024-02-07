@@ -1,4 +1,5 @@
 ﻿using BikerConnectDIW.DTO;
+using BikerConnectDIW.Utils;
 using DAL.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -31,11 +32,14 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método registrarUsuario() de la clase UsuarioServicioImpl");
+
                 var usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == userDTO.EmailUsuario && !u.CuentaConfirmada);
 
                 if (usuarioExistente != null)
                 {
                     userDTO.EmailUsuario = "EmailNoConfirmado";
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método registrarUsuario() de la clase UsuarioServicioImpl");
                     return userDTO;
                 }
 
@@ -44,6 +48,7 @@ namespace BikerConnectDIW.Servicios
                 if (emailExistente != null)
                 {
                     userDTO.EmailUsuario = "EmailRepetido";
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método registrarUsuario() de la clase UsuarioServicioImpl");
                     return userDTO;
                 }
 
@@ -60,16 +65,18 @@ namespace BikerConnectDIW.Servicios
                 string nombreUsuario = usuarioDao.NombreApellidos;
                 _servicioEmail.enviarEmailConfirmacion(userDTO.EmailUsuario, nombreUsuario, token);
 
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método registrarUsuario() de la clase UsuarioServicioImpl");
+
                 return userDTO;
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - registrarUsuario()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - registrarUsuario()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
                 return null;
             }
             catch (Exception e)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - registrarUsuario()] Error al registrar un usuario: " + e.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - registrarUsuario()] Error al registrar un usuario: " + e.Message);
                 return null;
             }
 
@@ -79,17 +86,21 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método generarToken() de la clase UsuarioServicioImpl");
+
                 using (RandomNumberGenerator rng = new RNGCryptoServiceProvider())
                 {
                     byte[] tokenBytes = new byte[30];
                     rng.GetBytes(tokenBytes);
+
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método generarToken() de la clase UsuarioServicioImpl");
 
                     return BitConverter.ToString(tokenBytes).Replace("-", "").ToLower();
                 }
             }
             catch (ArgumentException ae)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ConfirmarCuenta()] Error al cgenerar un token de usuario " + ae.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl -  generarToken()] Error al generar un token de usuario " + ae.Message);
                 return null;
             }
 
@@ -99,6 +110,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método confirmarCuenta() de la clase UsuarioServicioImpl");
+
                 Usuario? usuarioExistente = _contexto.Usuarios.Where(u => u.TokenRecuperacion == token).FirstOrDefault();
 
                 if (usuarioExistente != null && !usuarioExistente.CuentaConfirmada)
@@ -108,23 +121,24 @@ namespace BikerConnectDIW.Servicios
                     usuarioExistente.TokenRecuperacion = null;
                     _contexto.Usuarios.Update(usuarioExistente);
                     _contexto.SaveChanges();
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método confirmarCuenta() de la clase UsuarioServicioImpl. Cuenta confirmada OK.");
 
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("La cuenta no existe o ya está confirmada");
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método confirmarCuenta() de la clase UsuarioServicioImpl. La cuenta no existe o ya está confirmada");
                     return false;
                 }
             }
             catch (ArgumentException ae)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ConfirmarCuenta()] Error al confirmar la cuenta " + ae.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - confirmarCuenta()] Error al confirmar la cuenta " + ae.Message);
                 return false;
             }
             catch (Exception e)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ConfirmarCuenta()] Error al confirmar la cuenta " + e.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - confirmarCuenta()] Error al confirmar la cuenta " + e.Message);
                 return false;
             }
         }
@@ -133,6 +147,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método iniciarProcesoRecuperacion() de la clase UsuarioServicioImpl");
+
                 Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario);
 
                 if (usuarioExistente != null)
@@ -153,11 +169,13 @@ namespace BikerConnectDIW.Servicios
                     string nombreUsuario = usuarioExistente.NombreApellidos;
                     _servicioEmail.enviarEmailRecuperacion(emailUsuario, nombreUsuario, token);
 
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método iniciarProcesoRecuperacion() de la clase UsuarioServicioImpl.");
+
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("El usuario con email " + emailUsuario + " no existe");
+                    EscribirLog.escribirEnFicheroLog("[INFO] El usuario con email " + emailUsuario + " no existe");
                     return false;
                 }
             }
@@ -168,7 +186,7 @@ namespace BikerConnectDIW.Servicios
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - IniciarProcesoRecuperacion()] Error al iniciar el proceso de recuperación: " + ex.Message);
+                Console.WriteLine("[Error UsuarioServicioImpl - iniciarProcesoRecuperacion()] Error al iniciar el proceso de recuperación: " + ex.Message);
                 return false;
             }
         }
@@ -177,22 +195,25 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerUsuarioPorToken() de la clase UsuarioServicioImpl");
+
                 Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.TokenRecuperacion == token);
 
                 if (usuarioExistente != null)
                 {
                     UsuarioDTO usuario = _convertirAdto.usuarioToDto(usuarioExistente);
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerUsuarioPorToken() de la clase UsuarioServicioImpl.");
                     return usuario;
                 }
                 else
                 {
-                    Console.WriteLine("No existe el usuario con el token " + token);
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerUsuarioPorToken() de la clase UsuarioServicioImpl. No existe el usuario con el token " + token);
                     return null;
                 }
             }
             catch (ArgumentNullException e)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ObtenerUsuarioPorToken()] Error al obtener usuario por token " + e.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - obtenerUsuarioPorToken()] Error al obtener usuario por token " + e.Message);
                 return null;
             }
         }
@@ -201,6 +222,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método modificarContraseñaConToken() de la clase UsuarioServicioImpl");
+
                 Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.TokenRecuperacion == usuario.Token);
 
                 if (usuarioExistente != null)
@@ -211,16 +234,17 @@ namespace BikerConnectDIW.Servicios
                     _contexto.Usuarios.Update(usuarioExistente);
                     _contexto.SaveChanges();
 
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método modificarContraseñaConToken() de la clase UsuarioServicioImpl.");
                     return true;
                 }
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ModificarContraseñaConToken()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - modificarContraseñaConToken()] Error de persistencia al actualizar la bbdd: " + dbe.Message);
             }
             catch (ArgumentNullException e)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - verificarCredenciales()] Error al modificar contraseña del usuario: " + e.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - verificarCredenciales()] Error al modificar contraseña del usuario: " + e.Message);
                 return false;
             }
             return false;
@@ -230,22 +254,28 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl");
+
                 string contraseñaEncriptada = _servicioEncriptar.Encriptar(claveUsuario);
                 Usuario? usuarioExistente = _contexto.Usuarios.FirstOrDefault(u => u.Email == emailUsuario && u.Contraseña == contraseñaEncriptada);
                 if (usuarioExistente == null)
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl. Username no encontrado");
                     return false;
                 }
                 if (!usuarioExistente.CuentaConfirmada)
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl. El usuario no tiene la cuenta confirmada");
                     return false;
                 }
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl");
 
                 return true;
             }
             catch (ArgumentNullException e)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - verificarCredenciales()] Error al comprobar las credenciales del usuario: " + e.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - verificarCredenciales()] Error al comprobar las credenciales del usuario: " + e.Message);
                 return false;
             }
 
@@ -255,6 +285,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl");
+
                 UsuarioDTO usuarioDTO = new UsuarioDTO();
                 var usuario = _contexto.Usuarios.FirstOrDefault(u => u.Email == email);
 
@@ -262,6 +294,8 @@ namespace BikerConnectDIW.Servicios
                 {
                     usuarioDTO = _convertirAdto.usuarioToDto(usuario);
                 }
+
+                EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl");
 
                 return usuarioDTO;
             }
@@ -274,6 +308,8 @@ namespace BikerConnectDIW.Servicios
 
         public List<UsuarioDTO> obtenerTodosLosUsuarios()
         {
+            EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl");
+
             return _convertirAdto.listaUsuarioToDto(_contexto.Usuarios.ToList());
         }
 
@@ -281,15 +317,19 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl");
+
                 Usuario? usuario = _contexto.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
                 if (usuario != null)
                 {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl");
+
                     return _convertirAdto.usuarioToDto(usuario);
                 }
             }
             catch (ArgumentException iae)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - BuscarPorId()] Al buscar el usuario por su id " + iae.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - buscarPorId()] Al buscar el usuario por su id " + iae.Message);
             }
             return null;
         }
@@ -298,16 +338,19 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método eliminar() de la clase UsuarioServicioImpl");
+
                 Usuario? usuario = _contexto.Usuarios.Find(id);
                 if (usuario != null)
                 {
                     _contexto.Usuarios.Remove(usuario);
                     _contexto.SaveChanges();
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método eliminar() de la clase UsuarioServicioImpl. Usuario eliminado OK");
                 }
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - Eliminar()] De persistencia al eliminar el usuario por su id " + dbe.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - eliminar()] Error de persistencia al eliminar el usuario por su id " + dbe.Message);
             }
         }
 
@@ -315,6 +358,8 @@ namespace BikerConnectDIW.Servicios
         {
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método actualizarUsuario() de la clase UsuarioServicioImpl");
+
                 Usuario? usuarioActual = _contexto.Usuarios.Find(usuarioModificado.Id);
 
                 if (usuarioActual != null)
@@ -325,20 +370,22 @@ namespace BikerConnectDIW.Servicios
 
                     _contexto.Usuarios.Update(usuarioActual);
                     _contexto.SaveChanges();
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método actualizarUsuario() de la clase UsuarioServicioImpl. Usuario actualizado OK");
                 }
                 else
                 {
-                    Console.WriteLine("Usuario no encontrado");
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método actualizarUsuario() de la clase UsuarioServicioImpl. Usuario no encontrado");
                 }
             }
             catch (DbUpdateException dbe)
             {
-                Console.WriteLine("[Error UsuarioServicioImpl - ActualizarUsuario()]Error de persistencia al modificar el usuario " + dbe.Message);
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - actualizarUsuario()] Error de persistencia al modificar el usuario " + dbe.Message);
             }
         }
 
         public int contarUsuariosPorRol(string rol)
         {
+            EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método contarUsuariosPorRol() de la clase UsuarioServicioImpl");
             return _contexto.Usuarios.Count(u => u.Rol == rol);
         }
 

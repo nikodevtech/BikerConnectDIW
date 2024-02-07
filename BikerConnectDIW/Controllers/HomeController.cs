@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using BikerConnectDIW.Utils;
 
 namespace BikerConnectDIW.Controllers
 {
@@ -17,6 +18,8 @@ namespace BikerConnectDIW.Controllers
 
         public IActionResult Index()
         {
+            EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método  Index() de la clase HomeController");
+
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return View();
         }

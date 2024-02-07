@@ -7,6 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Aspecto\**" />
+	  <Content Remove="Aspecto\**" />
+	  <EmbeddedResource Remove="Aspecto\**" />
+	  <None Remove="Aspecto\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
@@ -24,10 +31,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\DAL\DAL.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Aspecto\" />
 	</ItemGroup>
 
 </Project>
