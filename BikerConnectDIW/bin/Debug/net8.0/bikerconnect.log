@@ -5647,3 +5647,563 @@
 07/02/2024 05:40:00 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
 07/02/2024 05:40:00 [INFO] Saliendo del método listaQuedadaToDto() de la clase ConvertirAdtoImpl
 07/02/2024 05:40:00 [INFO] Saliendo del método Quedadas() de la clase QuedadasController
+07/02/2024 06:51:06 [INFO] Entrando en el método  Index() de la clase HomeController
+07/02/2024 06:51:10 [INFO] Entrando en el método Login() de la clase LoginController
+07/02/2024 06:51:30 [INFO] Entrando en el método ProcesarInicioSesion() de la clase LoginController
+07/02/2024 06:51:30 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+07/02/2024 06:51:30 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+07/02/2024 06:51:30 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+07/02/2024 06:51:31 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+07/02/2024 06:51:31 [INFO] Entrando en el método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+07/02/2024 06:51:31 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:31 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:31 [INFO] Saliendo del método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+07/02/2024 06:51:31 [INFO] Saliendo del método ProcesarInicioSesion() de la clase LoginController
+07/02/2024 06:51:31 [INFO] Entrando en el método Dashboard() de la clase LoginController
+07/02/2024 06:51:32 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:51:32 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:32 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:51:35 [INFO] Entrando en el método MostrarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:51:35 [INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:51:35 [INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:51:35 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:35 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:35 [INFO] Saliendo del método MostrarFormularioEdicion() de la clase AdministracionUsuariosController.
+07/02/2024 06:51:40 [INFO] Entrando en el método ProcesarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:51:40 [INFO] Entrando en el método actualizarUsuario() de la clase UsuarioServicioImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método actualizarUsuario() de la clase UsuarioServicioImpl. Usuario actualizado OK
+07/02/2024 06:51:40 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:51:40 [INFO] Saliendo del método ProcesarFormularioEdicion() de la clase AdministracionUsuariosController. El Usuario se ha editado correctamente
+07/02/2024 06:57:31 [INFO] Entrando en el método  Index() de la clase HomeController
+07/02/2024 06:58:01 [INFO] Entrando en el método Login() de la clase LoginController
+07/02/2024 06:58:10 [INFO] Entrando en el método ProcesarInicioSesion() de la clase LoginController
+07/02/2024 06:58:10 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+07/02/2024 06:58:10 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+07/02/2024 06:58:10 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+07/02/2024 06:58:10 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+07/02/2024 06:58:10 [INFO] Entrando en el método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+07/02/2024 06:58:10 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:10 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:10 [INFO] Saliendo del método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+07/02/2024 06:58:10 [INFO] Saliendo del método ProcesarInicioSesion() de la clase LoginController
+07/02/2024 06:58:10 [INFO] Entrando en el método Dashboard() de la clase LoginController
+07/02/2024 06:58:11 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:58:11 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:11 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:58:36 [INFO] Entrando en el método MostrarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:58:36 [INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:58:36 [INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:58:36 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:36 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:36 [INFO] Saliendo del método MostrarFormularioEdicion() de la clase AdministracionUsuariosController.
+07/02/2024 06:58:40 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:58:40 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:40 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:58:42 [INFO] Entrando en el método MostrarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:58:42 [INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:58:42 [INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:58:42 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:42 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:42 [INFO] Saliendo del método MostrarFormularioEdicion() de la clase AdministracionUsuariosController.
+07/02/2024 06:58:50 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:58:50 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:58:50 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:59:02 [INFO] Entrando en el método MostrarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:59:02 [INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:59:02 [INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:59:02 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:02 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:02 [INFO] Saliendo del método MostrarFormularioEdicion() de la clase AdministracionUsuariosController.
+07/02/2024 06:59:08 [INFO] Entrando en el método ProcesarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:59:08 [INFO] Entrando en el método actualizarUsuario() de la clase UsuarioServicioImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método actualizarUsuario() de la clase UsuarioServicioImpl. Usuario actualizado OK
+07/02/2024 06:59:08 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:08 [INFO] Saliendo del método ProcesarFormularioEdicion() de la clase AdministracionUsuariosController. El Usuario se ha editado correctamente
+07/02/2024 06:59:41 [INFO] Entrando en el método  Index() de la clase HomeController
+07/02/2024 06:59:43 [INFO] Entrando en el método Login() de la clase LoginController
+07/02/2024 06:59:50 [INFO] Entrando en el método ProcesarInicioSesion() de la clase LoginController
+07/02/2024 06:59:50 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+07/02/2024 06:59:50 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+07/02/2024 06:59:50 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+07/02/2024 06:59:50 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+07/02/2024 06:59:50 [INFO] Entrando en el método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+07/02/2024 06:59:50 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:50 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:50 [INFO] Saliendo del método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+07/02/2024 06:59:50 [INFO] Saliendo del método ProcesarInicioSesion() de la clase LoginController
+07/02/2024 06:59:50 [INFO] Entrando en el método Dashboard() de la clase LoginController
+07/02/2024 06:59:51 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:59:51 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:51 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 06:59:53 [INFO] Entrando en el método MostrarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 06:59:53 [INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:59:53 [INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 06:59:53 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:53 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 06:59:53 [INFO] Saliendo del método MostrarFormularioEdicion() de la clase AdministracionUsuariosController.
+07/02/2024 07:00:04 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 07:00:04 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:04 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 07:00:14 [INFO] Entrando en el método MostrarFormularioEdicion() de la clase AdministracionUsuariosController
+07/02/2024 07:00:14 [INFO] Entrando en el método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 07:00:14 [INFO] Saliendo del método buscarPorId() de la clase UsuarioServicioImpl
+07/02/2024 07:00:14 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:14 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:14 [INFO] Saliendo del método MostrarFormularioEdicion() de la clase AdministracionUsuariosController.
+07/02/2024 07:00:18 [INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController
+07/02/2024 07:00:18 [INFO] Entrando en el método obtenerTodosLosUsuarios() de la clase UsuarioServicioImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método listaUsuarioToDto() de la clase ConvertirAdtoImpl
+07/02/2024 07:00:18 [INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController

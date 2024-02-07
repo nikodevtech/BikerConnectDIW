@@ -25,13 +25,23 @@
             <label for="telefono" class="form-label textoPrincipal">Teléfono</label>
             <input asp-for="TlfUsuario" type="tel" id="telefono" class="form-control" required />
         </div>
-        <div class="mb-3">
-            <label for="rol" class="form-label textoPrincipal">Rol del usuario</label>
-            <select asp-for="Rol" id="rol" class="form-select" required>
-                <option value="ROLE_USER" disabled>Usuario (Solamente se permite escalar privilegios)</option>
-                <option value="ROLE_ADMIN">Administrador</option>
-            </select>
-        </div>
+        @if (Model.Rol == "ROLE_USER")
+        {
+            <div class="mb-3">
+                <label for="rol" class="form-label textoPrincipal">Rol del usuario (Solamente se permite escalar privilegios)</label>
+                <select asp-for="Rol" id="rol" class="form-select" required>
+                    <option value="ROLE_USER" selected>Usuario</option>
+                    <option value="ROLE_ADMIN">Administrador</option>
+                </select>
+            </div>
+        }
+        @if (Model.Rol == "ROLE_ADMIN")
+        {
+            <div class="mb-3">
+                <label for="rol" class="form-label textoPrincipal">Rol del usuario (Solamente se permite escalar privilegios)</label>
+                <input type="text" class="form-control" value="Administrador" readonly>
+            </div>
+        }
         <div class="mb-3">
             <label for="foto" class="form-label textoPrincipal">Foto de Perfil</label>
             <input class="form-control" type="file" id="foto" accept="image/*" />
