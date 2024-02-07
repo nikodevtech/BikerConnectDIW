@@ -7,6 +7,7 @@
     var mensajeRegistroExitoso = ViewData["MensajeRegistroExitoso"] as string;
     var cuentaNoVerificada = ViewData["EmailNoConfirmado"] as string;
     var noTePuedesEliminar = ViewData["noTePuedesEliminar"] as string;
+    var usuarioNoEncontrado = ViewData["usuarioNoEncontrado"] as string;
     var error = ViewData["error"] as string;
 
 
@@ -27,7 +28,7 @@
                 <div class="col-md-6 text-end mt-2">
                     <form method="get" action="@Url.Action("ListadoUsuarios", "AdministracionUsuarios")">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="busquedaUser" placeholder="Busca el email del usuario">
+                            <input type="text" class="form-control" name="busquedaUser" placeholder="Buscar el email del usuario">
                             <button class="btn buttonPrincipal" type="submit">Buscar</button>
                         </div>
                     </form>
@@ -81,6 +82,12 @@
             }
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(usuarioNoEncontrado))
+    {
+        <script>
+            mostrarNotificacion("¡No se encontró al usuario!", "No hay ningún usuario registrado con el email introducido", 'info');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(mensajeRegistroExitoso))
     {
         <script>

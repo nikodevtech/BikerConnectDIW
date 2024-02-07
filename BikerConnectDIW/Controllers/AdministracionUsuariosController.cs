@@ -1,6 +1,7 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
 using BikerConnectDIW.Utils;
+using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,7 +40,15 @@ namespace BikerConnectDIW.Controllers
                 if (!string.IsNullOrEmpty(busquedaUser))
                 {
                     UsuarioDTO usuario = _usuarioServicio.obtenerUsuarioPorEmail(busquedaUser);
-                    usuarios.Add(usuario);
+                    if (usuario.EmailUsuario != null)
+                    {
+                        usuarios.Add(usuario);
+                    }
+                    else
+                    {
+                        ViewData["usuarioNoEncontrado"] = "No se encontró el usuario con el email introducido";
+                        usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                    }
                 }
                 else
                 {
@@ -85,6 +94,13 @@ namespace BikerConnectDIW.Controllers
                     EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarUsuario() de la clase AdministracionUsuariosController. " + ViewData["noTePuedesEliminar"]);
                     return View("~/Views/Home/administracionUsuarios.cshtml");
                 }
+                else if (User.IsInRole("ROLE_ADMIN") && adminsRestantes == 1 && usuario.Rol == "ROLE_ADMIN")
+                {
+                    ViewData["noSePuedeEliminar"] = "No se puede eliminar al último administrador del sistema";
+                    ViewBag.Usuarios = usuarios;
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarUsuario() de la clase AdministracionUsuariosController. " + ViewData["noSePuedeEliminar"]);
+                    return View("~/Views/Home/administracionUsuarios.cshtml");
+                }
                 else
                 {
                     List<QuedadaDTO> quedadasDelUsuario = _quedadaServicio.obtenerQuedadasDelUsuario(id);
@@ -93,14 +109,6 @@ namespace BikerConnectDIW.Controllers
                         ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas pendientes";
                         ViewBag.Usuarios = usuarios;
                         EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarUsuario() de la clase AdministracionUsuariosController. " + ViewData["elUsuarioTieneQuedadas"]);
-                        return View("~/Views/Home/administracionUsuarios.cshtml");
-                    }
-
-                    if (User.IsInRole("ROLE_ADMIN") && adminsRestantes == 1)
-                    {
-                        ViewData["noSePuedeEliminar"] = "No se puede eliminar al ultimo administrador del sistema";
-                        ViewBag.Usuarios = usuarios;
-                        EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarUsuario() de la clase AdministracionUsuariosController. " + ViewData["noSePuedeEliminar"]);
                         return View("~/Views/Home/administracionUsuarios.cshtml");
                     }
 
