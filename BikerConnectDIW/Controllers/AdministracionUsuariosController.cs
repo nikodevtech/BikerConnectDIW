@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BikerConnectDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para la administración de usuarios, manejando las peticiones que permitien realizar operaciones 
+    /// como listar, eliminar, editar y registrar usuarios.
+    /// </summary>
     public class AdministracionUsuariosController : Controller
     {
 
@@ -18,17 +22,29 @@ namespace BikerConnectDIW.Controllers
             _quedadaServicio = quedadaServicio;
         }
 
-
+        /// <summary>
+        /// Obtiene y muestra el listado de todos los usuarios en la vista de administración de usuarios.
+        /// </summary>
+        /// <param name="busquedaUser">El email del usuario a buscar.</param>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpGet]
         [Route("/privada/administracion-usuarios")]
-        public IActionResult ListadoUsuarios()
+        public IActionResult ListadoUsuarios(string busquedaUser)
         {
             try
             {
                 EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método ListadoUsuarios() de la clase AdministracionUsuariosController");
+                List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
 
-                List<UsuarioDTO> usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                if (!string.IsNullOrEmpty(busquedaUser))
+                {
+                    UsuarioDTO usuario = _usuarioServicio.obtenerUsuarioPorEmail(busquedaUser);
+                    usuarios.Add(usuario);
+                }
+                else
+                {
+                    usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                }
                 ViewBag.Usuarios = usuarios;
 
                 EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController");
@@ -42,6 +58,10 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Elimina un usuario con el ID proporcionado y redirige a la vista de administración de usuarios con el resultado de la eliminación.
+        /// </summary>
+        /// <param name="id">ID del usuario a eliminar.</param>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpGet]
         [Route("/privada/eliminar-usuario/{id}")]
@@ -102,6 +122,10 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Edita el usuario con el ID proporcionado y redirige a la vista correspondiente con el resultado de la edición.
+        /// </summary>
+        /// <param name="id">ID del usuario a editar.</param>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpGet]
         [Route("/privada/editar-usuario/{id}")]
@@ -129,6 +153,10 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Procesa la edición del usuario y redirige a la vista correspondiente con el resultado de la edición.
+        /// </summary>
+        /// <param name="usuarioDTO">El objeto DTO con los nuevos datos del usuario.</param>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpPost]
         [Route("/privada/procesar-editar")]
@@ -153,6 +181,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Procesa la creación de nueva cuenta del usuario por parte de un admin y redirige a la vista 
+        /// correspondiente con el resultado del alta del usuario.
+        /// </summary>
+        /// <param name="usuarioDTO">El objeto DTO con los nuevos datos del usuario.</param>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpPost]
         [Route("/auth/admin/crear-cuenta")]
@@ -194,6 +227,9 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Muestra la vista de alta de usuario enviando un DTO a dicha vista.
+        /// </summary>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpGet]
         [Route("/auth/admin/crear-cuenta")]
