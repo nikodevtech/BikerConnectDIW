@@ -10,10 +10,12 @@ namespace BikerConnectDIW.Controllers
     {
 
         private readonly IUsuarioServicio _usuarioServicio;
+        private readonly IQuedadaServicio _quedadaServicio;
 
-        public AdministracionUsuariosController(IUsuarioServicio usuarioServicio)
+        public AdministracionUsuariosController(IUsuarioServicio usuarioServicio, IQuedadaServicio quedadaServicio)
         {
             _usuarioServicio = usuarioServicio;
+            _quedadaServicio = quedadaServicio;
         }
 
 
@@ -65,6 +67,15 @@ namespace BikerConnectDIW.Controllers
                 }
                 else
                 {
+                    List<QuedadaDTO> quedadasDelUsuario = _quedadaServicio.obtenerQuedadasDelUsuario(id);
+                    if (quedadasDelUsuario.Count > 0)
+                    {
+                        ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas pendientes";
+                        ViewBag.Usuarios = usuarios;
+                        EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarUsuario() de la clase AdministracionUsuariosController. " + ViewData["elUsuarioTieneQuedadas"]);
+                        return View("~/Views/Home/administracionUsuarios.cshtml");
+                    }
+
                     if (User.IsInRole("ROLE_ADMIN") && adminsRestantes == 1)
                     {
                         ViewData["noSePuedeEliminar"] = "No se puede eliminar al ultimo administrador del sistema";
@@ -73,13 +84,6 @@ namespace BikerConnectDIW.Controllers
                         return View("~/Views/Home/administracionUsuarios.cshtml");
                     }
 
-                    if (usuario.MisQuedadas.Count > 0)
-                    {
-                        ViewData["elUsuarioTieneQuedadas"] = "No se puede eliminar un usuario con quedadas pendientes";
-                        ViewBag.Usuarios = usuarios;
-                        EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método EliminarUsuario() de la clase AdministracionUsuariosController. " + ViewData["elUsuarioTieneQuedadas"]);
-                        return View("~/Views/Home/administracionUsuarios.cshtml");
-                    }
                 }
 
                 _usuarioServicio.eliminar(id);
