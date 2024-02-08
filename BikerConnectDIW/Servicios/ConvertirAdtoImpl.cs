@@ -41,6 +41,11 @@ namespace BikerConnectDIW.Servicios
                     dto.CuentaConfirmada = u.CuentaConfirmada;
                     dto.Rol = u.Rol;
 
+                    if (u.Foto != null)
+                    {
+                        dto.Foto = u.Foto;
+                    }
+
                 }
                 EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl");
                 return dto;

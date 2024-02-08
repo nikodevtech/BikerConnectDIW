@@ -125,6 +125,8 @@ namespace BikerConnectDIW.Controllers
         [Route("/privada/dashboard")]
         public IActionResult Dashboard()
         {
+            UsuarioDTO u = _usuarioServicio.obtenerUsuarioPorEmail(User.Identity.Name);
+            ViewBag.UsuarioDTO = u;
             EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método Dashboard() de la clase LoginController");
             return View("~/Views/Home/dashboard.cshtml");
         }

@@ -368,6 +368,7 @@ namespace BikerConnectDIW.Servicios
                     usuarioActual.NombreApellidos = usuarioModificado.NombreUsuario + " " + usuarioModificado.ApellidosUsuario;
                     usuarioActual.TlfMovil = usuarioModificado.TlfUsuario;
                     usuarioActual.Rol = usuarioModificado.Rol;
+                    usuarioActual.Foto = usuarioModificado.Foto;
 
                     _contexto.Usuarios.Update(usuarioActual);
                     _contexto.SaveChanges();

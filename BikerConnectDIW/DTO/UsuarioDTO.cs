@@ -17,6 +17,8 @@
         public bool CuentaConfirmada { get; set; }
         public string Rol { get; set; }
 
+        public byte[] Foto { get; set; }
+
         public string NombreYapellidos { get; set; }
         public List<MotoDTO> MisMotos { get; set; } = new List<MotoDTO>();
         public List<QuedadaDTO> MisQuedadas { get; set; } = new List<QuedadaDTO>();
@@ -26,25 +28,6 @@
         {
         }
 
-        public UsuarioDTO(string nombreUsuario, string apellidosUsuario, string tlfUsuario, string emailUsuario,
-            string claveUsuario)
-        {
-            NombreUsuario = nombreUsuario;
-            ApellidosUsuario = apellidosUsuario;
-            TlfUsuario = tlfUsuario;
-            EmailUsuario = emailUsuario;
-            ClaveUsuario = claveUsuario;
-        }
 
-        // METODOS
-
-        public override string ToString()
-        {
-            return $"UsuarioDTO [Id={Id}, NombreUsuario={NombreUsuario}, ApellidosUsuario={ApellidosUsuario}, " +
-                   $"TlfUsuario={TlfUsuario}, EmailUsuario={EmailUsuario}, ClaveUsuario={ClaveUsuario}, " +
-                   $"Token={Token}, Password={Password}, Password2={Password2}, ExpiracionToken={ExpiracionToken}, " +
-                   $"FechaRegistro={FechaRegistro}, CuentaConfirmada={CuentaConfirmada}, Rol={Rol}, " /*+
-                   $"MisMotos={MisMotos}, MisQuedadas={MisQuedadas}]"*/;
-        }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "dashboard";
     var noAdmin = ViewData["noAdmin"] as string;
     var noSePuedeEliminar = ViewData["noSePuedeEliminar"] as string;
@@ -10,10 +9,15 @@
         <div class="col">
             <h3 class="text-center mt-5 subtituloSecundario3">Dashboard</h3>
             <hr class="border border-primary border-2 opacity-55 mb-5 mt-4">
-            <h4 class="text-light text-center subtituloSecundario">Bienvenido @User.Identity?.Name</h4>
+            <h4 class="text-light text-center subtituloSecundario">Bienvenido/a <span>@User.Identity.Name</span></h4>
+            <div class="text-center mt-4">
+                @if (ViewBag.UsuarioDTO.Foto != null)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(ViewBag.UsuarioDTO.Foto)" class="rounded-circle img-fluid mx-auto" alt="Imagen de usuario" style="max-width: 100px; max-height: 100px;">
+                }
+            </div>
         </div>
     </div>
-
     <div class="row">
         @if (User.IsInRole("ROLE_ADMIN"))
         {

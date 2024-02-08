@@ -167,13 +167,45 @@ namespace BikerConnectDIW.Controllers
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpPost]
         [Route("/privada/procesar-editar")]
-        public IActionResult ProcesarFormularioEdicion(UsuarioDTO usuarioDTO)
+        public IActionResult ProcesarFormularioEdicion(long id, string nombre, string apellidos, string telefono, string rol, IFormFile foto)
         {
             try
             {
                 EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método ProcesarFormularioEdicion() de la clase AdministracionUsuariosController");
 
+                UsuarioDTO usuarioDTO = _usuarioServicio.buscarPorId(id);
+                usuarioDTO.NombreUsuario = nombre;
+                usuarioDTO.ApellidosUsuario = apellidos;
+                usuarioDTO.TlfUsuario = telefono;
+
+                if (rol.Equals("Administrador"))
+                {
+                    usuarioDTO.Rol = "ROLE_ADMIN";
+                }
+                else
+                {
+                    usuarioDTO.Rol = rol;
+                }
+
+                if (foto != null && foto.Length > 0)
+                {
+                    byte[] fotoBytes;
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        foto.CopyTo(memoryStream);
+                        fotoBytes = memoryStream.ToArray();
+                    }
+                    usuarioDTO.Foto = fotoBytes;
+                }
+                else
+                {
+                    UsuarioDTO usuarioActualDTO = _usuarioServicio.buscarPorId(id);
+                    byte[] fotoActual = usuarioActualDTO.Foto;
+                    usuarioDTO.Foto = fotoActual;
+                }
+
                 _usuarioServicio.actualizarUsuario(usuarioDTO);
+
                 ViewData["EdicionCorrecta"] = "El Usuario se ha editado correctamente";
                 ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
 
@@ -182,7 +214,7 @@ namespace BikerConnectDIW.Controllers
             }
             catch (Exception e)
             {
-                ViewData["error"] = "Ocurrió un error al editar el usuario";
+                ViewData["Error"] = "Ocurrió un error al editar el usuario";
                 EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método ProcesarFormularioEdicion() de la clase AdministracionUsuariosController: " + e.Message + e.StackTrace);
                 return View("~/Views/Home/dashboard.cshtml");
             }

@@ -172,9 +172,8 @@ namespace DAL.Migrations
                         .HasColumnType("timestamp(6) without time zone")
                         .HasColumnName("fch_registro");
 
-                    b.Property<string>("Foto")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
+                    b.Property<byte[]>("Foto")
+                        .HasColumnType("bytea")
                         .HasColumnName("foto");
 
                     b.Property<string>("NombreApellidos")
