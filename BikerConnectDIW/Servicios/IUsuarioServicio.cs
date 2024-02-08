@@ -28,5 +28,8 @@ namespace BikerConnectDIW.Servicios
 
         public int contarUsuariosPorRol(string rol);
 
+        public List<UsuarioDTO> buscarPorCoincidenciaEnEmail(String palabra);
+
+
     }
 }

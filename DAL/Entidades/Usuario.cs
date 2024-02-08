@@ -23,7 +23,7 @@ public partial class Usuario
 
     public string Email { get; set; } = null!;
 
-    public string? Foto { get; set; }
+    public byte[]? Foto { get; set; }
 
     public string? TokenRecuperacion { get; set; }
 

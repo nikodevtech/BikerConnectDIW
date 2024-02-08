@@ -39,22 +39,21 @@ namespace BikerConnectDIW.Controllers
 
                 if (!string.IsNullOrEmpty(busquedaUser))
                 {
-                    UsuarioDTO usuario = _usuarioServicio.obtenerUsuarioPorEmail(busquedaUser);
-                    if (usuario.EmailUsuario != null)
+                    usuarios = _usuarioServicio.buscarPorCoincidenciaEnEmail(busquedaUser);
+                    if (usuarios.Count > 0)
                     {
-                        usuarios.Add(usuario);
+                        ViewBag.Usuarios = usuarios;
                     }
                     else
                     {
-                        ViewData["usuarioNoEncontrado"] = "No se encontró el usuario con el email introducido";
-                        usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                        ViewData["usuarioNoEncontrado"] = "No se encontraron email de usuario que contenga la palabra introducida";
+                        ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
                     }
                 }
                 else
                 {
-                    usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
+                    ViewBag.Usuarios = _usuarioServicio.obtenerTodosLosUsuarios();
                 }
-                ViewBag.Usuarios = usuarios;
 
                 EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método ListadoUsuarios() de la clase AdministracionUsuariosController");
                 return View("~/Views/Home/administracionUsuarios.cshtml");

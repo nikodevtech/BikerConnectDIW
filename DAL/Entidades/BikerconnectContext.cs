@@ -123,9 +123,7 @@ public partial class BikerconnectContext : DbContext
             entity.Property(e => e.FchRegistro)
                 .HasColumnType("timestamp(6) without time zone")
                 .HasColumnName("fch_registro");
-            entity.Property(e => e.Foto)
-                .HasMaxLength(100)
-                .HasColumnName("foto");
+            entity.Property(e => e.Foto).HasColumnName("foto");
             entity.Property(e => e.NombreApellidos)
                 .HasMaxLength(50)
                 .HasColumnName("nombre_apellidos");

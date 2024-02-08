@@ -2,6 +2,7 @@
 using BikerConnectDIW.Utils;
 using DAL.Entidades;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol.Core.Types;
 using System.Security.Cryptography;
 
 namespace BikerConnectDIW.Servicios
@@ -389,6 +390,21 @@ namespace BikerConnectDIW.Servicios
             return _contexto.Usuarios.Count(u => u.Rol == rol);
         }
 
-
+        public List<UsuarioDTO> buscarPorCoincidenciaEnEmail(string palabra)
+        {
+            try
+            {
+                List<Usuario> usuarios = _contexto.Usuarios.Where(u => u.Email.Contains(palabra)).ToList();
+                if (usuarios != null)
+                {
+                    return _convertirAdto.listaUsuarioToDto(usuarios);
+                }
+            }
+            catch (Exception e)
+            {
+                EscribirLog.escribirEnFicheroLog("[Error UsuarioServicioImpl - buscarPorCoincidenciaEnEmail()] Al buscar el usuario por su email " + e.Message);
+            }
+            return null;
+        }
     }
 }
