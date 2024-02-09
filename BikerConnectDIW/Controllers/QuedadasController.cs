@@ -1,12 +1,14 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
 using BikerConnectDIW.Utils;
-using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BikerConnectDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para manejar las peticiones HTTP POST y GET relacionadas con las quedadas de usuarios.
+    /// </summary>
     public class QuedadasController : Controller
     {
 
@@ -25,7 +27,10 @@ namespace BikerConnectDIW.Controllers
             _usuarioServicio = usuarioServicio;
         }
 
-
+        /// <summary>
+        /// Método para mostrar las quedadas disponibles.
+        /// </summary>
+        /// <returns>La vista de las quedadas</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas")]
@@ -50,6 +55,10 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para mostrar el formulario de planificación de una quedada.
+        /// </summary>
+        /// <returns>Vista del formulario de planificación de quedadas</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas/planificar-quedada")]
@@ -70,6 +79,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para registrar una nueva quedada.
+        /// </summary>
+        /// <param name="quedadaDTO">Datos de la quedada a registrar</param>
+        /// <returns>Vista de las quedadas</returns>
         [Authorize]
         [HttpPost]
         [Route("/privada/quedadas/planificar-quedada")]
@@ -109,6 +123,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para mostrar los detalles de una quedada.
+        /// </summary>
+        /// <param name="id">Identificador de la quedada</param>
+        /// <returns>La vista con los detalles de la quedada si se encuentra, de lo contrario redirecciona a la página de quedadas</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas/detalle-quedada/{id}")]
@@ -144,6 +163,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para permitir que un usuario se una a una quedada.
+        /// </summary>
+        /// <param name="id">Identificador de la quedada a la que desea unirse el usuario</param>
+        /// <returns>La vista de quedadas con un mensaje de éxito o error según el resultado</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas/detalle-quedada/unirse/{id}")]
@@ -182,6 +206,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para permitir que un usuario cancele su asistencia a una quedada.
+        /// </summary>
+        /// <param name="id">Identificador de la quedada de la que el usuario desea cancelar su asistencia</param>
+        /// <returns>La vista de quedadas con un mensaje de éxito o error según el resultado</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas/detalle-quedada/cancelar-asistencia/{id}")]
@@ -229,6 +258,10 @@ namespace BikerConnectDIW.Controllers
 
         }
 
+        /// <summary>
+        /// Método para mostrar las quedadas en las que el usuario actual está inscrito.
+        /// </summary>
+        /// <returns>La vista de 'MisQuedadas', si no se encuentra al usuario redirecciona a la página de quedadas</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas/mis-quedadas")]
@@ -264,6 +297,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para permitir que el organizador de una quedada la cancele.
+        /// </summary>
+        /// <param name="id">Identificador de la quedada a cancelar</param>
+        /// <returns>La vista de quedadas con un mensaje según el resultado de la operación</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/quedadas/detalle-quedada/cancelar-quedada/{id}")]

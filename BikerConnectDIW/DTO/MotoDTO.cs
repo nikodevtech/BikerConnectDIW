@@ -1,5 +1,8 @@
 ﻿namespace BikerConnectDIW.DTO
 {
+    /// <summary>
+    /// Clase que representa un objeto MotoDTO para almacenar los datos de una moto y  moverlo entre las distintas capas de la aplicación.
+    /// </summary>
     public class MotoDTO
     {
         public long Id { get; set; }

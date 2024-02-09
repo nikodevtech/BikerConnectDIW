@@ -1,5 +1,8 @@
 ﻿namespace BikerConnectDIW.DTO
 {
+    /// <summary>
+    /// Clase DTO (Data Transfer Object) para pasar información entre capas para la gestión de usuarios
+    /// </summary>
     public class UsuarioDTO
     {
         // ATRIBUTOS

@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BikerConnectDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para manejar las peticiones HTTP POST y GET relacionadas con el registro de usuarios.
+    /// </summary>
     public class RegistroController : Controller
     {
 
@@ -15,6 +18,10 @@ namespace BikerConnectDIW.Controllers
             _usuarioServicio = usuarioServicio;
         }
 
+        /// <summary>
+        /// Método HTTP GET de la url /auth/crear-cuenta para mostrar la vista de registro.
+        /// </summary>
+        /// <returns>La vista de registro</returns>
         [HttpGet]
         [Route("/auth/crear-cuenta")]
         public IActionResult RegistrarGet()
@@ -35,6 +42,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método HTTP POST para procesar el registro de un nuevo usuario.
+        /// </summary>
+        /// <param name="usuarioDTO">DTO del usuario con los datos de registro</param>
+        /// <returns>La vista correspondiente según el resultado del registro</returns>
         [HttpPost]
         [Route("/auth/crear-cuenta")]
         public IActionResult RegistrarPost(UsuarioDTO usuarioDTO)

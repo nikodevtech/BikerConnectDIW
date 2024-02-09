@@ -17,7 +17,9 @@
                         <div class="col-md-8 offset-md-2 mb-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">@quedada.Lugar - @quedada.FechaHora</h5>
+                                    <h4 class="textoPrincipal">Quedada: @quedada.Estado</h4>
+                                    <br />
+                                    <h6 class="card-title">@quedada.Lugar - @quedada.FechaHora</h6>
                                     <p class="card-text">@quedada.Descripcion</p>
                                     <a asp-controller="Quedadas" asp-action="VerDetallesQuedada" asp-route-id="@quedada.Id" class="btn buttonPrincipal"><i class="bi bi-file-text"></i> Ver Detalles</a>
                                 </div>

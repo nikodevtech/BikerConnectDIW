@@ -7,6 +7,9 @@ using System.Security.Cryptography;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IUsuarioServicio y detalla la lógica de los metodos que serán necesarios para la gestion de usuarios
+    /// </summary>
     public class UsuarioServicioImpl : IUsuarioServicio
     {
         private readonly BikerconnectContext _contexto;

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Entidades;
 
+/// <summary>
+/// Contexto de la base de datos en la aplicación
+/// </summary>
 public partial class BikerconnectContext : DbContext
 {
     public BikerconnectContext()
@@ -57,10 +60,10 @@ public partial class BikerconnectContext : DbContext
 
         modelBuilder.Entity<Participante>(entity =>
         {
-            entity.HasKey(e => e.Id); 
+            entity.HasKey(e => e.Id);
             entity.ToTable("participantes", "gestion_logicanegocio");
 
-            entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd(); 
+            entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
             entity.Property(e => e.IdQuedada).HasColumnName("id_quedada");
             entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 

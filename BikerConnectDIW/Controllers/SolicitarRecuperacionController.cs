@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BikerConnectDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para manejar las peticiones HTTP POST y GET relacionadas con la solicitud de un usuario para poder recuperar su contraseña.
+    /// </summary>
     public class SolicitarRecuperacionController : Controller
     {
 
@@ -15,7 +18,10 @@ namespace BikerConnectDIW.Controllers
             _usuarioServicio = usuarioServicio;
         }
 
-
+        /// <summary>
+        /// Método HTTP GET para mostrar la vista de inicio de solicitud de recuperación de contraseña.
+        /// </summary>
+        /// <returns>La vista de solicitud de recuperación de contraseña</returns>
         [HttpGet]
         [Route("/auth/solicitar-recuperacion")]
         public IActionResult MostrarVistaIniciarRecuperacion()
@@ -35,6 +41,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método HTTP POST para procesar el inicio del proceso de recuperación de contraseña.
+        /// </summary>
+        /// <param name="usuarioDTO">DTO del usuario con el email para iniciar la recuperación</param>
+        /// <returns>La vista correspondiente según el resultado del inicio de recuperación</returns>
         [HttpPost]
         [Route("/auth/iniciar-recuperacion")]
         public IActionResult ProcesarInicioRecuperacion([Bind("EmailUsuario")] UsuarioDTO usuarioDTO)

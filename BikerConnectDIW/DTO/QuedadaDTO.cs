@@ -1,5 +1,8 @@
 ﻿namespace BikerConnectDIW.DTO
 {
+    /// <summary>
+    /// Clase que representa un objeto quedada como DTO para almacenar los datos de quedadas y moverlo entre las distintas capas de la aplicación.
+    /// </summary>
     public class QuedadaDTO
     {
         public long Id { get; set; }

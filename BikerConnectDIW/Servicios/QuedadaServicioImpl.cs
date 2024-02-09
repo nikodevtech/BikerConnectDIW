@@ -6,6 +6,9 @@ using System;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IQuedadaServicio y detalla la lógica de los metodos que serán necesarios para la gestión de las quedadas
+    /// </summary>
     public class QuedadaServicioImpl : IQuedadaServicio
     {
 

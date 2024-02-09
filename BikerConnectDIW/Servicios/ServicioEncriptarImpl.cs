@@ -4,6 +4,9 @@ using System.Text;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IServicioEncriptar y detalla la lógica de los metodos que serán necesarios para el encriptado de contraseñas
+    /// </summary>
     public class ServicioEncriptarImpl : IServicioEncriptar
     {
         public string Encriptar(string contraseña)

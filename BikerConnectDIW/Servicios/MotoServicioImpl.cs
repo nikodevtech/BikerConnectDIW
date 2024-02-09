@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IMotoServicio y detalla la lógica de los metodos que serán necesarios para la gestión de motos
+    /// </summary>
     public class MotoServicioImpl : IMotoServicio
     {
         private readonly BikerconnectContext _contexto;

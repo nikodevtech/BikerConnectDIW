@@ -6,6 +6,9 @@ using System.Text;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IConvertirAdto y detalla la lógica de los metodos que serán necesarios para el paso de DAO a DTO
+    /// </summary>
     public class ConvertirAdtoImpl : IConvertirAdto
     {
         public UsuarioDTO usuarioToDto(Usuario u)
@@ -80,10 +83,11 @@ namespace BikerConnectDIW.Servicios
 
         public MotoDTO motoToDto(Moto m)
         {
-            MotoDTO moto = new MotoDTO();
 
             try
             {
+                MotoDTO moto = new MotoDTO();
+
                 EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl");
 
                 moto.Id = m.IdMoto;
@@ -107,10 +111,11 @@ namespace BikerConnectDIW.Servicios
 
         public List<MotoDTO> listaMotosToDto(List<Moto> listaMotos)
         {
-            List<MotoDTO> listaDto = new List<MotoDTO>();
 
             try
             {
+                List<MotoDTO> listaDto = new List<MotoDTO>();
+
                 EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl");
 
                 foreach (Moto moto in listaMotos)

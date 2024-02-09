@@ -267,7 +267,7 @@ namespace BikerConnectDIW.Controllers
         }
 
         /// <summary>
-        /// Muestra la vista de alta de usuario enviando un DTO a dicha vista.
+        /// Muestra la vista de alta de usuario desde el panel de administración enviando un DTO a dicha vista.
         /// </summary>
         [Authorize(Roles = "ROLE_ADMIN")]
         [HttpGet]

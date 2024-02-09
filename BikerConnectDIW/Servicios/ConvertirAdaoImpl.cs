@@ -4,16 +4,19 @@ using DAL.Entidades;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IConvertirAdao y detalla la lógica de los metodos que serán necesarios para el paso de DTO a DAO
+    /// </summary>
     public class ConvertirAdaoImpl : IConvertirAdao
     {
 
         public Usuario usuarioToDao(UsuarioDTO usuarioDTO)
         {
 
-            Usuario usuarioDao = new Usuario();
-
             try
             {
+                Usuario usuarioDao = new Usuario();
+
                 EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método usuarioToDao() de la clase ConvertirAdaoImpl");
 
                 usuarioDao.IdUsuario = usuarioDTO.Id;
@@ -34,12 +37,12 @@ namespace BikerConnectDIW.Servicios
 
         public List<Usuario> listUsuarioToDao(List<UsuarioDTO> listaUsuarioDTO)
         {
-            EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método listUsuarioToDao() de la clase ConvertirAdaoImpl");
-
-            List<Usuario> listaUsuarioDao = new List<Usuario>();
 
             try
             {
+                EscribirLog.escribirEnFicheroLog("[INFO] Entrando en el método listUsuarioToDao() de la clase ConvertirAdaoImpl");
+
+                List<Usuario> listaUsuarioDao = new List<Usuario>();
                 foreach (UsuarioDTO usuarioDTO in listaUsuarioDTO)
                 {
                     listaUsuarioDao.Add(usuarioToDao(usuarioDTO));

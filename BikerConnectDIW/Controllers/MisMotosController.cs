@@ -1,12 +1,14 @@
 ﻿using BikerConnectDIW.DTO;
 using BikerConnectDIW.Servicios;
 using BikerConnectDIW.Utils;
-using DAL.Entidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BikerConnectDIW.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar las peticiones HTTP POST y GET relacionadas con las motos de un usuario.
+    /// </summary>
     public class MisMotosController : Controller
     {
 
@@ -19,6 +21,11 @@ namespace BikerConnectDIW.Controllers
             _motoServicio = motoServicio;
         }
 
+
+        /// <summary>
+        /// Método para mostrar las motos asociadas al usuario autenticado.
+        /// </summary>
+        /// <returns>La vista de "misMotos.cshtml" con la lista de motos del usuario.</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/mis-motos")]
@@ -52,6 +59,10 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para mostrar el formulario de registro de una nueva moto.
+        /// </summary>
+        /// <returns>La vista de "registroMoto.cshtml" con el formulario para agregar una nueva moto.</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/crear-moto")]
@@ -77,6 +88,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para procesar el formulario de registro de una nueva moto.
+        /// </summary>
+        /// <param name="motoDTO">Objeto DTO que contiene los datos de la nueva moto a registrar.</param>
+        /// <returns>La vista de "misMotos.cshtml" con un mensaje indicando el resultado del registro.</returns>
         [Authorize]
         [HttpPost]
         [Route("/privada/crear-moto")]
@@ -113,6 +129,11 @@ namespace BikerConnectDIW.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para eliminar una moto existente.
+        /// </summary>
+        /// <param name="id">El ID de la moto a eliminar.</param>
+        /// <returns>La vista de "misMotos.cshtml" con un mensaje indicando el resultado de la eliminación.</returns>
         [Authorize]
         [HttpGet]
         [Route("/privada/eliminar-moto/{id}")]

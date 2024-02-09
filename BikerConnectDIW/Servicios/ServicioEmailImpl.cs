@@ -3,6 +3,9 @@ using System.Net.Mail;
 
 namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IServicioEmail y detalla la lógica de los metodos que serán necesarios para el envío de correos electrónicos
+    /// </summary>
     public class ServicioEmailImpl : IServicioEmail
     {
         void IServicioEmail.enviarEmailConfirmacion(string emailDestino, string nombreUsuario, string token)

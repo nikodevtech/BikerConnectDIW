@@ -1,9 +1,12 @@
 ﻿namespace BikerConnectDIW.Servicios
 {
+    /// <summary>
+    /// Interfaz que define los métodos necesarios para encriptar.
+    /// </summary>
     public interface IServicioEncriptar
     {
         /// <summary>
-        /// Interfaz del metodo encargado de encriptar 
+        /// Metodo encargado de encriptar el string recibido por argumento
         /// </summary>
         /// <param name="texto">String el cual se quiere encriptar</param>
         /// <returns>String encriptado</returns>
