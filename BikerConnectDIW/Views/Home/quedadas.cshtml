@@ -15,6 +15,7 @@
     var quedadaCancelacionCompletada = ViewData["quedadaCancelacionCompletada"] as string;
     var quedadaCancelacionParticipantes = ViewData["quedadaCancelacionParticipantes"] as string;
     var quedadaCancelacionPermiso = ViewData["quedadaCancelacionPermiso"] as string;
+    var quedadaPasada = ViewData["quedadaPasada"] as string;
 }
 
 <div class="container py-4">
@@ -64,6 +65,12 @@
 
         </div>
     </div>
+    @if (!string.IsNullOrEmpty(quedadaPasada))
+    {
+        <script>
+            mostrarNotificacion("¡La fecha de la quedada ya pasó!", "No puede unirse si la fecha de la quedada ya ha pasado", 'info');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(quedadaCancelacionPermiso))
     {
         <script>

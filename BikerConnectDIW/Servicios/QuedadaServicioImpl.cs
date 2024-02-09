@@ -148,6 +148,12 @@ namespace BikerConnectDIW.Servicios
                     return "La quedada está completada";
                 }
 
+                if (quedada.FchHoraEncuentro < DateTime.Now)
+                {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. No se pudo unir, la fecha de la quedada ha pasado.");
+                    return "La quedada ya ha pasado";
+                }
+
                 bool participanteExistente = _contexto.Participantes
                     .Any(p => p.IdQuedada == idQuedada && p.IdUsuario == usuario.IdUsuario);
 

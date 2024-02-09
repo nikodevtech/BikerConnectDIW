@@ -194,6 +194,9 @@ namespace BikerConnectDIW.Controllers
                     case "Usuario o quedada no encontrado":
                         ViewData["usuarioQuedadaNoEncontrado"] = "Usuario o quedada no encontrado";
                         break;
+                    case "La quedada ya ha pasado":
+                        ViewData["quedadaPasada"] = "La fecha de la quedada ya ha pasado";
+                        break;
                 }
                 EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método UnirseQuedada() de la clase QuedadasController");
                 return View("~/Views/Home/quedadas.cshtml");

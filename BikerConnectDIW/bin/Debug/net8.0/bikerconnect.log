@@ -12281,3 +12281,261 @@
 09/02/2024 12:54:07 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
 09/02/2024 12:54:07 [INFO] Saliendo del método listaQuedadaToDto() de la clase ConvertirAdtoImpl
 09/02/2024 12:54:07 [INFO] Saliendo del método MisQuedadas() de la clase QuedadasController
+09/02/2024 02:16:02 [INFO] Entrando en el método  Index() de la clase HomeController
+09/02/2024 02:16:26 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:16:26 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:16:26 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:16:27 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:16:39 [INFO] Entrando en el método  Index() de la clase HomeController
+09/02/2024 02:16:45 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:16:45 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:16:45 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:16:46 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:17:05 [INFO] Entrando en el método RegistrarGet() de la clase RegistroController
+09/02/2024 02:17:25 [INFO] Entrando en el método RegistrarPost() de la clase RegistroController
+09/02/2024 02:17:25 [INFO] Entrando en el método registrarUsuario() de la clase UsuarioServicioImpl
+09/02/2024 02:17:26 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:17:26 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:17:26 [INFO] Entrando en el método usuarioToDao() de la clase ConvertirAdaoImpl
+09/02/2024 02:17:26 [INFO] Saliendo del método usuarioToDao() de la clase ConvertirAdaoImpl
+09/02/2024 02:17:26 [INFO] Entrando en el método generarToken() de la clase UsuarioServicioImpl
+09/02/2024 02:17:26 [INFO] Saliendo del método generarToken() de la clase UsuarioServicioImpl
+09/02/2024 02:17:26 [INFO] Entrando en el método enviarEmailConfirmacion() de la clase ServicioEmailImpl
+09/02/2024 02:17:26 [Error ServicioEmailImpl - enviarEmailConfirmacion()] Error con el protocolo de envio de email: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+09/02/2024 02:17:26 [INFO] Saliendo del método registrarUsuario() de la clase UsuarioServicioImpl
+09/02/2024 02:17:26 [INFO] Saliendo del método RegistrarGet() de la clase RegistroController. Registro del nuevo usuario OK
+09/02/2024 02:17:57 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:17:57 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:17:57 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:17:57 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:23:25 [INFO] Entrando en el método  Index() de la clase HomeController
+09/02/2024 02:23:27 [INFO] Entrando en el método Login() de la clase LoginController
+09/02/2024 02:23:32 [INFO] Entrando en el método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:23:32 [INFO] Entrando en el método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:23:32 [INFO] Saliendo del método Encriptar() de la clase ServicioEncriptarImpl
+09/02/2024 02:23:33 [INFO] Saliendo del método verificarCredenciales() de la clase UsuarioServicioImpl
+09/02/2024 02:23:33 [INFO] Entrando en el método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+09/02/2024 02:23:33 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:33 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:33 [INFO] Saliendo del método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+09/02/2024 02:23:33 [INFO] Saliendo del método ProcesarInicioSesion() de la clase LoginController
+09/02/2024 02:23:33 [INFO] Entrando en el método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+09/02/2024 02:23:33 [INFO] Entrando en el método usuarioToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:33 [INFO] Saliendo del método usuarioToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:33 [INFO] Saliendo del método obtenerUsuarioPorEmail() de la clase UsuarioServicioImpl
+09/02/2024 02:23:33 [INFO] Entrando en el método Dashboard() de la clase LoginController
+09/02/2024 02:23:36 [INFO] Entrando en el método Quedadas() de la clase QuedadasController
+09/02/2024 02:23:36 [INFO] Entrando en el método obtenerQuedadas() de la clase QuedadaServicioImpl
+09/02/2024 02:23:36 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Saliendo del método listaQuedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:36 [INFO] Saliendo del método Quedadas() de la clase QuedadasController
+09/02/2024 02:23:41 [INFO] Entrando en el método VerDetallesQuedada() de la clase QuedadasController
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerQuedadaPorId() de la clase QuedadaServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método obtenerQuedadaPorId() de la clase QuedadaServicioImpl. Quedada obtenida por id OK
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerUsuariosParticipantes() de la clase QuedadaServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:23:41 [INFO] Saliendo del método obtenerUsuariosParticipantes() de la clase QuedadaServicioImpl. Obtenidos participantes OK
+09/02/2024 02:23:41 [INFO] Saliendo del método VerDetallesQuedada() de la clase QuedadasController
+09/02/2024 02:24:20 [INFO] Entrando en el método Quedadas() de la clase QuedadasController
+09/02/2024 02:24:20 [INFO] Entrando en el método obtenerQuedadas() de la clase QuedadaServicioImpl
+09/02/2024 02:24:20 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Saliendo del método listaQuedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:20 [INFO] Saliendo del método Quedadas() de la clase QuedadasController
+09/02/2024 02:24:23 [INFO] Entrando en el método VerDetallesQuedada() de la clase QuedadasController
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerQuedadaPorId() de la clase QuedadaServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método obtenerQuedadaPorId() de la clase QuedadaServicioImpl. Quedada obtenida por id OK
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerUsuariosParticipantes() de la clase QuedadaServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método obtenerMotosPorPropietarioId() de la clase MotoServicioImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Entrando en el método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método motoToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método listaMotosToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:23 [INFO] Saliendo del método obtenerUsuariosParticipantes() de la clase QuedadaServicioImpl. Obtenidos participantes OK
+09/02/2024 02:24:23 [INFO] Saliendo del método VerDetallesQuedada() de la clase QuedadasController
+09/02/2024 02:24:26 [INFO] Entrando en el método UnirseQuedada() de la clase QuedadasController
+09/02/2024 02:24:26 [INFO] Entrando en el método unirseQuedada() de la clase QuedadaServicioImpl
+09/02/2024 02:24:26 [INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. No se pudo unir, la fecha de la quedada ha pasado.
+09/02/2024 02:24:26 [INFO] Entrando en el método obtenerQuedadas() de la clase QuedadaServicioImpl
+09/02/2024 02:24:26 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Entrando en el método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Saliendo del método quedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Saliendo del método listaQuedadaToDto() de la clase ConvertirAdtoImpl
+09/02/2024 02:24:26 [INFO] Saliendo del método UnirseQuedada() de la clase QuedadasController
