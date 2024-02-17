@@ -12,6 +12,8 @@
         public string Estado { get; set; }
         public string UsuarioOrganizador { get; set; }
 
+        public int Participantes { get; set; }
+
         public QuedadaDTO()
         {
         }
@@ -20,7 +22,7 @@
 
         public override string ToString()
         {
-            return $"QuedadaDTO [Id={Id}, Lugar={Lugar}, FechaHora={FechaHora}, Descripcion={Descripcion}, Estado={Estado}, UsuarioOrganizador={UsuarioOrganizador}]";
+            return $"QuedadaDTO [Id={Id}, Lugar={Lugar}, FechaHora={FechaHora}, Descripcion={Descripcion}, Estado={Estado}, UsuarioOrganizador={UsuarioOrganizador}, Participantes={Participantes}]";
         }
     }
 }

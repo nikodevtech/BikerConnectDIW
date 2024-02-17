@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj": {}
+    "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj": {
+    "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj",
+        "projectUniqueName": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj",
         "projectName": "BikerConnectDIW",
-        "projectPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj",
-        "packagesPath": "C:\\Users\\Puesto9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\BikerConnectDIW\\obj\\",
+        "projectPath": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\BikerConnectDIW\\BikerConnectDIW.csproj",
+        "packagesPath": "C:\\Users\\niko_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\BikerConnectDIW\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Puesto9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\niko_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj"
+              "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\DAL\\DAL.csproj"
               }
             }
           }
@@ -92,21 +92,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj": {
+    "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Puesto9\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Puesto9\\source\\repos\\BikerConnectDIW\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\niko_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\niko_\\Desktop\\BikerConnectDIW\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Puesto9\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\niko_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -169,7 +169,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -73,5 +73,11 @@ namespace BikerConnectDIW.Servicios
         /// <param name="idQuedada">ID de la quedada a cancelar.</param>
         /// <returns>Un mensaje indicando el resultado de la operación.</returns>
         public string cancelarQuedada(long idQuedada);
+
+        /// <summary>
+        /// Actualiza el estado de una quedada.
+        /// </summary>
+        /// <param name="quedadaDTO">DTO con la info de la quedada</param>
+        public void actualizarQuedada(QuedadaDTO quedadaDTO);
     }
 }

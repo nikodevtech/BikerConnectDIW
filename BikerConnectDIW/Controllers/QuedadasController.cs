@@ -197,6 +197,9 @@ namespace BikerConnectDIW.Controllers
                     case "La quedada ya ha pasado":
                         ViewData["quedadaPasada"] = "La fecha de la quedada ya ha pasado";
                         break;
+                    case "El usuario no tiene una moto registrada":
+                        ViewData["motoNoRegistrada"] = "El usuario no tiene una moto registrada";
+                        break;
                 }
                 EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método UnirseQuedada() de la clase QuedadasController");
                 return View("~/Views/Home/quedadas.cshtml");
@@ -355,5 +358,49 @@ namespace BikerConnectDIW.Controllers
             EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método CancelarQuedada() de la clase QuedadasController");
             return View("~/Views/Home/quedadas.cshtml");
         }
+
+        [Authorize]
+        [HttpGet]
+        [Route("/quedada/completar/{id}")]
+        public IActionResult MarcarQuedadaComoCompletada(long id)
+        {
+            try
+            {
+                QuedadaDTO? quedada = _quedadaServicio.obtenerQuedadaPorId(id);
+
+                if (quedada != null)
+                {
+                    if (quedada.FechaHora < DateTime.Now)
+                    {
+                        quedada.Estado = "Completada";
+                        _quedadaServicio.actualizarQuedada(quedada);
+                        ViewData["quedadaCompletada"] = "Quedada marcada como completada";
+                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+
+                        return View("~/Views/Home/quedadas.cshtml");
+                    }
+                    else
+                    {
+                        ViewData["quedadaNoCompletada"] = "Quedada no marcada como completada";
+                        ViewBag.Quedadas = _quedadaServicio.obtenerQuedadas();
+                        return View("~/Views/Home/quedadas.cshtml");
+                    }
+                }
+                else 
+                {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método MisQuedadas() de la clase QuedadasController");
+                    return RedirectToAction("Quedadas");
+                }
+
+               
+            }
+            catch (Exception ex)
+            {
+                ViewData["error"] = "Error al procesar la solicitud. Por favor, reintente.";
+                EscribirLog.escribirEnFicheroLog("[ERROR] Se lanzó una excepción en el método CancelarQuedada() de la clase QuedadasController: " + ex.Message + ex.StackTrace);
+                return View("~/Views/Home/quedadas.cshtml");
+            }
+        }
+
     }
 }

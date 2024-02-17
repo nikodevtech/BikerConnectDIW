@@ -30,7 +30,7 @@
                                         <p class="card-text">Año: <span>@moto.Año</span></p>
                                         <p class="card-text">Color: <span>@moto.Color</span></p>
                                         <p class="card-text">Descripción: <span>@moto.DescModificaciones</span></p>
-                                        <a class="btn btn-danger btn-sm" asp-controller="MisMotos" asp-action="EliminarMoto" asp-route-id="@moto.Id" onclick="confirmarEliminarMoto(event)">
+                                    <a class="btn btn-danger btn-sm" onclick="confirmarEliminarMoto(event)" data-id="@moto.Id" >
                                             <i class="bi bi-trash"> Eliminar</i>
                                         </a>
                                     </div>

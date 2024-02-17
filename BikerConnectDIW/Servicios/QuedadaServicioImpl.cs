@@ -80,6 +80,7 @@ namespace BikerConnectDIW.Servicios
                 Quedada? q = _contexto.Quedadas.Find(id);
                 QuedadaDTO? quedada = new QuedadaDTO();
                 quedada = _convertirAdto.quedadaToDto(q);
+
                 EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método obtenerQuedadaPorId() de la clase QuedadaServicioImpl. Quedada obtenida por id OK");
                 return quedada;
             }
@@ -161,6 +162,14 @@ namespace BikerConnectDIW.Servicios
                 {
                     EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. El usuario ya se encontraba unido a la quedada.");
                     return "Ya estás unido a esta quedada";
+                }
+
+                Moto? moto = _contexto.Motos.FirstOrDefault(m => m.IdUsuarioPropietario == usuario.IdUsuario);
+
+                if (moto == null)
+                {
+                    EscribirLog.escribirEnFicheroLog("[INFO] Saliendo del método unirseQuedada() de la clase QuedadaServicioImpl. No se pudo unir, el usuario no tiene una moto registrada.");
+                    return "El usuario no tiene una moto registrada";
                 }
 
                 Participante nuevoParticipante = new Participante();
@@ -299,6 +308,24 @@ namespace BikerConnectDIW.Servicios
                 return "Error al cancelar la quedada";
             }
             return "";
+        }
+
+        public void actualizarQuedada(QuedadaDTO quedadaDTO)
+        {
+            try 
+            {
+                Quedada q = _convertirAdao.quedadaToDao(quedadaDTO);
+                if (q != null)
+                {
+                    q.Estado = "Completada";
+                    _contexto.Quedadas.Update(q);
+                    _contexto.SaveChanges();
+                }
+            }
+            catch (DbUpdateException dbe)
+            {
+                EscribirLog.escribirEnFicheroLog($"\n[ERROR QuedadaServicioImpl - actualizarQuedada()] - Error de persistencia al actualizar quedada: {dbe}");
+            }
         }
     }
 }

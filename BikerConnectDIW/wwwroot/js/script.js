@@ -67,7 +67,8 @@ function confirmar(mensaje) {
         showCancelButton: true,
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Sí'
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
     }).then((result) => {
         return result.isConfirmed;
     });
@@ -75,7 +76,7 @@ function confirmar(mensaje) {
 
 function confirmarEliminarMoto(event) {
     const idMoto = event.currentTarget.getAttribute("data-id");
-    confirmar("eliminar").then(function (confirmado) {
+    confirmar("eliminar la moto").then(function (confirmado) {
         if (confirmado) {
             window.location.href = 'https://localhost:7142/privada/eliminar-moto/' + idMoto;
         }
@@ -83,7 +84,7 @@ function confirmarEliminarMoto(event) {
 }
 function confirmarCancelarQuedada(event) {
     const idQuedada = event.currentTarget.getAttribute("data-id");
-    confirmar("cancelar").then(function (confirmado) {
+    confirmar("cancelar la quedada").then(function (confirmado) {
         if (confirmado) {
             window.location.href = 'https://localhost:7142/privada/quedadas/detalle-quedada/cancelar-quedada/' + idQuedada;
         }
@@ -91,7 +92,7 @@ function confirmarCancelarQuedada(event) {
 }
 function confirmarEliminar(event) {
     const idUsuario = event.currentTarget.getAttribute("data-id");
-    confirmar("eliminar").then(function (confirmado) {
+    confirmar("eliminar el usuario").then(function (confirmado) {
         if (confirmado) {
             window.location.href = 'https://localhost:7142/privada/eliminar-usuario/' + idUsuario;
         }

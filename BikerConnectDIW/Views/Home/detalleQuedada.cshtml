@@ -74,8 +74,12 @@
                 </a>
                 @if (@Model.UsuarioOrganizador == User.Identity.Name)
                 {
+
                     <a href="#" class="btn btn-danger m-1 float-end" onclick="confirmarCancelarQuedada(event)" data-id="@Model.Id">
                         <i class="bi bi-calendar2-x"> Cancelar quedada</i>
+                    </a>
+                    <a href="@Url.Action("MarcarQuedadaComoCompletada", "Quedadas", new { id = Model.Id })" class="btn btn-success m-1 float-end">
+                        <i class="bi bi-check2-circle"> Marcar como completada</i>
                     </a>
                 }
             </div>

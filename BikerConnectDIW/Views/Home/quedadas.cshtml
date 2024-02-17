@@ -16,6 +16,9 @@
     var quedadaCancelacionParticipantes = ViewData["quedadaCancelacionParticipantes"] as string;
     var quedadaCancelacionPermiso = ViewData["quedadaCancelacionPermiso"] as string;
     var quedadaPasada = ViewData["quedadaPasada"] as string;
+    var motoNoRegistrada = ViewData["motoNoRegistrada"] as string;
+    var quedadaCompletada = ViewData["quedadaCompletada"] as string;
+    var quedadaNoCompletada = ViewData["quedadaNoCompletada"] as string;
 }
 
 <div class="container py-4">
@@ -131,10 +134,28 @@
             mostrarNotificacion("¡Su asistencia ha sido registrada!", "Ahora es un participante más de la quedada", 'success');
         </script>
     }
+    @if (!string.IsNullOrEmpty(motoNoRegistrada))
+    {
+        <script>
+            mostrarNotificacion('Debe tener registrada una moto', 'Para unirse a la quedada, por favor registre al menos una moto', 'info');
+        </script>
+    }
     @if (!string.IsNullOrEmpty(quedadaCreadaExito))
     {
         <script>
             mostrarNotificacion("¡Quedada planificada!", "La quedada ha sido registrada con exito", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaCompletada))
+    {
+        <script>
+            mostrarNotificacion("¡Quedada completada!", "Se ha marcado la quedada como completada", 'success');
+        </script>
+    }
+    @if (!string.IsNullOrEmpty(quedadaNoCompletada))
+    {
+        <script>
+            mostrarNotificacion("¡No se puede marcar como completada!", "No ha pasado aún la fecha de la quedada", 'info');
         </script>
     }
     @if (!string.IsNullOrEmpty(quedadaCreadaError))
